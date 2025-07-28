@@ -1,0 +1,656 @@
+{
+  "status": "success",
+  "msg": "",
+  "data": {
+    "seoOnPage": {
+      "og_type": "website",
+      "titleHead": "Phim bộ | Phim bộ hay tuyển chọn | Phim bộ mới nhất 2025",
+      "descriptionHead": "Phim bộ mới nhất tuyển chọn chất lượng cao, phim bộ trọn bộ vietsub cập nhật nhanh nhất. Phim bộ vietsub nhanh nhất",
+      "og_image": [
+        "/upload/vod/20250616-1/db6ea08729ce1b6fedb5acc231e22012.jpg",
+        "/upload/vod/20250618-1/15c65ed0308a259a9db2430529334ad8.jpg",
+        "/upload/vod/20250618-1/378d9e60659100fb731d39733d38b961.jpg",
+        "/upload/vod/20250530-1/4bea22c4412aff391dfcec11f0969622.jpg",
+        "/upload/vod/20250514-1/feafeb5a7672829a1c920d11c6d46f4f.jpg",
+        "/upload/vod/20250522-1/9d758bbaa21d17621702a23c8604cbe9.jpg",
+        "/upload/vod/20250607-1/8b9aeb9563d575eb184bfdabf018d88e.jpg",
+        "/upload/vod/20250606-1/8db1f8c558caa6e1dd0dd8fde53c0286.jpg",
+        "/upload/vod/20250608-1/8ae7ac92bdd0f747c9a0f520727605e1.jpg",
+        "/upload/vod/20250610-1/8a3c68267f1cc945d77dc6281655906f.jpg"
+      ],
+      "og_url": "danh-sach/phim-bo"
+    },
+    "breadCrumb": [
+      {
+        "name": "Phim Bộ",
+        "slug": "/danh-sach/phim-bo",
+        "isCurrent": false,
+        "position": 2
+      },
+      {
+        "name": "Trang 1",
+        "isCurrent": true,
+        "position": 3
+      }
+    ],
+    "titlePage": "Phim Bộ",
+    "items": [
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "281967",
+          "season": 1,
+          "vote_average": 10,
+          "vote_count": 1
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-06-16T22:00:49.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T12:50:07.000Z"
+        },
+        "_id": "43675d9e95fa6fcff3217c6429c3e4cb",
+        "name": "Thợ Săn Dao Mổ",
+        "slug": "tho-san-dao-mo",
+        "origin_name": "Hunter With A Scalpel",
+        "type": "series",
+        "poster_url": "upload/vod/20250616-1/db6ea08729ce1b6fedb5acc231e22012.jpg",
+        "thumb_url": "upload/vod/20250616-1/2ace9121403b8d6b5bf74d73b7dec50c.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "33 phút/tập",
+        "episode_current": "Tập 3",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2025,
+        "category": [
+          {
+            "id": "7a035ac0b37f5854f0f6979260899c90",
+            "name": "Hình Sự",
+            "slug": "hinh-su"
+          },
+          {
+            "id": "2fb53017b3be83cd754a08adab3e916c",
+            "name": "Bí Ẩn",
+            "slug": "bi-an"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          }
+        ],
+        "country": [
+          {
+            "id": "05de95be5fc404da9680bbb3dd8262e6",
+            "name": "Hàn Quốc",
+            "slug": "han-quoc"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "73560",
+          "season": 1,
+          "vote_average": 7.4,
+          "vote_count": 7
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-06-18T08:56:28.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T08:56:28.000Z"
+        },
+        "_id": "651afc1535248905c191b531d97bd818",
+        "name": "Thình Thịch Anh Yêu Em",
+        "slug": "thinh-thich-anh-yeu-em",
+        "origin_name": "Memory Love",
+        "type": "series",
+        "poster_url": "upload/vod/20250618-1/15c65ed0308a259a9db2430529334ad8.jpg",
+        "thumb_url": "upload/vod/20250618-1/635d9217de457338f7d066044f16e69a.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "69 phút/tập",
+        "episode_current": "Hoàn Tất (18/18)",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2017,
+        "category": [
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          }
+        ],
+        "country": [
+          {
+            "id": "af5f08b6445ca1def86fdd38cc1dc0b2",
+            "name": "Đài Loan",
+            "slug": "dai-loan"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "100803",
+          "season": 1,
+          "vote_average": 7.921,
+          "vote_count": 19
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-06-18T06:37:48.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:37:48.000Z"
+        },
+        "_id": "de447028949b3471aa2617ad9db5a97f",
+        "name": "Lê Hấp Đường Phèn",
+        "slug": "le-hap-duong-phen",
+        "origin_name": "Skate Into Love",
+        "type": "series",
+        "poster_url": "upload/vod/20250618-1/378d9e60659100fb731d39733d38b961.jpg",
+        "thumb_url": "upload/vod/20250618-1/759a7f5e2f2f3281051cb3b8af04de00.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "45 phút/tập",
+        "episode_current": "Hoàn Tất (40/40)",
+        "quality": "FHD",
+        "lang": "Vietsub + Thuyết Minh",
+        "year": 2020,
+        "category": [
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          }
+        ],
+        "country": [
+          {
+            "id": "3e075636c731fe0f889c69e0bf82c083",
+            "name": "Trung Quốc",
+            "slug": "trung-quoc"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": null,
+          "id": null,
+          "season": null,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-05-30T03:34:34.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:37:37.000Z"
+        },
+        "_id": "86f77fb5fa5b26fbcb103e7de206d2f4",
+        "name": "Người Thừa Kế Tâm Đức",
+        "slug": "nguoi-thua-ke-tam-duc",
+        "origin_name": "The Heir Of Tâm Đức",
+        "type": "series",
+        "poster_url": "upload/vod/20250530-1/4bea22c4412aff391dfcec11f0969622.jpg",
+        "thumb_url": "upload/vod/20250530-1/bfa3b7e065222e702ad66db35a5c0e0c.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "45 phút/tập",
+        "episode_current": "Tập 23",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2025,
+        "category": [
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          }
+        ],
+        "country": [
+          {
+            "id": "f6ce1ae8b39af9d38d653b8a0890adb8",
+            "name": "Việt Nam",
+            "slug": "viet-nam"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "261981",
+          "season": 1,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-05-14T01:52:19.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:30:37.000Z"
+        },
+        "_id": "e8f7da8e2d75253e4003cbc4c24286ac",
+        "name": "Một Chén Say Tình",
+        "slug": "mot-chen-say-tinh",
+        "origin_name": "Second Shot At Love",
+        "type": "series",
+        "poster_url": "upload/vod/20250514-1/feafeb5a7672829a1c920d11c6d46f4f.jpg",
+        "thumb_url": "upload/vod/20250514-1/aef68160fd7995a9c49619c207884947.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "60 phút/tập",
+        "episode_current": "Tập 11",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2025,
+        "category": [
+          {
+            "id": "ba6fd52e5a3aca80eaaf1a3b50a182db",
+            "name": "Hài Hước",
+            "slug": "hai-huoc"
+          },
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          }
+        ],
+        "country": [
+          {
+            "id": "05de95be5fc404da9680bbb3dd8262e6",
+            "name": "Hàn Quốc",
+            "slug": "han-quoc"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "284763-12",
+          "season": 1,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-05-22T04:41:49.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:30:05.000Z"
+        },
+        "_id": "7b5f37cf6529d139d0735e31fa4baae4",
+        "name": "Trinh Sát Hình Sự 12",
+        "slug": "trinh-sat-hinh-su-12",
+        "origin_name": "D.I.D 12",
+        "type": "series",
+        "poster_url": "upload/vod/20250522-1/9d758bbaa21d17621702a23c8604cbe9.jpg",
+        "thumb_url": "upload/vod/20250522-1/b3698cc3c9880bdcec27e6f1c737cb69.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "43 phút/tập",
+        "episode_current": "Tập 22",
+        "quality": "FHD",
+        "lang": "Vietsub + Lồng Tiếng",
+        "year": 2025,
+        "category": [
+          {
+            "id": "7a035ac0b37f5854f0f6979260899c90",
+            "name": "Hình Sự",
+            "slug": "hinh-su"
+          },
+          {
+            "id": "2fb53017b3be83cd754a08adab3e916c",
+            "name": "Bí Ẩn",
+            "slug": "bi-an"
+          },
+          {
+            "id": "9822be111d2ccc29c7172c78b8af8ff5",
+            "name": "Hành Động",
+            "slug": "hanh-dong"
+          },
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          }
+        ],
+        "country": [
+          {
+            "id": "a0cd53c9875b96640ac264ca81996f9f",
+            "name": "Hồng Kông",
+            "slug": "hong-kong"
+          },
+          {
+            "id": "3e075636c731fe0f889c69e0bf82c083",
+            "name": "Trung Quốc",
+            "slug": "trung-quoc"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "203367",
+          "season": 1,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-06-07T22:54:19.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:29:37.000Z"
+        },
+        "_id": "d61fc047656a08fd0cddc1a37e4dd729",
+        "name": "Vải Tiến Trường An",
+        "slug": "vai-tien-truong-an",
+        "origin_name": "The Litchi Road",
+        "type": "series",
+        "poster_url": "upload/vod/20250607-1/8b9aeb9563d575eb184bfdabf018d88e.jpg",
+        "thumb_url": "upload/vod/20250607-1/8385ecd20d3b76ef246235b052c0eb5a.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "45 phút/tập",
+        "episode_current": "Tập 23",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2025,
+        "category": [
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "3a17c7283b71fa84e5a8d76fb790ed3e",
+            "name": "Cổ Trang",
+            "slug": "co-trang"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          }
+        ],
+        "country": [
+          {
+            "id": "3e075636c731fe0f889c69e0bf82c083",
+            "name": "Trung Quốc",
+            "slug": "trung-quoc"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "273118",
+          "season": 1,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-06-06T10:25:43.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:26:41.000Z"
+        },
+        "_id": "b7e898084c1ec0616b4b2f0cf14a758b",
+        "name": "Khoảnh Khắc Nở Rộ Của Hứa Khai Tâm",
+        "slug": "khoanh-khac-no-ro-cua-hua-khai-tam",
+        "origin_name": "Double Happiness",
+        "type": "series",
+        "poster_url": "upload/vod/20250606-1/8db1f8c558caa6e1dd0dd8fde53c0286.jpg",
+        "thumb_url": "upload/vod/20250606-1/02bc88b3049a099c7bf8d8bccebd99ef.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "45 phút/tập",
+        "episode_current": "Tập 24",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2025,
+        "category": [
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          },
+          {
+            "id": "a2492d6cbc4d58f115406ca14e5ec7b6",
+            "name": "Gia Đình",
+            "slug": "gia-dinh"
+          }
+        ],
+        "country": [
+          {
+            "id": "3e075636c731fe0f889c69e0bf82c083",
+            "name": "Trung Quốc",
+            "slug": "trung-quoc"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": null,
+          "id": null,
+          "season": null,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-06-08T08:39:54.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:25:37.000Z"
+        },
+        "_id": "c66c332fe7b7aa1ee44ed34ba8a31ab2",
+        "name": "Dịu Dàng Màu Nắng",
+        "slug": "diu-dang-mau-nang",
+        "origin_name": "Gentle Sunlight",
+        "type": "series",
+        "poster_url": "upload/vod/20250608-1/8ae7ac92bdd0f747c9a0f520727605e1.jpg",
+        "thumb_url": "upload/vod/20250608-1/2ee9512306a6f1894651ad00337e3dec.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "28 phút/tập",
+        "episode_current": "Tập 12",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2025,
+        "category": [
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          },
+          {
+            "id": "a2492d6cbc4d58f115406ca14e5ec7b6",
+            "name": "Gia Đình",
+            "slug": "gia-dinh"
+          }
+        ],
+        "country": [
+          {
+            "id": "f6ce1ae8b39af9d38d653b8a0890adb8",
+            "name": "Việt Nam",
+            "slug": "viet-nam"
+          }
+        ]
+      },
+      {
+        "tmdb": {
+          "type": "tv",
+          "id": "292513",
+          "season": 1,
+          "vote_average": 0,
+          "vote_count": 0
+        },
+        "imdb": {
+          "id": null
+        },
+        "created": {
+          "time": "2025-06-10T10:48:24.000Z"
+        },
+        "modified": {
+          "time": "2025-06-18T06:25:06.000Z"
+        },
+        "_id": "f25319e832341516c2a618ef2a314932",
+        "name": "9 Năm 1 Tình Yêu",
+        "slug": "9-nam-1-tinh-yeu",
+        "origin_name": "9 Years Of You",
+        "type": "series",
+        "poster_url": "upload/vod/20250610-1/8a3c68267f1cc945d77dc6281655906f.jpg",
+        "thumb_url": "upload/vod/20250610-1/7f88af4a2a7c76fca4fa8dcdc10e0bf6.jpg",
+        "sub_docquyen": false,
+        "chieurap": false,
+        "time": "56 phút/tập",
+        "episode_current": "Tập 4",
+        "quality": "FHD",
+        "lang": "Vietsub",
+        "year": 2025,
+        "category": [
+          {
+            "id": "37a7b38b6184a5ebd3c43015aa20709d",
+            "name": "Chính Kịch",
+            "slug": "chinh-kich"
+          },
+          {
+            "id": "bb2b4b030608ca5984c8dd0770f5b40b",
+            "name": "Tình Cảm",
+            "slug": "tinh-cam"
+          },
+          {
+            "id": "a7b065b92ad356387ef2e075dee66529",
+            "name": "Tâm Lý",
+            "slug": "tam-ly"
+          }
+        ],
+        "country": [
+          {
+            "id": "cefbf1640a17bad1e13c2f6f2a811a2d",
+            "name": "Thái Lan",
+            "slug": "thai-lan"
+          }
+        ]
+      }
+    ],
+    "params": {
+      "type_slug": "danh-sach",
+      "filterCategory": [
+        ""
+      ],
+      "filterCountry": [
+        ""
+      ],
+      "filterYear": [
+        ""
+      ],
+      "filterType": [
+        ""
+      ],
+      "sortField": "modified.time",
+      "sortType": "desc",
+      "pagination": {
+        "totalItems": 6302,
+        "totalItemsPerPage": 10,
+        "currentPage": 1,
+        "totalPages": 631
+      }
+    },
+    "type_list": "phim-bo",
+    "APP_DOMAIN_FRONTEND": "https://phimapi.com",
+    "APP_DOMAIN_CDN_IMAGE": "https://phimimg.com"
+  }
+}
