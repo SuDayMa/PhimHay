@@ -236,13 +236,13 @@ export default function Danhsach() {
             <p><Loading /></p>
       ) : (
         <>  
-            <div className='grid grid-cols-8 max-[1360px]:grid-cols-5 max-[780px]:grid-cols-4 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto'>
+            <div className='grid grid-cols-8 max-[1360px]:grid-cols-7 max-[1201px]:grid-cols-6 max-[1060px]:grid-cols-5 max-[790px]:grid-cols-4 max-[650px]:grid-cols-3 max-[450px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto'>
             {danhsach && danhsach?.data.items?.map((item, index) => {
               return (
                 <Link to={`/phim/${item.slug}`} >
               <div key={index} className='bg-[#676b6d44] p-4 rounded-lg mb-4 group-hover:w-[100px] group-hover:h-[500px] transition-all duration-300 hover:bg-gray-600'>
                 <div className='flex'>
-                 <img src={`${danhsach.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full max-[1441px]:h-[150px] h-[250px] mb-2" />
+                 <img src={`${danhsach.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full max-[1600px]:h-[150px] h-[250px] mb-2" />
                  {item.tmdb && item.tmdb.vote_average > 0 && (
                   <p className=" text-sm absolute text-white px-[10px] font-mono py-[5px] bg-red-400 border-white border-2 rounded-b-lg">{item.tmdb.vote_average}</p>
                  )}

@@ -1,7 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Controller} from 'swiper/modules';
-import type { QuocGiaResponse, Phim } from '../../types/Phimtype';
+import type { QuocGiaResponse } from '../../types/Phimtype';
 import { useEffect, useState, useRef } from 'react';
 import { slidePhimQuocGia  } from '../../Services/API';
 import Icon from '../Icon';
@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 
 function slide (){
     const [phimmoicapnhat, setPhimmoicapnhat] = useState<QuocGiaResponse| null>(null);
-    const [phim] = useState<Phim| null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [selectedServer] = useState<string | null>(null)
     const swiperRef = useRef<any>(null);
@@ -80,7 +79,7 @@ function slide (){
 
       {/* Movie Info */}
       <div className='flex w-full h-[750px] max-[1360px]:h-[500px]'>
-            <div className='z-10 w-[60%] max-[1000px]:w-[70%] max-[640px]:w-[100%] max-[640px]:flex max-[640px]:items-center max-[640px]:justify-center max-[640px]:text-center py-[140px] px-[40px] max-[450px]:px-[10px] '>
+            <div className='z-10 w-[60%] max-[1000px]:w-[70%] max-[640px]:w-[100%] max-[640px]:flex max-[640px]:items-center max-[640px]:justify-center max-[640px]:text-center py-[140px] px-[40px] max-[450px]:px-0 '>
                 <div>
                     <div>
                         
@@ -93,7 +92,7 @@ function slide (){
                     <div className='mb-[16px] text-yellow-500 max-[1360px]:text-[15px] max-[1000px]:text-[13px]'>
                         <h1>{currentMovie?.origin_name}</h1>
                     </div>
-                    <div className='mb-[16px] flex gap-3 max-[1360px]:text-[12px] max-[1000px]:text-[10px] max-[640px]:text-[10px] max-[350px]:text-[7px]'>
+                    <div className='mb-[16px] flex gap-3 max-[1360px]:text-[12px] max-[1000px]:text-[10px] max-[640px]:text-[10px] max-[400px]:text-[8px] max-[350px]:text-[7px] max-[500px]:justify-center'>
                         {currentMovie?.tmdb && (
                        <div className=' border-yellow-500 border-1 rounded-md px-[6px]'>
                         <span className='text-yellow-500'>IMDb </span>
@@ -135,13 +134,13 @@ function slide (){
                           <div>
                             {currentMovie.category.map((item, index) => (
                                 <Link to={`/the-loai/${item.slug}`}>
-                                <span key={index} className='bg-gray-700 px-[8px] rounded-md mr-[8px] text-white py-[4px]'>{item.name}</span>
+                                <span key={index} className='bg-[#282B3A] px-[8px] rounded-md mr-[8px] text-white py-[4px]'>{item.name}</span>
                                 </Link>
                             ))}
                           </div>
                         )}
                     </div>
-                    <div className='absolute flex gap-3 right-0 pr-[50px] max-[400px]:pr-[30px] max-[350px]:pr-[10px] translate-y-50 max-[1441px]:translate-y-30 max-[640px]:translate-y-10'>
+                    <div className='absolute flex gap-3 right-0 pr-[50px] max-[400px]:pr-[30px] max-[350px]:pr-[10px] translate-y-50 max-[1441px]:translate-y-30 max-[640px]:translate-y-10 max-[640px]:pr-0 max-[640px]:relative max-[640px]:justify-center '>
                         {phimmoicapnhat?.data.items.slice(0,6).map((item , index) => (
                                 <div
                                 key={index}
@@ -159,7 +158,7 @@ function slide (){
                             <div className='flex gap-7 absolute translate-y-50  max-[1441px]:translate-y-30 max-[640px]:hidden'>
                                 <a className='bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] rounded-full max-[1100px]:w-[50px] max-[1100px]:h-[50px] w-[70px] h-[70px] flex justify-center items-center'>
                             
-                                    <Link to={`/Player/${currentMovie.slug}/${encodeURIComponent(selectedServer ?? `${phim?.movie.category[0].name}`)}/${Tylephim}`}>
+                                    <Link to={`/Player/${currentMovie.slug}/${encodeURIComponent(selectedServer ?? `${currentMovie.lang}`)}/${Tylephim}`}>
                                         <i className='text-[36px] font-bold'><Icon name='right'/></i>
                                     </Link>
                                     

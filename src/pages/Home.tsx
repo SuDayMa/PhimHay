@@ -25,12 +25,12 @@ function Home(){
                     <div className="grid grid-cols-7 justify-between gap-5 max-[426px]:gap-3 max-[1441px]:grid-cols-6 max-[1440px]:grid-cols-5 max-[1024px]:grid-cols-3">
                         <a className="bg-blue-400 rounded-xl hover:-translate-y-[10px] transition-all duration-300">
                             <Link to='/c/vien-tuong'>
-                            <div className=" flex pl-5 pr-10 py-5  h-full max-[426px]:px-2">
-                                <div className="flex flex-col justify-end max-[426px]:justify-center w-full gap-3 h-full text-white">
-                                    <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold max-[426px]:text-[14px]">
+                            <div className=" flex pl-5 pr-10 py-5  h-full max-[600px]:px-2">
+                                <div className="flex flex-col justify-end max-[600px]:justify-center w-full gap-3 h-full text-white">
+                                    <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold max-[600px]:text-[16px] max-[426px]:text-[10px] ">
                                         Viễn Tưởng
                                     </div>
-                                    <div className="text-[14px] flex items-center gap-1 max-[426px]:hidden">
+                                    <div className="text-[14px] flex items-center gap-1 max-[600px]:hidden">
                                         <span>Xem chủ đề</span>
                                         <p className="text-2xl"><Icon name="small right" /></p>
                                     </div>
@@ -41,12 +41,12 @@ function Home(){
 
                         <a className=" bg-[#8282AC] rounded-xl hover:-translate-y-[10px] transition-all duration-300">
                             <Link to='/c/the-thao'>
-                            <div className=" flex pl-5 pr-10 py-5 h-full max-[426px]:px-2">
-                                <div className="flex flex-col justify-end max-[426px]:justify-center w-full gap-3 h-full text-white">
-                                    <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold max-[426px]:text-[14px]">
+                            <div className=" flex pl-5 pr-10 py-5 h-full max-[600px]:px-2">
+                                <div className="flex flex-col justify-end max-[600px]:justify-center w-full gap-3 h-full text-white">
+                                    <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold max-[600px]:text-[16px] max-[426px]:text-[10px]">
                                         Thể Thao
                                     </div>
-                                    <div className="text-[14px] flex items-center gap-1 max-[426px]:hidden">
+                                    <div className="text-[14px] flex items-center gap-1 max-[600px]:hidden">
                                         <span>Xem chủ đề</span>
                                         <p className="text-2xl"><Icon name="small right" /></p>
                                     </div>
@@ -156,9 +156,9 @@ function Home(){
                         </a>
                         <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 hidden max-[769px]:block">
                             <Link to="/chu-de">
-                            <div className=" flex p-8 max-[426px]:py-5 max-[426px]:px-2 h-full">
+                            <div className=" flex p-8 max-[426px]:py-5 max-[600px]:px-2 h-full">
                                 <div className="flex flex-col justify-center items-center w-full gap-5 h-full text-white">
-                                    <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold max-[426px]:text-[14px]">
+                                    <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold max-[600px]:text-[16px] max-[426px]:text-[10px]">
                                         +8 Chủ Đề
                                     </div>
                                 </div>

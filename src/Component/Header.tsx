@@ -152,9 +152,9 @@ function Header () {
                 </a>
             </div>
             {item.sub && item.sub.length > 0  && (
-               <div  className={`absolute text-white max-[1360px]:w-[500px] max-[500px]:w-[200px] max-[500px]:text-center min-[1360px]:top-20 max-[500px]:-translate-x-10 max-[500px]:top-55 top-60 bg-black opacity-80 rounded-md shadow-lg group-hover:block ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
+               <div  className={`absolute text-white max-[1360px]:w-[500px] max-[700px]:w-[200px] max-[700px]:text-center min-[1360px]:top-20 max-[500px]:-translate-x-10 max-[500px]:top-55 top-60 bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-80 rounded-md shadow-lg group-hover:block ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
                     {item.id === 2 && (
-                        <ul className={'py-2 grid grid-cols-4 max-[500px]:grid-cols-1 '} >
+                        <ul className={'py-2 grid grid-cols-4 max-[700px]:grid-cols-1'} >
                         {item.sub.map((subitem) => (
                             <li key={subitem.link} className="px-4 py-1 line-clamp-1 hover:bg-gray-700 hover:text-amber-400 w-[150px]  ">
                                 <a className='text-[16px]' >
@@ -167,7 +167,7 @@ function Header () {
                     </ul>
                     )}
                     {item.id === 5 && (
-                        <ul className={'py-2 grid grid-cols-3 max-[500px]:grid-cols-1 '} >
+                        <ul className={'py-2 grid grid-cols-3 max-[700px]:grid-cols-1'} >
                         {item.sub.map((subitem) => (
                             <li key={subitem.link} className="px-4 py-1 line-clamp-1 hover:bg-gray-700 hover:text-amber-400 w-[150px]">
                                 <a className='text-[16px]'>
@@ -197,9 +197,39 @@ function Header () {
 window.addEventListener('scroll', handroll);
 
 // Ham loc tim kiem
+const searchphim = (
+    <>
+        {keyword.trim() && (
+            <div ref={searchRef}  className="absolute max-[1360px]:w-[95%] top-[60px] bg-[#191b24cb] w-[20%] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto">
+                {loading ? (
+                    <div className="text-white text-center">Đang tìm ...</div>
+                ) : listdata?.data.items && listdata.data.items.length > 0 ? (
+                    <div>
+                        {listdata.data.items.map((item,index) => (
+                            <div key={index}>
+                                <div>
+                                    <Link to={`/phim/${item.slug}`} className='flex hover:bg-[#2528337a] rounded-md'>
+                                        <img src={`${listdata.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className='w-[20%] min-[550px]:w-[10%] min-[1100px]:w-[5%] min-[1360px]:w-[20%] p-[9px]'/>
+                                        <div className='w-[90%] text-[14px] line-clamp-1 p-[10px]'>
+                                            <p className='line-clamp-1 font-semibold'>{item.name}</p>
+                                            <p className='text-[12px] text-gray-400 line-clamp-1'>{item.origin_name}</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                            ))}
+                    </div>
+                ): (
+                    <div className='text-center'>Không có Phim này</div>
+                    )}
+                    </div>
+                )}
+        </>
+)
 
 if(quocgia) 
 if(theloai)
+    
 
     return(
         <>
@@ -227,33 +257,8 @@ if(theloai)
                                         value={keyword}
                                         placeholder='Tìm kiếm phim, diễn viên' 
                                         className='px-[48px] w-full flex rounded-md text-white text-[16px] bg-[#2b314183] items-center py-[5px]' 
-                                        />
-                                    
-                                {keyword.trim() && (
-                                    <div  className="absolute top-[60px] bg-[#191b24cb] w-[375px] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto">
-                                    {loading ? (
-                                        <div className="text-white text-center">Đang tìm ...</div>
-                                    ) : listdata?.data.items && listdata.data.items.length > 0 ? (
-                                        <div>
-                                            {listdata.data.items.map((item,index) => (
-                                                <div key={index}>
-                                                    <div>
-                                                        <Link to={`/phim/${item.slug}`} className='flex hover:bg-[#2528337a] rounded-md'>
-                                                        <img src={`${listdata.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className='w-[20%] p-[9px]'/>
-                                                        <div className='w-[90%] text-[14px] line-clamp-1 p-[10px]'>
-                                                            <p className='line-clamp-1 font-semibold'>{item.name}</p>
-                                                            <p className='text-[12px] text-gray-400 line-clamp-1'>{item.origin_name}</p>
-                                                        </div>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ): (
-                                        <div className='text-center'>Không có Phim này</div>
-                                    )}
-                                    </div>
-                                )}
+                                        />{searchphim}
+                                
                                 
                         </div>
                         
@@ -292,7 +297,7 @@ if(theloai)
                 <div>
                     <div>
                         {/* isnavopen */}
-                        <div className={`absolute p-[24px] h-[300px] flex flex-col max-[1440px]:w-[350px] max-[1440px]:top-18 z-100 bg-[#3A4782] rounded-lg duration-500 ${isNavOpen ? 'translate-x-2' : 'hidden '}`}>
+                        <div className={`absolute p-[24px] h-[300px] flex flex-col max-[1440px]:w-[350px] max-[400px]:w-[280px] max-[1440px]:top-18 z-100 bg-[#3A4782] rounded-lg duration-500 ${isNavOpen ? 'translate-x-2' : 'hidden '}`}>
                             <div className='mb-[15px] '>
                                     <button className='px-[22px] py-[10px] w-full bg-white rounded-4xl'>
                                         <div className='flex gap-2 justify-center items-center '>
@@ -315,8 +320,8 @@ if(theloai)
                                 </div>
                         </div>
                         {/* searchOpen */}
-                        <div ref={searchRef} className={`absolute p-[24px] w-full h-[70px] -top-4 flex flex-col z-100 rounded-lg duration-500 ${searchOpen ? '-translate-x-5' : 'hidden '}`}>
-                            <div className=' absolute text-[18px] pt-2 pl-[15px] text-white flex items-center justify-center'><Icon name='tim kiem'/></div>
+                        <div className={`absolute p-[24px] w-full h-[70px] -top-4 flex flex-col z-100 rounded-lg duration-500 ${searchOpen ? '-translate-x-5' : 'hidden '}`}>
+                            <div  className=' absolute text-[18px] pt-2 pl-[15px] text-white flex items-center justify-center'><Icon name='tim kiem'/></div>
                             <input 
                             type="text"
                             onChange={(e) => setKeyWord(e.target.value)}
@@ -324,7 +329,7 @@ if(theloai)
                             value={keyword}
                             placeholder='Tìm kiếm phim, diễn viên' 
                             className='px-[48px] w-full flex rounded-md text-white text-[16px] bg-[#2b3141] border-1 border-white items-center py-[5px]' 
-                            />
+                            />{searchphim}
                         </div>
                         {/* isOpenMenu */}
                         <div className={`absolute p-[16px] h-[150px] right-0 flex flex-col max-[1441px]:w-[250px] w-[15%] max-[1440px]:top-18 z-100 bg-white gap-5 rounded-3xl duration-500 ${isOpenMenu ? '-translate-x-50' : 'hidden '}`}>

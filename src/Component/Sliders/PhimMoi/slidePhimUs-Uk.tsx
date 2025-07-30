@@ -57,33 +57,33 @@ export default function SlideImage() {
                                 {/* Mặt sau */}
                                 <div className="flip-card-back3 bg-[#2F3346]">
                                     <Link to={`/phim/${item.slug}`}>
-                                    <img src={`${PhimUsUk.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full h-25 object-cover mask-b-from-10%" />
+                                    <img src={`${PhimUsUk.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full h-25 max-[500px]:h-40  object-cover mask-b-from-10%" />
                                     <div className="flex flex-col h-full px-[7px]">
                                         <div className="">
                                             <Link
                                                 to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${item.lang}`)}/${item.type === "movie" ? "full" : "tap-01"}`}
-                                                className="bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] transition-colors text-black py-1 px-3 w-[40%] max-[500px]:w-[80%] flex rounded-lg justify-center items-center "
+                                                className="bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] transition-colors text-black py-1 px-3 w-[40%] max-[500px]:w-[100%] flex rounded-lg justify-center items-center "
                                             >
                                             <p className="text-[14px] max-[500px]:text-[10px] max-[400px]:text-[8px]"><Icon name='right'/></p>
                                             <span className="text-[14px] max-[500px]:text-[10px] max-[400px]:text-[8px]">Xem Ngay</span>
                                             </Link>
                                         </div>
-                                        <div className="flex gap-2 mb-[10px]">
+                                        <div className="flex gap-2 mb-[10px] max-[500px]:hidden">
                                             {item.episode_current && (
-                                            <div className=" text-white text-xs px-2 py-1 rounded-md bg-[#3B4052] mt-2 line-clamp-1">
+                                            <div className=" text-white text-xs  px-2 py-1 rounded-md bg-[#3B4052] mt-2 line-clamp-1">
                                                 {item.episode_current}
                                             </div>
                                         )}
                                             {item.quality && (
-                                                <div className="px-2 py-1 text-xs rounded-md bg-[#3B4052] mt-2">{item.quality}</div>
+                                                <div className="px-2 py-1 text-xs rounded-md  bg-[#3B4052] mt-2">{item.quality}</div>
                                             )}
-                                            <div className="px-2 py-1 text-xs rounded-md bg-[#3B4052] mt-2">
+                                            <div className="px-2 py-1 text-xs rounded-md  bg-[#3B4052] mt-2">
                                                 <span >{item.year}</span>
                                             </div>
                                             
                                         </div>
                                         <div>
-                                            <div className="flex text-[11px] text-gray-300 gap-2">
+                                            <div className="flex text-[11px] max-[500px]:hidden text-gray-300 gap-2">
                                                     {item.category.map((item) => (
                                                         <Link to={`/the-loai/${item.slug}`}>
                                                         <div className=' line-clamp-1'>{item.name}</div>

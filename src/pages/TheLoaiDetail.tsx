@@ -237,7 +237,7 @@ export default function TheLoaiDetail() {
             <p><Loading/></p>
         ) : (
           <>
-            <div className='grid grid-cols-8 max-[1360px]:grid-cols-5 max-[780px]:grid-cols-4 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px]'>
+            <div className='grid grid-cols-8 max-[1360px]:grid-cols-7 max-[1201px]:grid-cols-6 max-[1060px]:grid-cols-5 max-[790px]:grid-cols-4 max-[650px]:grid-cols-3 max-[450px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px]'>
             {TheloaiMovie && TheloaiMovie.data.items.map((item, index) => {
               return(
                 <Link to={`/phim/${item.slug}`}>
