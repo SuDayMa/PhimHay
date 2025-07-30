@@ -2,21 +2,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination} from 'swiper/modules';
 import { useState, useEffect } from 'react';
 import type { TheloaiResponse, Phim } from '../../../types/Phimtype';
-import { slidePhimTheLoai, TheloaiMovieAPI, PhimAPI} from '../../../Services/API';
+import { slidePhimTheLoai} from '../../../Services/API';
 import { Link } from 'react-router-dom'
 import Icon from '../../Icon';
 import "./stylephimlichsu.css"
 
 function SliderImage() {
     const [Theloailichsu, setTheloailichsu] = useState<TheloaiResponse | null>(null);
-    const [phim, setPhim] = useState<Phim| null>(null);
-    const [selectedServer, setSelectedServer] = useState<string | null>(null)
-    const [loading, setLoading] = useState(true);
+    const [phim] = useState<Phim| null>(null);
+    const [selectedServer] = useState<string | null>(null)
     useEffect(() => {
         const LoadingTheLoaiLichSuData = async () => {
             try{
-                setLoading(true);
-                const XemPhim = await PhimAPI('')
+                
+                
                 const theloailichsuData = await slidePhimTheLoai('/lich-su')
                 if(theloailichsuData){
                     setTheloailichsu(theloailichsuData);
@@ -24,9 +23,7 @@ function SliderImage() {
                 }
             } catch (error) {
                 console.error("Error fetching Theloai data:", error);
-            } finally {
-                setLoading(false);
-            }
+            } 
         }
         LoadingTheLoaiLichSuData();
     }, []);

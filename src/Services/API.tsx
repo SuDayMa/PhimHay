@@ -1,5 +1,4 @@
-import type { Provider } from "react";
-import type { Danhsach } from "../types/Phimtype";
+
 import { baseURL } from "./BaseURL";
 
 export const QuocgiaAPI = async () => {
@@ -115,7 +114,7 @@ export const PhimNewUpdateAPI = async () => {
     }
 }
 
-export const YearAPI = async (type_list: number,page: number , sort_field:string, sort_type: string, sort_lang: string, category: string, country: string, year: number, limit: number ) => {
+export const YearAPI = async (type_list: number,page: number , sort_field:string, sort_type: string, sort_lang: string, category: string, country: string, year: string, limit: number ) => {
     try{
         const reponse = await baseURL.get(`nam/${type_list}?page=${page}&${sort_field}&sort_type=${sort_type}&sort_lang=${sort_lang}&category=${category}&country=${country}&year=${year}&limit=${limit}`)
         return reponse.data

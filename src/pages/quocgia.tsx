@@ -1,9 +1,9 @@
 
-import { Routes, Route  } from "react-router-dom";
-import { use, useEffect,useState } from "react";
-import { useParams } from "react-router-dom";
+
+import { useEffect,useState } from "react";
+
 import Icon from "../Component/Icon";
-import { Link } from "react-router-dom";
+
 import {QuocgiaAPI} from "../Services/API";
 import type { QuocGia } from "../types/Phimtype";
 import loi404 from "../assets/img/404.svg";
@@ -13,27 +13,24 @@ import loi404 from "../assets/img/404.svg";
 export default function Quocgia() {
     // Khai báo type cho state đúng với kiểu dữ liệu trả về từ API
     const [quocgiaid, setquocgiaid] = useState<QuocGia[]>([]);
-    const [loading, setLoading] = useState(true);
    
     
     useEffect(() => {
         const fetchQuocgia = async () => {
             try {
-                setLoading(true);
+                
                 const quocgia = await QuocgiaAPI();
                 setquocgiaid(quocgia);
             } catch (error) {
                 console.error("Error fetching Quocgia data:", error);
-            } finally {
-                setLoading(false);
             }
         };
         
         fetchQuocgia();
     }, []);
+    if(quocgiaid)
     return (
         <div>
-            
                 <div>
                     <div className="pb-[200px] ">
                         <div className="my-[96px] mx-[273px] px-[30px] ">

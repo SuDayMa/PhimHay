@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay} from 'swiper/modules';
-import Icon from '../Icon';
+import { Pagination} from 'swiper/modules';
+
 
 export default function slidechude () {
     return(

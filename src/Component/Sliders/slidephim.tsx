@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react';
 import SlideImage from './PhimMoi/slidephimHan';
 import Icon from '../Icon';
-import type { QuocGiaResponse } from '../../types/Phimtype';
-import { MovieAPI } from '../../Services/API';
 import ImageTrung from './PhimMoi/slidePhimTrungQuoc';
 import ImageViet from './PhimMoi/slidePhimUs-Uk';
 

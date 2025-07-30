@@ -1,4 +1,4 @@
-import rophim from '../assets/img/logo.svg';
+
 export default function Loading() {
     return (
        <div>

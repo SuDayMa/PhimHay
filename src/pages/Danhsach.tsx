@@ -8,7 +8,7 @@ import Icon from '../Component/Icon';
 import { Link } from 'react-router-dom';
 import type { QuocGia } from '../types/Phimtype';
 import type { Theloai } from '../types/Phimtype';
-import React from 'react';
+
 
 
 export default function Danhsach() {
@@ -236,7 +236,7 @@ export default function Danhsach() {
             <p><Loading /></p>
       ) : (
         <>  
-            <div className='grid grid-cols-8 max-[1360px]:grid-cols-5 max-[780px]:grid-cols-4 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px]'>
+            <div className='grid grid-cols-8 max-[1360px]:grid-cols-5 max-[780px]:grid-cols-4 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto'>
             {danhsach && danhsach?.data.items?.map((item, index) => {
               return (
                 <Link to={`/phim/${item.slug}`} >

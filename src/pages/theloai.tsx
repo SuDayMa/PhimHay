@@ -1,6 +1,6 @@
-import { Routes, Route  } from "react-router-dom";
+
 import { useEffect,useState } from "react";
-import { useParams } from "react-router-dom";
+
 import Icon from "../Component/Icon";
 import {TheloaiAPI} from "../Services/API";
 import type { Theloai } from "../types/Phimtype";
@@ -26,7 +26,7 @@ export default function Theloai() {
         };
 
         loadingtheloai();
-    },[]);
+    },[theloaiid]);
     return (
     <div>
         {loading ? (

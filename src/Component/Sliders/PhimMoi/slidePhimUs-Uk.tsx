@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay} from 'swiper/modules';
+import { Pagination} from 'swiper/modules';
 import type { QuocGiaResponse, Phim } from '../../../types/Phimtype';
-import { slidePhimQuocGia, PhimAPI } from '../../../Services/API';
+import { slidePhimQuocGia} from '../../../Services/API';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../../Icon';
@@ -9,14 +9,13 @@ import Icon from '../../Icon';
 
 export default function SlideImage() {
     const [PhimUsUk, setPhimUsUk] = useState<QuocGiaResponse | null>(null);
-    const [phim, setPhim] = useState<Phim| null>(null);
-    const [selectedServer, setSelectedServer] = useState<string | null>(null)
-    const [loading, setLoading] = useState(true);
+    const [phim] = useState<Phim| null>(null);
+    const [selectedServer] = useState<string | null>(null)
     useEffect(() => {
         const fetchPhim = async () => {
             try {
-                setLoading(true);
-                const XemPhim = await PhimAPI('')
+                
+                
                 const phimUsUk = await slidePhimQuocGia('/au-my');
                 if (phimUsUk) {
                     setPhimUsUk(phimUsUk);
@@ -24,8 +23,6 @@ export default function SlideImage() {
                 }
             } catch (error) {
                 console.error("Error fetching Quoc gia data:", error);
-            } finally {
-                setLoading(false);
             }
         };
         fetchPhim();

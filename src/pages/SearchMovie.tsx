@@ -2,14 +2,14 @@ import type { SearchMovie } from "../types/Phimtype";
 import { SearchAPI, QuocgiaAPI, TheloaiAPI } from "../Services/API";
 import Icon from "../Component/Icon";
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Loading from "./Loading";
 import type { QuocGia } from '../types/Phimtype';
 import type { Theloai } from '../types/Phimtype';
 import { Link } from "react-router-dom";
 
 export default function SearchMovie () {
-    const [SearchParams,setSearchParams] = useSearchParams();
+    const [SearchParams] = useSearchParams();
     const [filtersParam, setFiltersParam] = useSearchParams();
     const [pages,setPages] = useSearchParams()
     const [searchs, setSearchs] = useState<SearchMovie | null>(null);
@@ -235,7 +235,7 @@ export default function SearchMovie () {
         
       ) : searchs?.data.items && searchs.data.items.length > 0 ? (
         <div>
-          <div className="grid grid-cols-8 max-[1360px]:grid-cols-5 max-[780px]:grid-cols-4 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px]">
+          <div className="grid grid-cols-8 max-[1360px]:grid-cols-5 max-[780px]:grid-cols-4 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto">
           {searchs.data.items.map((item, index) => (
             <Link to={`/phim/${item.slug}`} key={index}>
               <div className="bg-[#676b6d44] p-4 rounded-lg mb-4 group-hover:w-[100px] group-hover:h-[500px] transition-all duration-300 hover:bg-gray-600">

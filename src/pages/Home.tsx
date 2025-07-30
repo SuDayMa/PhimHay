@@ -3,7 +3,7 @@ import Slide from "../Component/Sliders/slide"
 import SlidePhim from "../Component/Sliders/slidephim"
 import SliderPhim from "../Component/Sliders/phimlichsu/sliderphim"
 import SlidePhimbo from "../Component/Sliders/PhimBo/Slidephimbo"
-import Slidechude from "../Component/Sliders/slidechude"
+
 import { Link } from "react-router-dom"
 function Home(){
     

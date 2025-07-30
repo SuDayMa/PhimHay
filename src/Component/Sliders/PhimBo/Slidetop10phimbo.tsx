@@ -9,13 +9,12 @@ import Icon from "../../Icon";
 
 export default function slidetop10phimbo (){
     const [danhsach, setDanhSach] = useState<Danhsach |null>(null);
-    const [loading, setLoading] = useState(true);
-    const [selectedServer, setSelectedServer] = useState<string>("#Hà Nội (Vietsub)")
-    const [phim, setPhim] = useState<Phim| null>(null);
+    const [selectedServer] = useState<string | null>(null)
+    const [phim] = useState<Phim| null>(null);
     useEffect(() => {
             const LoadingDanhsach = async () => {
                 try{
-                    setLoading(true);
+                    
                     const phimboData = await SlidePhimboAPI('/phim-bo')
                     if(phimboData){
                         setDanhSach(phimboData);
@@ -23,9 +22,7 @@ export default function slidetop10phimbo (){
                     }
                 } catch (error) {
                     console.error("Error fetching Theloai data:", error);
-                } finally {
-                    setLoading(false);
-                }
+                } 
             }
             LoadingDanhsach();
         }, []);

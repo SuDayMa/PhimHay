@@ -1,21 +1,19 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Controller} from 'swiper/modules';
-import type { PhimNewUpate, QuocGiaResponse, Phim } from '../../types/Phimtype';
+import type { QuocGiaResponse, Phim } from '../../types/Phimtype';
 import { useEffect, useState, useRef } from 'react';
-import { MovieAPI, PhimNewUpdateAPI, slidePhimQuocGia,PhimAPI  } from '../../Services/API';
+import { slidePhimQuocGia  } from '../../Services/API';
 import Icon from '../Icon';
 import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+
 
 
 function slide (){
-    const {slug} = useParams();
     const [phimmoicapnhat, setPhimmoicapnhat] = useState<QuocGiaResponse| null>(null);
-    const [phim, setPhim] = useState<Phim| null>(null);
-    const [loading, setLoading] = useState(true);
+    const [phim] = useState<Phim| null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [selectedServer, setSelectedServer] = useState<string | null>(null)
+    const [selectedServer] = useState<string | null>(null)
     const swiperRef = useRef<any>(null);
     const handleSlideChange = (swiper: any) => {
         setActiveIndex(swiper.realIndex);
@@ -25,7 +23,6 @@ function slide (){
     useEffect(() => {
         const fetchPhimmoicapnhat = async () => {
             try{    
-                setLoading(true);
                 const phimData = await slidePhimQuocGia('han-quoc');
                 if (phimData) {
                     setPhimmoicapnhat(phimData);
@@ -33,8 +30,6 @@ function slide (){
                 }
             }catch (error) {
                 console.error("Error fetching Phimmoicapnhat data:", error);
-            }finally {
-                setLoading(false);
             }
         };
         fetchPhimmoicapnhat();
@@ -50,6 +45,7 @@ function slide (){
         }
     } 
     const Tylephim = currentMovie?.tmdb.type  === 'movie' ? 'full' : 'tap-01'
+    
     return(
     
 

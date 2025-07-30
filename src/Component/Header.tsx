@@ -1,7 +1,7 @@
 import rophim from '../assets/img/logo.svg'
 import Icon from './Icon'
-import React, { useEffect, useState } from 'react';
-import {SearchAPI, QuocgiaAPI, ListSearchAPI} from '../Services/API';
+import { useEffect, useState, useRef } from 'react';
+import { QuocgiaAPI, ListSearchAPI} from '../Services/API';
 import { TheloaiAPI } from '../Services/API';
 import type { Theloai } from '../types/Phimtype';
 import type { QuocGia } from "../types/Phimtype";
@@ -10,7 +10,7 @@ import aapicon from '../assets/img/appicon.png'
 import rophimlogin from '../assets/img/rophim-login.jpg'
 import { Link } from 'react-router-dom';
 
-import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -22,15 +22,15 @@ type NavbarItem = {
 }
 
 function Header () {
-    const [SearchParams,setSearchParams] = useSearchParams();
     const [keyword, setKeyWord] = useState('');
-    const {type_list} = useParams();
+
     const [quocgia, setQuocgia] = useState<QuocGia[]>([]);
     const [loading, setLoading] = useState(false);
     const [theloai, setTheloai] = useState<Theloai[]>([]);
     const navigate = useNavigate();
     const [listdata, setListData] = useState<SearchMovie | null>(null)
-   
+    const submenuRef = useRef<HTMLDivElement>(null);
+    const searchRef = useRef<HTMLDivElement>(null);
 
     const [Navbar, setNavbar] = useState<NavbarItem[]>([
         { title: 'Chủ đề', id: 1, link : '/chu-de'},
@@ -97,14 +97,28 @@ function Header () {
       } catch (error) {
         console.log('Lỗi search', error);
         setListData(null);
-      } finally {
+      } finally {   
         setLoading(false);
       }
     };
     fetchSearchData();
     
   }, [keyword]);
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
+                setOpenSubMenu(null);
+            }
+            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+                setSearchOpen(false);
+            }
+        };
 
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
     
     const handleKeyDown = (e: any) => {
         if (e.key === 'Enter' && keyword.trim()) {
@@ -138,7 +152,7 @@ function Header () {
                 </a>
             </div>
             {item.sub && item.sub.length > 0  && (
-               <div className={`absolute text-white max-[1360px]:w-[500px] max-[500px]:w-[200px] max-[500px]:text-center min-[1360px]:top-20 max-[500px]:-translate-x-10 max-[500px]:top-55 top-60 bg-black opacity-80 rounded-md shadow-lg group-hover:block ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
+               <div  className={`absolute text-white max-[1360px]:w-[500px] max-[500px]:w-[200px] max-[500px]:text-center min-[1360px]:top-20 max-[500px]:-translate-x-10 max-[500px]:top-55 top-60 bg-black opacity-80 rounded-md shadow-lg group-hover:block ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
                     {item.id === 2 && (
                         <ul className={'py-2 grid grid-cols-4 max-[500px]:grid-cols-1 '} >
                         {item.sub.map((subitem) => (
@@ -184,6 +198,9 @@ window.addEventListener('scroll', handroll);
 
 // Ham loc tim kiem
 
+if(quocgia) 
+if(theloai)
+
     return(
         <>
             <div className={`sticky top-0 z-50 ${visible ? 'bg-black opacity-100 duration-500  ' : 'duration-300'}`}>
@@ -194,7 +211,7 @@ window.addEventListener('scroll', handroll);
                         </button>
                         <div className='flex w-[10%] max-[1360px]:ml-[50px]'>
                             <Link to='/'>
-                            <a ><img src={rophim} alt="" className='w-[90%] object-cover'/></a>
+                            <img src={rophim} alt="" className='w-[90%] object-cover'/>
                             </Link>
                         </div>
                         <button className='text-white min-[1360px]:hidden' onClick={() => setSearchOpen(!searchOpen)}>
@@ -213,7 +230,7 @@ window.addEventListener('scroll', handroll);
                                         />
                                     
                                 {keyword.trim() && (
-                                    <div className="absolute top-[60px] bg-[#191b24cb] w-[375px] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto">
+                                    <div  className="absolute top-[60px] bg-[#191b24cb] w-[375px] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto">
                                     {loading ? (
                                         <div className="text-white text-center">Đang tìm ...</div>
                                     ) : listdata?.data.items && listdata.data.items.length > 0 ? (
@@ -298,7 +315,7 @@ window.addEventListener('scroll', handroll);
                                 </div>
                         </div>
                         {/* searchOpen */}
-                        <div className={`absolute p-[24px] w-full h-[70px] -top-4 flex flex-col z-100 rounded-lg duration-500 ${searchOpen ? '-translate-x-5' : 'hidden '}`}>
+                        <div ref={searchRef} className={`absolute p-[24px] w-full h-[70px] -top-4 flex flex-col z-100 rounded-lg duration-500 ${searchOpen ? '-translate-x-5' : 'hidden '}`}>
                             <div className=' absolute text-[18px] pt-2 pl-[15px] text-white flex items-center justify-center'><Icon name='tim kiem'/></div>
                             <input 
                             type="text"
