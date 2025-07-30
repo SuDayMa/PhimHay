@@ -80,20 +80,20 @@ function slide (){
 
       {/* Movie Info */}
       <div className='flex w-full h-[750px] max-[1360px]:h-[500px]'>
-            <div className='z-10 w-[60%] max-[1000px]:w-[70%] max-[640px]:w-[100%] max-[640px]:flex max-[640px]:items-center max-[640px]:justify-center max-[640px]:text-center py-[140px] px-[40px]'>
+            <div className='z-10 w-[60%] max-[1000px]:w-[70%] max-[640px]:w-[100%] max-[640px]:flex max-[640px]:items-center max-[640px]:justify-center max-[640px]:text-center py-[140px] px-[40px] max-[400px]:px-[10px] '>
                 <div>
                     <div>
                         
                     </div>
                         {currentMovie?.name && (
                         <div className='mb-[8px] text-white '>
-                            <h2 className='font-medium text-[40px] max-[1360px]:text-[28px]'>{currentMovie.name}</h2>
+                            <h2 className='font-medium text-[40px] max-[1360px]:text-[28px] max-[640px]:text-[20px]'>{currentMovie.name}</h2>
                         </div>
                     )}
                     <div className='mb-[16px] text-yellow-500 max-[1360px]:text-[15px] max-[1000px]:text-[13px]'>
                         <h1>{currentMovie?.origin_name}</h1>
                     </div>
-                    <div className='mb-[16px] flex gap-3 max-[1360px]:text-[12px] max-[1000px]:text-[10px] max-[640px]:text-[10px]'>
+                    <div className='mb-[16px] flex gap-3 max-[1360px]:text-[12px] max-[1000px]:text-[10px] max-[640px]:text-[10px] max-[350px]:text-[7px]'>
                         {currentMovie?.tmdb && (
                        <div className=' border-yellow-500 border-1 rounded-md px-[6px]'>
                         <span className='text-yellow-500'>IMDb </span>

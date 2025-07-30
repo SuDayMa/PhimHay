@@ -10,5 +10,11 @@ export default defineConfig({
     port: 3000,
     open: true,
     strictPort: false,
-  }
+  },
+  preview: {
+    port: 4137,
+    host: true,
+    allowedHosts: ['phimhay-un1p.onrender.com']
+  },
+
 })
