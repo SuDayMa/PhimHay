@@ -18,6 +18,7 @@ import Video from './pages/Video'
 import ScrollToTop from './pages/ScrollToTop'
 import Year from './pages/Year'
 
+
 function AppRouter() {
   return(
     <div className='bg-[#191B24]'>
@@ -39,15 +40,19 @@ function AppRouter() {
       </Routes>
       <Footer/>
 
+
     </div>
   ) 
 }
 function App() {
 
+  
   return (
+      
     <BrowserRouter>
       <AppRouter/>
     </BrowserRouter>
+    
   )
 }
 

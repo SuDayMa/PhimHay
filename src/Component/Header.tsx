@@ -11,7 +11,7 @@ import rophimlogin from '../assets/img/rophim-login.jpg'
 import { Link } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';
-
+// import Login from './Login';
 
 
 type NavbarItem = {
@@ -104,6 +104,8 @@ function Header () {
     fetchSearchData();
     
   }, [keyword]);
+
+  
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
@@ -211,7 +213,7 @@ const searchphim = (
                                     <Link to={`/phim/${item.slug}`} className='flex hover:bg-[#2528337a] rounded-md'>
                                         <img src={`${listdata.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className='w-[20%] min-[550px]:w-[10%] min-[1100px]:w-[5%] min-[1360px]:w-[20%] p-[9px]'/>
                                         <div className='w-[90%] text-[14px] line-clamp-1 p-[10px]'>
-                                            <p className='line-clamp-1 font-semibold'>{item.name}</p>
+                                            <p className='line-clamp-1 text-white font-semibold'>{item.name}</p>
                                             <p className='text-[12px] text-gray-400 line-clamp-1'>{item.origin_name}</p>
                                         </div>
                                     </Link>
@@ -349,14 +351,14 @@ if(theloai)
                             </div>
                         </div>
                         {/* isOpenLogin */}
-                        <div className={`absolute p-[16px] top-0 left-1/2  text-white w-[100%] max-[2000px]:h-[1000px] h-[1310px] text-whitez-100 bg-[#1e25459d] duration-500 ${isOpenLogin ? '-translate-x-1/2' : 'hidden '}`}>
-                            <div className='mx-[330px] flex justify-center items-center py-[250px] max-[2000px]:py-[150px]'>
-                                <div className='w-[26%] max-[1441px]:w-[40%] max-[2000px]:w-[40%]'>
+                        <div className={`absolute p-[16px] top-0 left-1/2 text-white w-[100%] max-[2000px]:h-[1000px] h-[1310px] text-whitez-100 bg-[#1e25459d] duration-500 ${isOpenLogin ? '-translate-x-1/2' : 'hidden '}`}>
+                            <div className='mx-[330px] max-[700px]:mx-[100px] max-[426px]:mx-[0px] flex justify-center items-center py-[250px] max-[2000px]:py-[150px]'>
+                                <div className='w-[26%] max-[1441px]:w-[40%] max-[426px]:hidden max-[2000px]:w-[40%]'>
                                     <img src={rophimlogin} className=' rounded-l-2xl'/>
                                 </div>
-                                <div className='p-[64px] bg-[#1E2545] h-[725px] max-[1441px]:h-[450px]  rounded-r-2xl'>
+                                <div className='p-[64px] max-[426px]:p-[21px] bg-[#1E2545] h-[725px] max-[1441px]:h-[450px] rounded-r-2xl max-[342px]:p-[5px]'>
                                     <button
-                                    className='absolute  translate-x-82  -translate-y-10 cursor-pointer text-white'
+                                    className='absolute translate-x-82 -translate-y-10 cursor-pointer max-[426px]:translate-x-70 max-[426px]:translate-y-2 text-white'
                                     onClick={() => setIsOpenLogin(false)}
                                 >
                                     <i><Icon name='x'/></i>
@@ -368,16 +370,20 @@ if(theloai)
                                     <p className='mb-[24px]'>nếu bạn chưa có tài khoản, <a href="" className='text-amber-200'>Đăng ký ngay</a></p>
                                     <form className=''>
                                         <div className='mb-[12px]'>
-                                            <input className='py-[8px] px-[16px] w-[300px] border-1 border-gray-500 rounded-md' type="email" placeholder='Email' name='email'/>
+                                            <input className='py-[8px] px-[16px] w-[100%] border-1 border-gray-500 rounded-md' type="email" placeholder='Email' name='email'/>
                                         </div>
                                         <div className='mb-[40px]'>
-                                            <input className='py-[8px] px-[16px] w-[300px] border-1 border-gray-500 rounded-md' type="password" placeholder='Mật khẩu' name='password'/>
+                                            <input className='py-[8px] px-[16px] w-[100%] border-1 border-gray-500 rounded-md' type="password" placeholder='Mật khẩu' name='password'/>
                                         </div>
                                         <div className='text-center mb-[24px]'>
-                                            <button className='bg-amber-200 px-[110px] py-[5px] rounded-md text-black font-semibold'>Đăng nhập</button>
+                                            <button className='bg-amber-200 w-[100%] py-[5px] rounded-md text-black font-semibold'>Đăng nhập</button>
                                         </div>
-                                        <div className='text-center font-semibold'>
+                                        <div className='text-center font-semibold mb-[24px]'>
                                             <a href="">Quên mật khẩu?</a>
+                                        </div>
+                                        <div className='w-[100%] flex items-center justify-center'>
+                                
+                                            {/* <Login/> */}
                                         </div>
                                     </form>
                                    </div>
