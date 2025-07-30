@@ -60,10 +60,7 @@ export default function Video(){
                         <div className=' mx-[330px] max-[2000px]:mx-[128px] max-[1100px]:mx-0 px-[50px] max-[500px]:px-[20px] items-center pt-[50px]'>
                              
                             <MediaController
-                                style={{
-                                    width: "100%",
-                                    height: "auto",
-                                }}
+                                
                                 >
                                 <ReactPlayer
                                     slot="media"
@@ -74,6 +71,7 @@ export default function Video(){
                                     width: "100%",
                                     height: "auto",
                                     }}
+                                    className=" outline-0"
                                 ></ReactPlayer>
                                 <MediaControlBar className="bg-[#1a1c2a41] text-white">
                                     <MediaPlayButton className="px-3 "/>
