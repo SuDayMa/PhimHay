@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination} from 'swiper/modules';
-import type { QuocGiaResponse, Phim  } from '../../../types/Phimtype';
+import type { QuocGiaResponse} from '../../../types/Phimtype';
 import { slidePhimQuocGia} from '../../../Services/API';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import './Stylenew.css'
 
 export default function SlideImage() {
     const [phimHan, setPhimHan] = useState<QuocGiaResponse | null>(null);
-    const [phim] = useState<Phim| null>(null);
+    
     const [selectedServer] = useState<string | null>(null)
     useEffect(() => {
         const fetchPhim = async () => {
@@ -26,9 +26,8 @@ export default function SlideImage() {
         };
         fetchPhim();
     }, []);
-     const Moviephim =  phimHan?.data.items[0]
-     const Typephim =  Moviephim?.tmdb.type === "movie" ? "full" : "tap-01"
-
+    
+        
     return (
         <div>
             
@@ -65,7 +64,7 @@ export default function SlideImage() {
                                     <div className="flex flex-col h-full px-[7px]">
                                         <div className="">
                                             <Link 
-                                                to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${phim?.movie.category[0].name}`)}/${Typephim}`}
+                                                to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${item.lang}`)}/${item.tmdb.type === "movie" ? "full" : "tap-01" }`}
                                                 className="bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] transition-colors text-black py-1 px-3 w-[40%] max-[500px]:w-[80%] flex rounded-lg justify-center items-center "
                                             >
                                             <p className="text-[14px] max-[500px]:text-[10px] max-[400px]:text-[8px]"><Icon name='right'/></p>

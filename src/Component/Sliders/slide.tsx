@@ -45,7 +45,7 @@ function slide (){
         }
     } 
     const Tylephim = currentMovie?.tmdb.type  === 'movie' ? 'full' : 'tap-01'
-    
+    console.log('slidecu',Tylephim)
     return(
     
 
@@ -80,7 +80,7 @@ function slide (){
 
       {/* Movie Info */}
       <div className='flex w-full h-[750px] max-[1360px]:h-[500px]'>
-            <div className='z-10 w-[60%] max-[1000px]:w-[70%] max-[640px]:w-[100%] max-[640px]:flex max-[640px]:items-center max-[640px]:justify-center max-[640px]:text-center py-[140px] px-[40px] max-[400px]:px-[10px] '>
+            <div className='z-10 w-[60%] max-[1000px]:w-[70%] max-[640px]:w-[100%] max-[640px]:flex max-[640px]:items-center max-[640px]:justify-center max-[640px]:text-center py-[140px] px-[40px] max-[450px]:px-[10px] '>
                 <div>
                     <div>
                         
@@ -141,7 +141,7 @@ function slide (){
                           </div>
                         )}
                     </div>
-                    <div className='absolute flex gap-3 right-0 pr-[50px] max-[400px]:pr-[30px] max-[350px]:pr-[10px]   translate-y-50 max-[1441px]:translate-y-30 max-[640px]:translate-y-10'>
+                    <div className='absolute flex gap-3 right-0 pr-[50px] max-[400px]:pr-[30px] max-[350px]:pr-[10px] translate-y-50 max-[1441px]:translate-y-30 max-[640px]:translate-y-10'>
                         {phimmoicapnhat?.data.items.slice(0,6).map((item , index) => (
                                 <div
                                 key={index}
@@ -149,7 +149,7 @@ function slide (){
                                 aria-label={`${index + 1}`}
                                 
                                 >
-                                <img src={`${phimmoicapnhat.data.APP_DOMAIN_CDN_IMAGE}/${item.thumb_url}`} alt="" className={`w-20 max-[1100px]:w-10 max-[1100px]:h-10 h-15 object-cover rounded-lg max-[1100px]:rounded-full ${ currentImage === index ? 'border-2 border-white' : ''}`}/>
+                                <img src={`${phimmoicapnhat.data.APP_DOMAIN_CDN_IMAGE}/${item.thumb_url}`} alt="" className={`w-20 max-[1100px]:w-10 max-[1100px]:h-10 h-15 object-cover rounded-lg max-[1100px]:rounded-full cursor-pointer ${ currentImage === index ? 'border-2 border-white' : ''}`}/>
 
                                 </div>
                             ))}
