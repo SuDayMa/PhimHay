@@ -159,7 +159,7 @@ function slide (){
                                 <a className='bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] rounded-full max-[1100px]:w-[50px] max-[1100px]:h-[50px] w-[70px] h-[70px] flex justify-center items-center'>
                             
                                     <Link to={`/Player/${currentMovie.slug}/${encodeURIComponent(selectedServer ?? `${currentMovie.lang}`)}/${Tylephim}`}>
-                                        <i className='text-[36px] font-bold'><Icon name='right'/></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" className="bi bi-play-fill text-[50px]" viewBox="0 0 14 16"> <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/> </svg>
                                     </Link>
                                     
                                 </a>

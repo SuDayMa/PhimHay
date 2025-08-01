@@ -57,47 +57,51 @@ export default function Video(){
             ) : (
                 <div>
                     <div>
-                        <div className=' mx-[330px] max-[2000px]:mx-[128px] max-[1100px]:mx-0 px-[50px] max-[500px]:px-[20px] items-center pt-[50px]'>
+                        <div className=' mx-[330px] max-[2000px]:mx-[128px] max-[1100px]:mx-0 px-[50px] max-[587px]:px-[20px] items-center pt-[50px]'>
                              
                             <MediaController
-                                
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
+                                }}
                                 >
                                 <ReactPlayer
                                     slot="media"
                                     src={tapphim?.link_m3u8}
                                     controls={false}
                                     playing={true}
+                                    pip={true}
                                     style={{
                                     width: "100%",
-                                    height: "auto",
+                                    height: "100%",
                                     }}
                                     className=" outline-0"
                                 ></ReactPlayer>
-                                <MediaControlBar className="bg-[#1a1c2a41] text-white">
-                                    <MediaPlayButton className="px-3 "/>
-                                    <MediaSeekBackwardButton seekOffset={10} className="px-2 "/>
-                                    <MediaSeekForwardButton seekOffset={10} className="px-2"/>
-                                    <MediaTimeRange />
-                                    <MediaTimeDisplay showDuration className="px-2"/>
-                                    <MediaMuteButton />
+                                <MediaControlBar className="bg-[#1a1c2a41] text-white W-[100%]">
+                                    <MediaPlayButton className="px-3 max-[400px]:px-1"/>
+                                    <MediaSeekBackwardButton seekOffset={10} className="px-2 max-[400px]:px-1"/>
+                                    <MediaSeekForwardButton seekOffset={10} className="px-2  max-[400px]:px-0"/>
+                                    <MediaTimeRange className="max-[400px]:text-[5px]"/>
+                                    <MediaTimeDisplay showDuration className="px-2 max-[400px]:text-[5px] max-[470px]:text-[8px] max-[400px]:px-0"/>
+                                    <MediaMuteButton className="px-1 max-[400px]:text-[5px]"/>
                                     <MediaVolumeRange />
-                                    <MediaPlaybackRateButton />
-                                    <MediaFullscreenButton className="px-5"/>
+                                    <MediaPlaybackRateButton className="max-[400px]:text-[8px]"/>
+                                    <MediaFullscreenButton className="px-5 max-[400px]:text-[5px] max-[400px]:px-1"/>
                                 </MediaControlBar>
                                 </MediaController>
-                            
+
 
                             <div className='bg-black text-white -translate-y-2 '>
                                 <div className='px-[16px] flex gap-3 py-[16px] max-[400px]:text-[12px] max-[350px]:text-[10px] '>
-                                    <div className='px-[9px] py-[12px] flex gap-2 hover:bg-gray-800'>
+                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800'>
                                         <i><Icon name='heart'/></i>
                                         <span>Yêu thích</span>
                                     </div>
-                                    <div className='px-[9px] py-[12px] flex gap-2 hover:bg-gray-800'>
+                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800'>
                                         <i><Icon name='+'/></i>
                                         <span>Thêm vào</span>
                                     </div>
-                                    <div className='px-[9px] py-[12px] flex gap-2 hover:bg-gray-800'>
+                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800'>
                                         <i><Icon name='telegram'/></i>
                                         <span>Chia sẻ</span>
                                     </div>
@@ -105,7 +109,7 @@ export default function Video(){
                             </div>
                         </div>
                         <div className='mx-[330px] max-[2000px]:mx-[128px] max-[1100px]:mx-0 px-[50px] max-[500px]:px-[20px] '>
-                            <div className='p-[40px] max-[500px]:p-0'>
+                            <div className='p-[40px] max-[587px]:p-0'>
                                 <div className='pb-[40px] flex gap-5 text-white max-[1100px]:hidden'>
                                     <div>
                                         <img src={phim?.movie.poster_url} className='w-[100px] rounded-lg'/>

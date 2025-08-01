@@ -17,7 +17,10 @@ import C from "./pages/c"
 import Video from './pages/Video'
 import ScrollToTop from './pages/ScrollToTop'
 import Year from './pages/Year'
-
+import Userlayer from './pages/User/userlayer'
+import Favorite from './pages/User/Favorite'
+import Playlist from './pages/User/Playlist'
+import Profile from './pages/User/Profile'
 
 function AppRouter() {
   return(
@@ -37,10 +40,13 @@ function AppRouter() {
         <Route path='/c/:type_list' element={<C />} />
         <Route path='/Player/:slug/:server/:episodeSlug' element={<Video />} />
         <Route path='/year/:type_list' element={<Year />} />
+        <Route path='/User/*' element={<Userlayer />} >
+          <Route path='Favorite' element={<Favorite />} />
+          <Route path='Playlist' element={<Playlist />} />
+          <Route path='Profile' element={<Profile />} />
+        </Route>
       </Routes>
       <Footer/>
-
-
     </div>
   ) 
 }
