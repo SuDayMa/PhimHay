@@ -153,7 +153,7 @@ function Header () {
                 </a>
             </div>
             {item.sub && item.sub.length > 0  && (
-               <div ref={submenuRef} className={`absolute text-white max-[1360px]:w-[500px] max-[700px]:w-[200px] max-[700px]:text-center min-[1360px]:top-20 max-[500px]:-translate-x-10 max-[500px]:top-55 top-60 bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-80 rounded-md shadow-lg group-hover:block ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
+               <div className={`absolute text-white max-[1360px]:w-[500px] max-[700px]:w-[200px] max-[700px]:text-center min-[1360px]:top-20 max-[500px]:-translate-x-10 max-[500px]:top-55 top-60 bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-80 rounded-md shadow-lg group-hover:block ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
                     {item.id === 2 && (
                         <ul className={'py-2 grid grid-cols-4 max-[700px]:grid-cols-1'} >
                         {item.sub.map((subitem) => (
