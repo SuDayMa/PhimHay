@@ -2,6 +2,7 @@ import SlideImage from './PhimMoi/slidephimHan';
 import Icon from '../Icon';
 import ImageTrung from './PhimMoi/slidePhimTrungQuoc';
 import ImageViet from './PhimMoi/slidePhimUs-Uk';
+import { Link } from 'react-router-dom';
 
 
 function SlidePhim() {
@@ -15,7 +16,9 @@ function SlidePhim() {
                             Phim Hàn Quốc Mới
                         </div>
                         <div className="flex items-center gap-2 text-[14px] max-[400px]:text-[10px] text-white">
-                            <span className="">Xem toàn bộ</span>
+                            <Link to={"/quoc-gia/han-quoc"}>
+                                <span className="">Xem toàn bộ</span>
+                            </Link>
                             <p className="text-2xl"><Icon name="small right" /></p>
                         </div>
                     </div>
@@ -33,7 +36,9 @@ function SlidePhim() {
                             Phim Trung Quốc Mới
                         </div>
                         <div className="flex items-center gap-2 text-[14px] text-white max-[400px]:text-[10px]">
-                            <span className="">Xem toàn bộ</span>
+                            <Link to={"/quoc-gia/trung-quoc"}>
+                                <span className="">Xem toàn bộ</span>
+                            </Link>
                             <p className="text-2xl"><Icon name="small right" /></p>
                         </div>
                     </div>
@@ -51,7 +56,9 @@ function SlidePhim() {
                             Phim US-UK Mới
                         </div>
                         <div className="flex items-center gap-2 text-[14px] text-white max-[400px]:text-[10px]">
-                            <span className="">Xem toàn bộ</span>
+                            <Link to={"/quoc-gia/au-my"}>
+                                <span className="">Xem toàn bộ</span>
+                            </Link>
                             <p className="text-2xl"><Icon name="small right" /></p>
                         </div>
                     </div>

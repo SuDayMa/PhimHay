@@ -43,7 +43,7 @@ function AppRouter() {
         <Route path='/User/*' element={<Userlayer />} >
           <Route path='Favorite' element={<Favorite />} />
           <Route path='Playlist' element={<Playlist />} />
-          <Route path='Profile' element={<Profile />} />
+          <Route path='Profile/:id' element={<Profile />} />
         </Route>
       </Routes>
       <Footer/>

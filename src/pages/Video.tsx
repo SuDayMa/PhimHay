@@ -15,14 +15,17 @@ import ReactPlayer from 'react-player'
 import { useState, useEffect } from "react";
 import { PhimAPI } from "../Services/API";
 import type { Phim } from "../types/Phimtype";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Loading from './Loading';
 import Icon from '../Component/Icon';
 export default function Video(){
     const {slug ,server , episodeSlug} = useParams();
+    const navigate = useNavigate();
     const [phim, setPhim] = useState<Phim | null>(null);
     const [loading, setLoading] = useState(true);
     const [selectedServer, setSelectedServer] = useState<string | null>(server || null)
+    const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
+    const [autoPlayNext, setAutoPlayNext] = useState(true); 
     useEffect(() => {
         const loadingPhim = async () => {
             try {
@@ -47,9 +50,42 @@ export default function Video(){
             }
         };
         loadingPhim();
-    }, [slug,server,window.scrollTo({ top: 0, behavior: "smooth" })]);
+    }, [slug,server,window.scrollTo({ top: 0, behavior: "smooth" }),episodeSlug]);
+
+
+    useEffect(() => {
+    if (phim && selectedServer && episodeSlug) {
+      const serverData = phim.episodes.find((item) => item.server_name === selectedServer)?.server_data;
+      const episodeIndex = serverData?.findIndex((ep) => ep.slug === episodeSlug) || 0;
+      setCurrentEpisodeIndex(episodeIndex >= 0 ? episodeIndex : 0);
+    }
+  }, [phim, selectedServer, episodeSlug]);
+
+  const handleNextEpisode = () => {
+    const serverData = phim?.episodes.find((item) => item.server_name === selectedServer)?.server_data;
+    if (serverData && currentEpisodeIndex < serverData.length - 1) {
+      const nextEpisode = serverData[currentEpisodeIndex + 1];
+      setCurrentEpisodeIndex(currentEpisodeIndex + 1);
+      navigate(`/Player/${slug}/${encodeURIComponent(selectedServer || '')}/${nextEpisode.slug}`);
+    } else {
+      setCurrentEpisodeIndex(0);
+      navigate(`/Player/${slug}/${encodeURIComponent(selectedServer || '')}/${serverData?.[0].slug || ''}`);
+    }
+  };
     
     const tapphim = phim?.episodes.find((item) => item.server_name === selectedServer)?.server_data.find((server) => server.slug === episodeSlug)
+
+
+    const handleVideoEnded = () => {
+    if (autoPlayNext) {
+      handleNextEpisode();
+    }
+  };
+
+    
+    const toggleAutoPlayNext = () => {
+    setAutoPlayNext(!autoPlayNext);
+  };
     return(
         <>
             {loading ? (
@@ -59,7 +95,8 @@ export default function Video(){
                     <div>
                         <div className=' mx-[330px] max-[2000px]:mx-[128px] max-[1100px]:mx-0 px-[50px] max-[587px]:px-[20px] items-center pt-[50px]'>
                              
-                            <MediaController
+                            <div className=" relative overflow-hidden rounded-t-2xl shadow-lg shadow-black">
+                                <MediaController
                                 style={{
                                     width: "100%",
                                     height: "100%",
@@ -76,6 +113,7 @@ export default function Video(){
                                     height: "100%",
                                     }}
                                     className=" outline-0"
+                                    onEnded={handleVideoEnded}
                                 ></ReactPlayer>
                                 <MediaControlBar className="bg-[#1a1c2a41] text-white W-[100%]">
                                     <MediaPlayButton className="px-3 max-[400px]:px-1"/>
@@ -89,21 +127,30 @@ export default function Video(){
                                     <MediaFullscreenButton className="px-5 max-[400px]:text-[5px] max-[400px]:px-1"/>
                                 </MediaControlBar>
                                 </MediaController>
+                            </div>
 
 
-                            <div className='bg-black text-white -translate-y-2 '>
+                            <div className='bg-black text-white -translate-y-2 rounded-b-2xl shadow-lg shadow-black'>
                                 <div className='px-[16px] flex gap-3 py-[16px] max-[400px]:text-[12px] max-[350px]:text-[10px] '>
-                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800'>
+                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800 rounded-md cursor-pointer'>
                                         <i><Icon name='heart'/></i>
                                         <span>Yêu thích</span>
                                     </div>
-                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800'>
+                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800 rounded-md cursor-pointer'>
                                         <i><Icon name='+'/></i>
                                         <span>Thêm vào</span>
                                     </div>
-                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800'>
+                                    <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800 rounded-md cursor-pointer'>
                                         <i><Icon name='telegram'/></i>
                                         <span>Chia sẻ</span>
+                                    </div>
+                                    <div 
+                                    onClick={toggleAutoPlayNext}
+                                     className={`px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800 rounded-md max-[991px]:hidden cursor-pointer`}>
+                                        <span>Chuyển tiếp</span>
+                                        <div className={`border-1 text-[9px] border-amber-200 px-[8px] flex justify-center items-center rounded-md ${autoPlayNext ? 'border-amber-200': 'border-gray-50'}`}>
+                                            <span>{autoPlayNext ? 'ON' : 'OFF'}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

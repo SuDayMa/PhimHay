@@ -250,9 +250,8 @@ export default function TheLoaiDetail() {
                 </div>
               <h3 className="text-white text-lg font-semibold line-clamp-1">{item.name}</h3>
               <div className='transition-all duration-300'>
-                <p className="text-gray-400 text-sm">{item.chieurap}</p>
                 <p className="text-gray-400 text-sm">{item.time}</p>
-                <p className="text-gray-400 text-sm">{item.episode_current}</p>
+                <p className="text-gray-400 text-sm line-clamp-1">{item.episode_current}</p>
                 <p className='text-gray-400 text-sm'>{item.quality}</p>
                 <p className="text-gray-400 text-sm line-clamp-1">{item.lang}</p>
                 <p className="text-gray-400 text-sm">{item.year}</p>

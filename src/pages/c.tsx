@@ -237,7 +237,7 @@ export default function TheLoaiDetail() {
         ) : (
           <>
           <div className='mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px]'>{filter}</div>
-            <div className='grid grid-cols-8 max-[1360px]:grid-cols-5 max-[780px]:grid-cols-4 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px]'>
+            <div className='grid grid-cols-8 max-[1360px]:grid-cols-7 max-[1201px]:grid-cols-6 max-[1060px]:grid-cols-5 max-[790px]:grid-cols-4 max-[650px]:grid-cols-3 max-[450px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto'>
             {TheloaiMovie && TheloaiMovie.data.items.map((item, index) => {
               return(
                 <Link to={`/phim/${item.slug}`}>
@@ -250,7 +250,6 @@ export default function TheLoaiDetail() {
                 </div>
               <h3 className="text-white text-lg font-semibold line-clamp-1">{item.name}</h3>
               <div className='transition-all duration-300'>
-                <p className="text-gray-400 text-sm">{item.chieurap}</p>
                 <p className="text-gray-400 text-sm">{item.time}</p>
                 <p className="text-gray-400 text-sm line-clamp-1">{item.episode_current}</p>
                 <p className='text-gray-400 text-sm'>{item.quality}</p>

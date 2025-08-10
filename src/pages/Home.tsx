@@ -174,10 +174,13 @@ function Home(){
                 </div>
                 <div className="min-[641px]:px-[50px]">
                     <div className="flex mb-[19px] text-white text-[28px] max-[400px]:text-[23px] font-bold gap-5 items-center">
-                        <h2>Phim Lịch Sử</h2>
-                        <div className=" rounded-full border-1 h-[30px] border-white flex items-center justify-center">
-                            <a href="#"><Icon name="small right" /></a>
-                        </div>
+                        
+                            <h2>Phim Lịch Sử</h2>
+                            <Link to={"/the-loai/lich-su"}>
+                            <div className=" rounded-full border-1 h-[30px] border-white flex items-center justify-center">
+                                <a><Icon name="small right" /></a>
+                            </div>
+                            </Link>
                     </div>
                     <div className="w-full h-full mb-[50px]">
                         <SliderPhim />

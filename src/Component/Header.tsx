@@ -137,7 +137,7 @@ function Header () {
     const [searchOpen, setSearchOpen] = useState(false)
     
     const HeaderNabar = Navbar.map((item) => (
-        <div key={item.id} className='px-[10px] flex items-center'>
+        <div key={item.id} className='px-[10px] flex items-center relative'>
             <div onClick={() => item.sub && toggleSubMenu(item.id)} className='flex gap-2 cursor-pointer'>
                 <a className='flex gap-2'>
                 {item.link ? (
@@ -153,11 +153,11 @@ function Header () {
                 </a>
             </div>
             {item.sub && item.sub.length > 0  && (
-               <div className={`absolute text-white max-[1360px]:w-[500px] max-[700px]:w-[200px] max-[700px]:text-center min-[1360px]:top-20 max-[500px]:-translate-x-10 max-[500px]:top-55 top-60 bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-80 rounded-md shadow-lg group-hover:block ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
+               <div className={`absolute text-white left-0 top-[110%] z-10 w-[500px] max-[700px]:w-[170px] max-[700px]:text-center bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-90 rounded-md shadow-lg ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
                     {item.id === 2 && (
                         <ul className={'py-2 grid grid-cols-4 max-[700px]:grid-cols-1'} >
                         {item.sub.map((subitem) => (
-                            <li key={subitem.link} className="px-4 py-1 line-clamp-1 hover:bg-gray-700 hover:text-amber-400 w-[150px]  ">
+                            <li key={subitem.link} className="px-4 py-1 line-clamp-1 hover:bg-gray-700 hover:text-amber-400 w-[120px]  ">
                                 <a className='text-[16px]' >
                                     <Link to={subitem.link}>
                                     {subitem.title}
@@ -282,7 +282,7 @@ if(theloai)
     
 
                             </div>
-                            <div>
+                            <div >
                                 <Login/>
                             </div>
 
@@ -292,15 +292,8 @@ if(theloai)
                 <div>
                     <div>
                         {/* isnavopen */}
-                        <div className={`absolute p-[24px] h-[300px] flex flex-col max-[1440px]:w-[350px] max-[400px]:w-[280px] max-[1440px]:top-18 z-100 bg-[#3A4782] rounded-lg duration-500 ${isNavOpen ? 'translate-x-2' : 'hidden '}`}>
-                            <div className='mb-[15px] '>
-                                    <button className='px-[22px] py-[10px] w-full bg-white rounded-4xl'>
-                                        <div className='flex gap-2 justify-center items-center '>
-                                            <p><Icon name='user'/></p>
-                                            <span className='text-[14px]'>thành viên</span>
-                                        </div>
-                                    </button>
-                            </div>
+                        <div className={`absolute p-[24px] h-auto flex flex-col max-[1440px]:w-[350px] max-[400px]:w-[280px] max-[1440px]:top-18 z-100 bg-[#3A4782] rounded-lg duration-500 min-[1360px]:hidden ${isNavOpen ? 'translate-x-2' : 'hidden '}`}>
+                            <div><Login/></div>
                             <div className='px-[9.5px] py-[8px] flex gap-3 bg-[#485386] rounded-lg mb-[15px]'>
                                 <div className='flex justify-center items-center text-3xl text-amber-200'>
                                     <Icon name='devices'/>
@@ -343,7 +336,7 @@ if(theloai)
                                 </a>
                             </div>
                         </div>
-                        {/* isOpenLogin */}
+                        
                         
                     </div>
                 </div>

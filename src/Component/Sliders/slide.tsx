@@ -1,16 +1,16 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Controller} from 'swiper/modules';
-import type { QuocGiaResponse } from '../../types/Phimtype';
+import type { PhimNewUpate  } from '../../types/Phimtype';
 import { useEffect, useState, useRef } from 'react';
-import { slidePhimQuocGia  } from '../../Services/API';
+import { PhimNewUpdateAPI  } from '../../Services/API';
 import Icon from '../Icon';
 import { Link } from 'react-router-dom';
 
 
 
 function slide (){
-    const [phimmoicapnhat, setPhimmoicapnhat] = useState<QuocGiaResponse| null>(null);
+    const [phimmoicapnhat, setPhimmoicapnhat] = useState<PhimNewUpate| null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [selectedServer] = useState<string | null>(null)
     const swiperRef = useRef<any>(null);
@@ -22,7 +22,7 @@ function slide (){
     useEffect(() => {
         const fetchPhimmoicapnhat = async () => {
             try{    
-                const phimData = await slidePhimQuocGia('han-quoc');
+                const phimData = await PhimNewUpdateAPI();
                 if (phimData) {
                     setPhimmoicapnhat(phimData);
                     console.log(phimData);
@@ -34,7 +34,7 @@ function slide (){
         fetchPhimmoicapnhat();
     }, []);
 
-    const currentMovie = phimmoicapnhat?.data.items[activeIndex] || phimmoicapnhat?.data.items[0];
+    const currentMovie = phimmoicapnhat?.items[activeIndex] || phimmoicapnhat?.items[0];
     const [currentImage, setCurrentImage] = useState(0);
     const ImageClick = (index: number) => {
         setActiveIndex(index);
@@ -43,7 +43,7 @@ function slide (){
             swiperRef.current.slideToLoop(index)
         }
     } 
-    const Tylephim = currentMovie?.tmdb.type  === 'movie' ? 'full' : 'tap-01'
+    const Tylephim = currentMovie?.tmdb.type === 'movie' ? 'full' :  'tap-01' 
     console.log('slidecu',Tylephim)
     return(
     
@@ -62,12 +62,12 @@ function slide (){
                                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                                 
         >
-        {phimmoicapnhat?.data.items.slice(0,6).map((item, index) => (
+        {phimmoicapnhat?.items.slice(0,6).map((item, index) => (
             <SwiperSlide key={index}>
                 <Link to={`/phim/${currentMovie?.slug}`}>
                 <div className='h-[850px] max-[1360px]:h-[600px]'>
 
-                <img src={`${phimmoicapnhat.data.APP_DOMAIN_CDN_IMAGE}/${item.thumb_url}`} alt={`Phim nổi bật ${index + 1}`} className='w-full h-full bg-cover bg-center bg-no-repeat object-cover opacity-60 mask-b-from-10% mask-t-from-90%' />
+                <img src={`${item.thumb_url}`} alt={`Phim nổi bật ${index + 1}`} className='w-full h-full bg-cover bg-center bg-no-repeat object-cover opacity-60 mask-b-from-10% mask-t-from-90%' />
                 <div></div>
                 </div>
                 </Link>
@@ -141,14 +141,14 @@ function slide (){
                         )}
                     </div>
                     <div className='absolute flex gap-3 right-0 pr-[50px] max-[400px]:pr-[30px] max-[350px]:pr-[10px] translate-y-50 max-[1441px]:translate-y-30 max-[640px]:translate-y-10 max-[640px]:pr-0 max-[640px]:relative max-[640px]:justify-center '>
-                        {phimmoicapnhat?.data.items.slice(0,6).map((item , index) => (
+                        {phimmoicapnhat?.items.slice(0,6).map((item , index) => (
                                 <div
                                 key={index}
                                 onClick={() => ImageClick(index)}
                                 aria-label={`${index + 1}`}
                                 
                                 >
-                                <img src={`${phimmoicapnhat.data.APP_DOMAIN_CDN_IMAGE}/${item.thumb_url}`} alt="" className={`w-20 max-[1100px]:w-10 max-[1100px]:h-10 h-15 object-cover rounded-lg max-[1100px]:rounded-full cursor-pointer ${ currentImage === index ? 'border-2 border-white' : ''}`}/>
+                                <img src={`${item.thumb_url}`} alt="" className={`w-20 max-[1100px]:w-10 max-[1100px]:h-10 h-15 object-cover rounded-lg max-[1100px]:rounded-full cursor-pointer ${ currentImage === index ? 'border-2 border-white' : ''}`}/>
 
                                 </div>
                             ))}
