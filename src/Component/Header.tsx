@@ -81,9 +81,6 @@ function Header () {
         fetchData();
     }, []);
 
-    // tim kiem
-    console.log("key",keyword)
-
     useEffect(() => {
     const fetchSearchData = async () => {
       if (!keyword.trim()) {
@@ -93,7 +90,6 @@ function Header () {
         setLoading(true);
         const searchdata = await ListSearchAPI(keyword);
         setListData(searchdata);
-        console.log('search', searchdata);
       } catch (error) {
         console.log('Lỗi search', error);
         setListData(null);
@@ -272,7 +268,7 @@ if(theloai)
                             </div>
                             <div className='grow-1 invisible'></div>
                             <div className='text-white flex text-right pr-[20px] items-center border-r-1 border-white justify-end'>
-                                    <a onClick={() => setIsOpenMenu(!isOpenMenu)} className='flex text-[30px] px-[20px] cursor-pointer'>
+                                    <a  onClick={() => setIsOpenMenu(!isOpenMenu)} className='flex text-[30px] px-[20px] cursor-pointer'>
                                         <Icon name='devices'/>
                                         <div className='flex flex-col '>
                                             <span className='text-[12px]'>Tải ứng dụng</span>

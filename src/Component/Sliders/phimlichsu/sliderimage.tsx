@@ -19,7 +19,7 @@ function SliderImage() {
                 const theloailichsuData = await slidePhimTheLoai('/lich-su')
                 if(theloailichsuData){
                     setTheloailichsu(theloailichsuData);
-                    console.log(theloailichsuData)
+                    
                 }
             } catch (error) {
                 console.error("Error fetching Theloai data:", error);

@@ -76,7 +76,6 @@ export const PhimAPI = async (slug: string) => {
 export const SlidePhimboAPI = async (type_list: string) => {
     try{
         const reponse = await baseURL.get(`danh-sach/${type_list}`);
-        console.log('Danh sach phim',reponse)
         return reponse.data
     }catch (error) {
         console.error("Error fetching Phimbo data:", error);

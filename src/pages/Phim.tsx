@@ -20,7 +20,6 @@ export default function Phim() {
                 const PhimData = await PhimAPI(slug);
                 if (PhimData) {
                     setPhim(PhimData);
-                    console.log("Phim tap",PhimData);
                     if (PhimData.episodes && PhimData.episodes.length > 0) {
                         setSelectedServer(PhimData.episodes[0].server_name);
                     }
@@ -112,7 +111,6 @@ export default function Phim() {
                                     </div>
                                     <div>
                                         {phim?.movie.actor.map((item, index) => {
-                                            console.log(item);
                                             return(
                                             <div key={index} className="text-white bg-amber-300" >
                                                 <span>{item.name}</span>
@@ -218,7 +216,6 @@ export default function Phim() {
                                     </div>
                                     <div>
                                         {phim?.movie.actor.map((item, index) => {
-                                            console.log(item);
                                             return(
                                             <div key={index} className="text-white bg-amber-300" >
                                                 <span>{item.name}</span>

@@ -19,7 +19,6 @@ export default function SlideImage() {
                 const phimUsUk = await slidePhimQuocGia('/au-my');
                 if (phimUsUk) {
                     setPhimUsUk(phimUsUk);
-                    console.log(phimUsUk);
                 }
             } catch (error) {
                 console.error("Error fetching Quoc gia data:", error);

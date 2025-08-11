@@ -21,7 +21,7 @@ export default function HeaderUser () {
             id: 5, name: 'Tài khoản', icon: 'user', path:`/user/profile/${user.id}`
         }
     ]
-    console.log("ne",location.pathname)
+
 
     const handlelogout = () => {
         localStorage.removeItem('user')

@@ -34,7 +34,6 @@ export default function Video(){
                 const PhimData = await PhimAPI(slug);
                 if (PhimData) {
                     setPhim(PhimData);
-                    console.log('phim data',PhimData);
                     if (server && PhimData.episodes.find((item : any) => item.server_name === server)) {
                         setSelectedServer(server);
                     }else  if (PhimData.episodes && PhimData.episodes.length > 0) {

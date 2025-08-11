@@ -18,7 +18,6 @@ export default function slidetop10phimbo (){
                     const phimboData = await SlidePhimboAPI('/phim-bo')
                     if(phimboData){
                         setDanhSach(phimboData);
-                        console.log(phimboData)
                     }
                 } catch (error) {
                     console.error("Error fetching Theloai data:", error);

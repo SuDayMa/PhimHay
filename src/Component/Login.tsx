@@ -69,7 +69,6 @@ export default function Login () {
 
    
 
-   console.log('profile', profile)
 
    useEffect(() => {
     if (profile) {

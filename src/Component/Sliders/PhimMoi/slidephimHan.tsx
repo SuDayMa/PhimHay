@@ -17,7 +17,6 @@ export default function SlideImage() {
                 const phimhan = await slidePhimQuocGia('/han-quoc');
                 if (phimhan) {
                     setPhimHan(phimhan);
-                    console.log(phimhan);
                 }
                 
             } catch (error) {

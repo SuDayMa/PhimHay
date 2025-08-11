@@ -57,7 +57,6 @@ export default function TheLoaiDetail() {
                 )
                 if(theloaiMovie){
                     setTheloaiMovie(theloaiMovie);
-                    console.log(theloaiMovie)
                 }
             } catch (error) {
                 console.error("Error fetching Theloai data:", error);

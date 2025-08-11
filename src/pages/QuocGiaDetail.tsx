@@ -52,10 +52,9 @@ export default function QuocGiaDetail() {
                   params.category, 
                   params.year, 
                   params.limit );
-                 console.log(type_list);
                  if (movie){
                      setMovie(movie);
-                     console.log(movie);
+                     
                  }
              } catch (error) {
                     console.error("Error fetching Quoc gia data:", error);

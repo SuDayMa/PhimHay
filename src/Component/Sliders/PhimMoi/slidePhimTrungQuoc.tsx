@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination} from 'swiper/modules';
 import type { QuocGiaResponse} from '../../../types/Phimtype';
-import { slidePhimQuocGia, PhimAPI } from '../../../Services/API';
+import { slidePhimQuocGia } from '../../../Services/API';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../../Icon';
@@ -16,12 +16,9 @@ export default function SlideImage() {
         const fetchPhim = async () => {
             try {
                 
-                const XemPhim = await PhimAPI('')
                 const Phimtrung = await slidePhimQuocGia('/trung-quoc');
                 if (Phimtrung) {
                     setPhimTrung(Phimtrung);
-                    console.log('Phim trung',Phimtrung);
-                    console.log('Phim trung Tap phim', XemPhim)
                 }
             } catch (error) {
                 console.error("Error fetching Quoc gia data:", error);
@@ -88,7 +85,7 @@ export default function SlideImage() {
                                             <div className="flex text-[11px] max-[500px]:hidden text-gray-300 gap-2 line-clamp-1">
                                                     {item.category.map((item) => (
                                                         <Link to={`/the-loai/${item.slug}`}>
-                                                        <div className=' line-clamp-1'>{item.name}</div>
+                                                            <div className=' line-clamp-1'>{item.name}</div>
                                                         </Link>
                                                     ))}
                                             </div>

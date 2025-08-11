@@ -25,7 +25,6 @@ function slide (){
                 const phimData = await PhimNewUpdateAPI();
                 if (phimData) {
                     setPhimmoicapnhat(phimData);
-                    console.log(phimData);
                 }
             }catch (error) {
                 console.error("Error fetching Phimmoicapnhat data:", error);
@@ -44,7 +43,6 @@ function slide (){
         }
     } 
     const Tylephim = currentMovie?.tmdb.type === 'movie' ? 'full' :  'tap-01' 
-    console.log('slidecu',Tylephim)
     return(
     
 

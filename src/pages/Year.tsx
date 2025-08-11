@@ -58,7 +58,6 @@ export default function Year () {
                     params.limit
                 )
                 setYearMovie(yearphim)
-                console.log('nam',yearphim)
             }catch(error){
                 console.log("loading loi",error)
             }finally{
