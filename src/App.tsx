@@ -24,7 +24,7 @@ import Profile from './pages/User/Profile'
 
 function AppRouter() {
   return(
-    <div className='bg-[#191B24]'>
+    <div className='bg-[#191B24] '>
       <Header/>
       <ScrollToTop/>
       <Routes>
@@ -46,7 +46,7 @@ function AppRouter() {
           <Route path='Profile/:id' element={<Profile />} />
         </Route>
       </Routes>
-      <Footer/>
+        <Footer/>  
     </div>
   ) 
 }

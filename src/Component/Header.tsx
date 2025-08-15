@@ -267,7 +267,7 @@ if(theloai)
                         </div>
                         
                         <div className='flex gap-2 grow-1 max-[1360px]:hidden'>
-                            <div className='text-white items-center flex ' ref={submenuRef} >
+                            <div ref={submenuRef} className='text-white items-center flex ' >
                                 <div className=' flex min-[1450px]:gap-3 gap-1 ' >
                                     {HeaderNabar}   
                                 </div>
