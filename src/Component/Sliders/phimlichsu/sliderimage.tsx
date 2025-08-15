@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination} from 'swiper/modules';
 import { useState, useEffect } from 'react';
-import type { TheloaiResponse, Phim } from '../../../types/Phimtype';
+import type { TheloaiResponse } from '../../../types/Phimtype';
 import { slidePhimTheLoai} from '../../../Services/API';
 import { Link } from 'react-router-dom'
 import Icon from '../../Icon';
@@ -9,7 +9,6 @@ import "./stylephimlichsu.css"
 
 function SliderImage() {
     const [Theloailichsu, setTheloailichsu] = useState<TheloaiResponse | null>(null);
-    const [phim] = useState<Phim| null>(null);
     const [selectedServer] = useState<string | null>(null)
     useEffect(() => {
         const LoadingTheLoaiLichSuData = async () => {
@@ -28,8 +27,8 @@ function SliderImage() {
         LoadingTheLoaiLichSuData();
     }, []);
 
-        const Moviephim =  Theloailichsu?.data.items[0]
-     const Typephim =  Moviephim?.tmdb.type === "movie" ? "full" : "tap-01"
+        
+     
     return (
         <Swiper
             slidesPerView={8}
@@ -38,7 +37,7 @@ function SliderImage() {
             className="mySwiper"
             breakpoints={{
                 1024:{ slidesPerView: 5, spaceBetween: 8 },
-                1440:{ slidesPerView: 7, spaceBetween: 12 },
+                1440:{ slidesPerView: 7, spaceBetween: 20 },
                 768:{ slidesPerView: 3, spaceBetween: 20 },
                 1658:{ slidesPerView: 8, spaceBetween: 8 },
                 425:{slidesPerView: 2, spaceBetween: 20},
@@ -50,10 +49,10 @@ function SliderImage() {
                 {Theloailichsu?.data.items.map((item, index) => (
                 <SwiperSlide key={index}>
                         <div className="flip-card2 ">
-                            <div className="flip-card-inner2 hover:border-5 hover:border-amber-200 duration-200">
+                            <div className="flip-card-inner2 duration-200 hover:border-5 hover:border-amber-200">
                                 {/* Mặt trước */}
                                 <div  className="flip-card-front2 ">
-                                    <img src={`${Theloailichsu.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="rounded-lg h-[300px] "/>
+                                    <img src={`${Theloailichsu.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="rounded-lg h-[300px] w-full"/>
                                 </div>
                                 {/* Mặt sau */}
                                 <div className="flip-card-back2 bg-[#2F3346]">
@@ -64,7 +63,7 @@ function SliderImage() {
                                         <p className="text-gray-300 text-sm mb-2 line-clamp-1">{item.origin_name}</p>
                                         <div className="">
                                             <Link 
-                                                to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${phim?.movie.category[0].name}`)}/${Typephim}`}
+                                                to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${item?.lang}`)}/${item.tmdb.type === "tv" ? "tap-01" : "full" }`}
                                                 className="bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] transition-colors text-black py-1 px-2 w-[50%] max-[500px]:w-[70%] flex rounded-lg justify-center items-center "
                                             >
                                             <p className="text-[14px] max-[500px]:text-[10px] max-[400px]:text-[8px]"><Icon name='right'/></p>

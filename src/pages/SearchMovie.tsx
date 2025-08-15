@@ -92,6 +92,7 @@ export default function SearchMovie () {
       return newParams;
     });
   };
+  
     const filter = (
         <div>
             <h2 className='text-2xl font-bold mb-4 text-white'>Tìm Kiếm: {keyword} </h2>
@@ -235,14 +236,14 @@ export default function SearchMovie () {
         
       ) : searchs?.data.items && searchs.data.items.length > 0 ? (
         <div>
-          <div className="grid grid-cols-8 max-[1360px]:grid-cols-7 max-[1201px]:grid-cols-6 max-[1060px]:grid-cols-5 max-[790px]:grid-cols-4 max-[650px]:grid-cols-3 max-[450px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto">
+          <div className="grid grid-cols-8 max-[1600px]:grid-cols-7 max-[1360px]:grid-cols-6 max-[1190px]:grid-cols-5 max-[950px]:grid-cols-4 max-[730px]:grid-cols-3 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto">
           {searchs.data.items.map((item, index) => (
             <Link to={`/phim/${item.slug}`} key={index}>
               <div className="bg-[#676b6d44] p-4 rounded-lg mb-4 group-hover:w-[100px] group-hover:h-[500px] transition-all duration-300 hover:bg-gray-600">
                 <div className="flex">
                   <img
                     src={`${searchs.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`}
-                    className="w-full max-[1441px]:h-[150px] h-[250px] mb-2"
+                    className="w-full h-[200px] mb-2 rounded-lg"
                     alt={item.name}
                   />
                 </div>
@@ -252,7 +253,6 @@ export default function SearchMovie () {
                   <p className="text-gray-400 text-sm line-clamp-1">{item.episode_current}</p>
                   <p className="text-gray-400 text-sm">{item.quality}</p>
                   <p className="text-gray-400 text-sm line-clamp-1">{item.lang}</p>
-                  <p className="text-gray-400 text-sm">{item.year}</p>
                 </div>
               </div>
             </Link>
@@ -261,7 +261,7 @@ export default function SearchMovie () {
         </div>
         <div className='my-16 flex items-center justify-center'>
                 <div className='flex text-white gap-3'>
-                    <button className='bg-[#676b6d44] rounded-full p-[10px] w-[50px]'
+                    <button className='bg-[#676b6d44] rounded-full p-[10px] w-[50px] cursor-pointer'
                     onClick={() => nextpages(parseInt(pages.get("page") || "1") - 1)}
                     >
                         <i className='text-[24px]'><Icon name='left'/></i>
@@ -276,7 +276,7 @@ export default function SearchMovie () {
                         <div className='w-[40%] flex items-center justify-center'>/ {searchs?.data.params.pagination.totalPages}</div>
                     </div>
                     
-                    <button className='bg-[#676b6d44] rounded-full p-[10px] w-[50px]'
+                    <button className='bg-[#676b6d44] rounded-full p-[10px] w-[50px] cursor-pointer'
                     onClick={() => nextpages(parseInt(pages.get("page") || "1") + 1)}
                     >
                         <i className='text-[24px]'><Icon name='big right'/></i>

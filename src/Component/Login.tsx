@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect , useRef } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import Icon from './Icon';
@@ -165,7 +165,21 @@ const handleLogin = () => {
 }
 
 
-//
+const subuserRef = useRef<HTMLDivElement>(null);
+
+ useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (subuserRef.current && !subuserRef.current.contains(event.target as Node)) {
+                setIsOpenProfile(false);
+            }
+            
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
 return(
     <div>
@@ -175,7 +189,7 @@ return(
         {UserInfore && UserInfore.email ? (
             <>
             <div onClick={() => setIsOpenProfile(!isOpenprofile)} className='flex justify-center items-center w-[60px] max-[1360px]:hidden'>
-                <img src={UserInfore.picture} alt="avatar" className=' rounded-full border-4 border-white' />
+                <img  src={UserInfore.picture} alt="avatar" className=' rounded-full border-4 border-white' />
             </div>
             <div className='text-white p-[10px] min-[1360px]:hidden'>
                 <div className='flex justify-between mb-[10px]'>
@@ -184,7 +198,7 @@ return(
                         <img src={UserInfore.picture} alt="avatar" className=' rounded-full border-4 border-white' />
                     </div>
                 </div>
-                <div className='flex flex-col'>
+                <div className='flex flex-col ' onClick={() => setIsOpenProfile(!isOpenprofile)}>
                         <Link to={'/user/favorite'}>
                         <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-white cursor-pointer rounded-md mb-[5px]'>
                             <i className='flex justify-center items-center'><Icon name='heart'/></i>
@@ -217,15 +231,15 @@ return(
 
         ): (
             <div className='flex justify-center items-center'>
-            <div>
-            <a onClick={() => setIsOpenLogin(!isOpenLogin)}>
+            <div ref={subuserRef}>
+            <div onClick={() => setIsOpenLogin(!isOpenLogin)}>
                 <button className='px-[22px] py-[10px] bg-white rounded-4xl cursor-pointer max-[1360px]:hidden'>
                     <div className='flex gap-2'>
                         <p className='text-[14px] max-[1441px]:flex max-[1441px]:items-center'><Icon name='user'/></p>
-                        <span className='text-[14px] max-[1441px]:flex max-[1441px]:items-center'>thành viên</span>
+                        <span className='text-[14px] max-[1441px]:flex max-[1441px]:items-center font-semibold'>Thành Viên</span>
                     </div>
                 </button>
-            </a>
+            </div>
         </div>
         <div className='w-full min-[1360px]:hidden'>
             <a onClick={() => setIsOpenLoginMobile(!isOpenLoginMobile)}>
@@ -233,7 +247,7 @@ return(
                     <button className='px-[22px] py-[10px] w-full bg-white rounded-4xl'>
                         <div className='flex gap-2 justify-center items-center '>
                             <p><Icon name='user'/></p>
-                            <span className='text-[14px]'>thành viên</span>
+                            <span className='text-[14px] font-semibold'>Thành Viên</span>
                         </div>
                     </button>
                 </div>
@@ -279,7 +293,7 @@ return(
                         <div>
                             <label className="block text-gray-300 text-[14px] font-medium mb-[4px]">Email</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[18px] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="email" 
                             placeholder="Nhập email của bạn" 
                             name="email" 
@@ -291,7 +305,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Mật khẩu</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[18px] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập mật khẩu" 
                             name="password" 
@@ -368,7 +382,7 @@ return(
                         <div>
                             <label className="block text-gray-300 text-[14px] font-medium mb-[4px]">Tên</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="name" 
                             placeholder="Tên hiển thị" 
                             name="name" 
@@ -380,7 +394,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Email</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="email" 
                             placeholder="Email" 
                             name="email" 
@@ -392,7 +406,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Mật khẩu</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập mật khẩu" 
                             name="password" 
@@ -404,7 +418,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Nhập lại Mật khẩu</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập lại mật khẩu" 
                             name="password" 
@@ -432,7 +446,7 @@ return(
             
 
             {/* isopenprofile */}
-            <div className={`absolute py-[8px] h-[262px] right-0 flex flex-col max-[1441px]:w-[20%] w-[10%] max-[1440px]:top-18 bg-[#2B3141] text-white top-18 z-100  rounded-3xl duration-500 ${isOpenprofile ? '-translate-x-10' : 'hidden '}`}>
+            <div onClick={() => setIsOpenProfile(!isOpenprofile)} className={`absolute py-[8px] h-[262px] right-0 flex flex-col max-[1441px]:w-[20%] w-[10%] max-[1440px]:top-18 bg-[#2B3141] text-white top-18 z-100  rounded-3xl duration-500 ${isOpenprofile ? '-translate-x-10' : 'hidden '}`} >
                 <div className='py-[6px] px-[16px] flex text-[15px] border-b-1 border-gray-600 '>
                     <span>{UserInfore.name}</span>
                 </div>
@@ -557,7 +571,7 @@ return(
 
             {/* Danng ky */}
             <div className={`fixed z-50 w-[900px] max-[1187px]:w-[700px] translate-x-60 max-[980px]:translate-x-40 max-[980px]:w-[600px] max-[800px]:w-[500px] max-[698px]:translate-x-20 max-[698px]:w-[400px] max-[557px]:translate-x-0 max-[430px]:w-[350px] max-[383px]:w-[280px]  transition-all duration-300 ${IsopenregisterMobile ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <div className={`flex w-[90%] transition-transform duration-500 ${IsopenregisterMobile ? '-translate-y-20 max-[500px]:-translate-y-50' : 'translate-y-10'}`}>
+                <div className={`flex w-[90%] transition-transform duration-500 ${IsopenregisterMobile ? 'translate-y-20  max-[600px]:-translate-y-20 max-[350px]:-translate-y-50' : 'translate-y-10 max-[1360px]:translate-y-110'}`}>
                     {/* Ảnh bên trái */}
                     <div className="hidden md:block w-2/5 relative overflow-hidden rounded-l-2xl">
                     <img 

@@ -26,6 +26,7 @@ export default function Video(){
     const [selectedServer, setSelectedServer] = useState<string | null>(server || null)
     const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
     const [autoPlayNext, setAutoPlayNext] = useState(true); 
+    const [loadingPhimData, setLoadingPhimData] = useState(true);
     useEffect(() => {
         const loadingPhim = async () => {
             try {
@@ -46,6 +47,7 @@ export default function Video(){
                 console.error("Error fetching Phim data:", error);
             } finally {
                 setLoading(false);
+                
             }
         };
         loadingPhim();
@@ -55,7 +57,7 @@ export default function Video(){
     useEffect(() => {
     if (phim && selectedServer && episodeSlug) {
       const serverData = phim.episodes.find((item) => item.server_name === selectedServer)?.server_data;
-      const episodeIndex = serverData?.findIndex((ep) => ep.slug === episodeSlug) || 0;
+      const episodeIndex = serverData?.findIndex((ep) => ep.slug === episodeSlug) || 0; 
       setCurrentEpisodeIndex(episodeIndex >= 0 ? episodeIndex : 0);
     }
   }, [phim, selectedServer, episodeSlug]);
@@ -74,6 +76,12 @@ export default function Video(){
     
     const tapphim = phim?.episodes.find((item) => item.server_name === selectedServer)?.server_data.find((server) => server.slug === episodeSlug)
 
+    useEffect(() => {
+        setLoadingPhimData(true);
+        if (tapphim) {
+            setLoadingPhimData(false);
+        }
+    }, [tapphim]);
 
     const handleVideoEnded = () => {
     if (autoPlayNext) {
@@ -94,8 +102,15 @@ export default function Video(){
                     <div>
                         <div className=' mx-[330px] max-[2000px]:mx-[128px] max-[1100px]:mx-0 px-[50px] max-[587px]:px-[20px] items-center pt-[50px]'>
                              
-                            <div className=" relative overflow-hidden rounded-t-2xl shadow-lg shadow-black">
-                                <MediaController
+                            <div className="relative overflow-hidden rounded-t-2xl shadow-lg  shadow-black">
+                                {loadingPhimData ? (
+                                    
+                                    <>
+                                    <div className="h-[700px] bg-black text-white flex justify-center items-center text-6xl">Loading...</div>
+                                    </>
+                                
+                                ):(
+                                    <MediaController
                                 style={{
                                     width: "100%",
                                     height: "100%",
@@ -126,6 +141,7 @@ export default function Video(){
                                     <MediaFullscreenButton className="px-5 max-[400px]:text-[5px] max-[400px]:px-1"/>
                                 </MediaControlBar>
                                 </MediaController>
+                                )}
                             </div>
 
 

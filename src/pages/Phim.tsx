@@ -255,7 +255,7 @@ export default function Phim() {
                                     </div>
                                     {phim?.episodes.filter((item) => item.server_name === selectedServer).map((item, index) => (
                                         <div key={index}>
-                                            <div className="grid grid-cols-8 max-[1441px]:grid-cols-6 text-[18px] ">
+                                            <div className="grid grid-cols-7  max-[1530px]:grid-cols-5  max-[1355px]:grid-cols-3 text-[18px] ">
                                                 
                                                 {item.server_data.map((server,indexs) => (
                                                     <Link to={`/Player/${slug}/${encodeURIComponent(item.server_name)}/${server.slug}`}>

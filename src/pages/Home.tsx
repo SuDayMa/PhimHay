@@ -22,7 +22,7 @@ function Home(){
                     <div className="mb-[19px] flex text-white text-[28px] font-bold max-[400px]:text-[20px]">
                         <h3>Bạn đang quan tâm gì?</h3>
                     </div>
-                    <div className="grid grid-cols-7 justify-between gap-5 max-[426px]:gap-3 max-[1441px]:grid-cols-6 max-[1440px]:grid-cols-5 max-[1024px]:grid-cols-4 max-[789px]:grid-cols-3 ">
+                    <div className="grid grid-cols-7 justify-between gap-5 max-[426px]:gap-3 max-[1674px]:grid-cols-6 max-[1440px]:grid-cols-5 max-[1024px]:grid-cols-4 max-[789px]:grid-cols-3 ">
                         <a className="bg-blue-400 rounded-xl hover:-translate-y-[10px] transition-all duration-300">
                             <Link to='/c/vien-tuong'>
                             <div className=" flex pl-5 pr-10 py-5  h-full max-[600px]:px-2">
@@ -104,7 +104,7 @@ function Home(){
                         </a>
 
 
-                        <a className=" bg-[#B75C5C] rounded-xl hover:-translate-y-[10px] transition-all duration-300 max-[1500px]:hidden">
+                        <a className=" bg-[#B75C5C] rounded-xl hover:-translate-y-[10px] transition-all duration-300 max-[1674px]:hidden">
                             <Link to="/c/co-trang">
                             <div className=" flex pl-5 pr-10 py-5 h-full">
                                 <div className="flex flex-col justify-end w-full gap-3 h-full text-white">
@@ -120,7 +120,7 @@ function Home(){
                             </Link>
                         </a>
 
-                        <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 max-[1500px]:hidden">
+                        <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 max-[1674px]:hidden">
                             <Link to="/chu-de">
                             <div className=" flex p-8 h-full">
                                 <div className="flex flex-col justify-center items-center w-full gap-5 h-full text-white">
@@ -131,8 +131,7 @@ function Home(){
                             </div>
                             </Link>
                         </a>
-                        
-                        <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 hidden max-[1441px]:block max-[1025px]:hidden">
+                         <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 hidden  max-[1674px]:block max-[1441px]:hidden">
                             <Link to="/chu-de">
                             <div className=" flex p-8 h-full">
                                 <div className="flex flex-col justify-center items-center w-full gap-5 h-full text-white">
@@ -143,12 +142,23 @@ function Home(){
                             </div>
                             </Link>
                         </a>
-                        <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 hidden max-[1025px]:block max-[789px]:hidden">
+                        <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 hidden max-[1441px]:block max-[1025px]:hidden">
                             <Link to="/chu-de">
                             <div className=" flex p-8 h-full">
                                 <div className="flex flex-col justify-center items-center w-full gap-5 h-full text-white">
                                     <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold">
                                         +6 Chủ Đề
+                                    </div>
+                                </div>
+                            </div>
+                            </Link>
+                        </a>
+                        <a className=" bg-[#525565] rounded-xl hover:-translate-y-[10px] transition-all duration-300 hidden max-[1025px]:block max-[789px]:hidden">
+                            <Link to="/chu-de">
+                            <div className=" flex p-8 h-full">
+                                <div className="flex flex-col justify-center items-center w-full gap-5 h-full text-white">
+                                    <div className="text-[28px] max-[1360px]:text-[19px] max-[1441px]:text-[22px] font-bold">
+                                        +7 Chủ Đề
                                     </div>
                                 </div>
                             </div>

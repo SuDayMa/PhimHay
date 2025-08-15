@@ -52,7 +52,7 @@ export default function SlideImage() {
                             <div className="flip-card-inner3 duration-200">
                                 {/* Mặt trước */}
                                 <div  className="flip-card-front3 ">
-                                    <img src={`${phimTrung.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="rounded-lg max-[1441px]:w-100 w-75 h-50 object-cover "/>
+                                    <img src={`${phimTrung.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="rounded-lg max-[1441px]:w-100 w-full h-50 object-cover "/>
                                 </div>
                                 {/* Mặt sau */}
                                 <div className="flip-card-back3 bg-[#2F3346]">
@@ -62,7 +62,7 @@ export default function SlideImage() {
                                         <div className="">
                                             <Link 
                                                 to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${item.lang}`)}/${item.type === "movie" ? "full" : "tap-01"}`}
-                                                className="bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] transition-colors text-black py-1 px-3 w-[40%] max-[500px]:w-[100%] flex rounded-lg justify-center items-center "
+                                                className="bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] transition-colors text-black py-1 px-3 w-[55%] max-[1660px]:w-[40%]  max-[768px]:w-[100%] flex rounded-lg justify-center items-center "
                                             >
                                             <p className="text-[14px] max-[500px]:text-[10px] max-[400px]:text-[8px]"><Icon name='right'/></p>
                                             <span className="text-[14px] max-[500px]:text-[10px] max-[400px]:text-[8px]">Xem Ngay</span>
@@ -90,8 +90,6 @@ export default function SlideImage() {
                                                     ))}
                                             </div>
                                         </div>
-                                        
-                                        
                                     </div>
                                     </Link>
                                 </div>

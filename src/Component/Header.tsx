@@ -7,7 +7,7 @@ import type { Theloai } from '../types/Phimtype';
 import type { QuocGia } from "../types/Phimtype";
 import type { SearchMovie } from '../types/Phimtype';
 import aapicon from '../assets/img/appicon.png'
-
+import './Header.css'
 import { Link } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +30,8 @@ function Header () {
     const navigate = useNavigate();
     const [listdata, setListData] = useState<SearchMovie | null>(null)
     const submenuRef = useRef<HTMLDivElement>(null);
-    const searchRef = useRef<HTMLDivElement>(null);
+    const OpenMenuRef = useRef<HTMLDivElement>(null);
+    
 
     const [Navbar, setNavbar] = useState<NavbarItem[]>([
         { title: 'Chủ đề', id: 1, link : '/chu-de'},
@@ -107,9 +108,10 @@ function Header () {
             if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
                 setOpenSubMenu(null);
             }
-            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-                setSearchOpen(false);
+            else if (OpenMenuRef.current && !OpenMenuRef.current.contains(event.target as Node)) {
+                setIsOpenMenu(false);
             }
+            
         };
 
         document.addEventListener('mousedown', handleClickOutside);
@@ -121,6 +123,7 @@ function Header () {
     const handleKeyDown = (e: any) => {
         if (e.key === 'Enter' && keyword.trim()) {
             navigate(`/tim-kiem?keyword=${(keyword.trim())}`);
+            setKeyWord('')
         }
     }
 
@@ -135,27 +138,27 @@ function Header () {
     const HeaderNabar = Navbar.map((item) => (
         <div key={item.id} className='px-[10px] flex items-center relative'>
             <div onClick={() => item.sub && toggleSubMenu(item.id)} className='flex gap-2 cursor-pointer'>
-                <a className='flex gap-2'>
+                <div className='flex gap-2 cursor-pointer'>
                 {item.link ? (
-                    <Link to={item.link}>
+                    <Link to={item.link} >
                         <p className='text-[14px] max-[1441px]:text-[13px] flex items-center '>{item.title}</p>
                     </Link>
                 ) : (
                     <p className='text-[14px] max-[1441px]:text-[13px] flex items-center '>{item.title}</p>
                 )}
                 {item.sub && item.sub.length > 0 && (
-                <a className='text-[16px] flex items-center'><Icon name='down'/></a>
+                <span className='text-[16px] flex items-center '><Icon name='down'/></span>
                 )}
-                </a>
+                </div>
             </div>
             {item.sub && item.sub.length > 0  && (
-               <div className={`absolute text-white left-0 top-[110%] z-10 w-[500px] max-[700px]:w-[170px] max-[700px]:text-center bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-90 rounded-md shadow-lg ${openSubMenu === item.id ? 'block' : 'hidden'}`}>
+               <div className={`absolute text-white left-0 top-[110%] z-10 w-[500px] max-[830px]:w-[140px] max-[830px]:h-[300px] max-[700px]:text-center bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-70 rounded-md shadow-lg ${openSubMenu === item.id ? 'block' : 'hidden'}`} >
                     {item.id === 2 && (
-                        <ul className={'py-2 grid grid-cols-4 max-[700px]:grid-cols-1'} >
+                        <ul className={'py-2 grid grid-cols-4 max-[830px]:grid-cols-1 max-[830px]:text-center'} onClick={() => setOpenSubMenu(null)}>
                         {item.sub.map((subitem) => (
-                            <li key={subitem.link} className="px-4 py-1 line-clamp-1 hover:bg-gray-700 hover:text-amber-400 w-[120px]  ">
+                            <li key={subitem.link} className="px-4 py-1 line-clamp-1  hover:text-amber-400 w-[120px]  ">
                                 <a className='text-[16px]' >
-                                    <Link to={subitem.link}>
+                                    <Link to={subitem.link} >
                                     {subitem.title}
                                     </Link>
                                 </a>
@@ -163,10 +166,11 @@ function Header () {
                         ))}
                     </ul>
                     )}
+                    
                     {item.id === 5 && (
-                        <ul className={'py-2 grid grid-cols-3 max-[700px]:grid-cols-1'} >
+                        <ul className={'py-2 grid grid-cols-4 max-[830px]:grid-cols-1 '} onClick={() => setOpenSubMenu(null)}>
                         {item.sub.map((subitem) => (
-                            <li key={subitem.link} className="px-4 py-1 line-clamp-1 hover:bg-gray-700 hover:text-amber-400 w-[150px]">
+                            <li key={subitem.link} className="px-4 py-1 line-clamp-1  hover:text-amber-400 w-[150px]">
                                 <a className='text-[16px]'>
                                     <Link to={subitem.link}>
                                     {subitem.title}
@@ -193,18 +197,19 @@ function Header () {
 
 window.addEventListener('scroll', handroll);
 
+
 // Ham loc tim kiem
 const searchphim = (
     <>
         {keyword.trim() && (
-            <div className="absolute max-[1360px]:w-[95%] top-[60px] bg-[#191b24cb] w-[20%] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto">
+            <div className="absolute max-[1360px]:w-[95%] top-[60px] bg-[#191b24cb] w-[20%] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto hide-scrollbar ">
                 {loading ? (
-                    <div className="text-white text-center">Đang tìm ...</div>
+                    <div className="text-white text-center">Đang tìm phim ...</div>
                 ) : listdata?.data.items && listdata.data.items.length > 0 ? (
-                    <div>
+                    <div >
                         {listdata.data.items.map((item,index) => (
                             <div key={index}>
-                                <div>
+                                <div onClick={() => {setSearchOpen(!searchOpen); setKeyWord('')}}>
                                     <Link to={`/phim/${item.slug}`} className='flex hover:bg-[#2528337a] rounded-md'>
                                         <img src={`${listdata.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className='w-[20%] min-[550px]:w-[10%] min-[1100px]:w-[5%] min-[1360px]:w-[20%] p-[9px]'/>
                                         <div className='w-[90%] text-[14px] line-clamp-1 p-[10px]'>
@@ -255,30 +260,31 @@ if(theloai)
                                         value={keyword}
                                         placeholder='Tìm kiếm phim, diễn viên' 
                                         className='px-[48px] w-full flex rounded-md text-white text-[16px] bg-[#2b314183] items-center py-[5px]' 
+                                        defaultValue="Reset"
                                         />{searchphim}
                                 
                                 
                         </div>
                         
                         <div className='flex gap-2 grow-1 max-[1360px]:hidden'>
-                            <div className='text-white items-center flex '>
-                                <div className=' flex min-[1450px]:gap-3 gap-1'>
+                            <div className='text-white items-center flex ' ref={submenuRef} >
+                                <div className=' flex min-[1450px]:gap-3 gap-1 ' >
                                     {HeaderNabar}   
                                 </div>
                             </div>
                             <div className='grow-1 invisible'></div>
                             <div className='text-white flex text-right pr-[20px] items-center border-r-1 border-white justify-end'>
-                                    <a  onClick={() => setIsOpenMenu(!isOpenMenu)} className='flex text-[30px] px-[20px] cursor-pointer'>
+                                    <div ref={OpenMenuRef} onClick={() => setIsOpenMenu(!isOpenMenu)} className='flex text-[30px] px-[20px] cursor-pointer'>
                                         <Icon name='devices'/>
                                         <div className='flex flex-col '>
                                             <span className='text-[12px]'>Tải ứng dụng</span>
                                             <strong className='text-[14px]'>RoPhim</strong>
                                         </div>
-                                    </a>
+                                    </div>
     
 
                             </div>
-                            <div >
+                            <div>
                                 <Login/>
                             </div>
 
@@ -289,7 +295,7 @@ if(theloai)
                     <div>
                         {/* isnavopen */}
                         <div className={`absolute p-[24px] h-auto flex flex-col max-[1440px]:w-[350px] max-[400px]:w-[280px] max-[1440px]:top-18 z-100 bg-[#3A4782] rounded-lg duration-500 min-[1360px]:hidden ${isNavOpen ? 'translate-x-2' : 'hidden '}`}>
-                            <div><Login/></div>
+                            <div ><Login/></div>
                             <div className='px-[9.5px] py-[8px] flex gap-3 bg-[#485386] rounded-lg mb-[15px]'>
                                 <div className='flex justify-center items-center text-3xl text-amber-200'>
                                     <Icon name='devices'/>
@@ -299,12 +305,12 @@ if(theloai)
                                     <strong className='text-[14px]'>RoPhim</strong>
                                 </div>
                             </div>
-                            <div className='grid grid-cols-2 gap-2 text-white'>
+                            <div className='grid grid-cols-2 gap-2 text-white ' >
                                     {HeaderNabar}
                                 </div>
                         </div>
                         {/* searchOpen */}
-                        <div className={`absolute p-[24px] w-full h-[70px] -top-4 flex flex-col z-100 rounded-lg duration-500 ${searchOpen ? '-translate-x-5' : 'hidden '}`}>
+                        <div className={`absolute p-[24px] w-full h-[70px] -top-4 flex flex-col z-100 rounded-lg duration-500 min-[1359px]:hidden ${searchOpen ? '-translate-x-5' : 'hidden '}`}>
                             <div  className=' absolute text-[18px] pt-2 pl-[15px] text-white flex items-center justify-center'><Icon name='tim kiem'/></div>
                             <input 
                             type="text"

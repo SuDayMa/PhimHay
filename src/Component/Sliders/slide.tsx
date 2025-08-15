@@ -42,7 +42,7 @@ function slide (){
             swiperRef.current.slideToLoop(index)
         }
     } 
-    const Tylephim = currentMovie?.tmdb.type === 'movie' ? 'full' :  'tap-01' 
+    const Tylephim = currentMovie?.tmdb.type === 'tv' ? 'tap-01' :  'full' 
     return(
     
 
@@ -162,14 +162,14 @@ function slide (){
                                     
                                 </a>
                                 <div className='rounded-4xl flex border-gray-500 border-2 hover:border-white '>
-                                    <a className='flex flex-col justify-center items-center '>
+                                    <a className='flex flex-col justify-center items-center rounded-l-4xl hover:bg-[#69696950] text-white hover:text-amber-200'>
                                         <Link to={`/phim/${currentMovie.slug}`} className='px-[20px]'>
-                                            <i className='w-[80px] text-center text-white text-[24px]'><Icon name='heart'/></i>
+                                            <i className='w-[80px] text-center text-[24px]  '><Icon name='heart'/></i>
                                         </Link>
                                     </a>
-                                    <a className='flex flex-col border-l-2 border-gray-500 justify-center items-center '>
-                                        <Link to={`/phim/${currentMovie.slug}`} className='px-[20px]'>
-                                            <i className='w-[80px] text-center text-white text-[24px]'><Icon name='error'/></i>
+                                    <a className='flex flex-col border-l-2 border-gray-500 justify-center items-center rounded-r-4xl hover:bg-[#69696950] text-white hover:text-amber-200'>
+                                        <Link to={`/phim/${currentMovie.slug}`} className='px-[20px] '>
+                                            <i className='w-[80px] text-center  text-[24px]  '><Icon name='error'/></i>
                                         </Link>
                                     </a>
                                 </div>

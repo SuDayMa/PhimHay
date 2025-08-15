@@ -26,8 +26,6 @@ export default function slidetop10phimbo (){
             LoadingDanhsach();
         }, []);
 
-        const Moviephim =  danhsach?.data.items[0]
-        const Typephim =  Moviephim?.tmdb.type === "movie" ? "full" : "tap-01"
         return (
             <>
             <Swiper
@@ -62,7 +60,7 @@ export default function slidetop10phimbo (){
                                         <p className="text-gray-300 text-sm mb-2 line-clamp-1">{item.origin_name}</p>
                                         <div className="">
                                             <Link 
-                                                to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${phim?.movie.category[0].name}`)}/${Typephim}`}
+                                                to={`/Player/${item.slug}/${encodeURIComponent(selectedServer ?? `${phim?.movie.category[0].name}`)}/${item.tmdb.type === "tv" ? "tap-01":"full"}`}
                                                 className="bg-gradient-to-r from-[#d1ad52] via-[#e4c36f] to-[#FFE8AC] transition-colors text-black py-1 px-4 w-[50%] max-[500px]:w-[70%] flex rounded-lg justify-center items-center "
                                             >
                                             <p className="text-[20px]"><Icon name='right'/></p>
@@ -110,17 +108,17 @@ export default function slidetop10phimbo (){
                                     <div className="text-gray-500 line-clamp-1">
                                         {item.origin_name}
                                     </div>
-                                    <div className="flex gap-3 max-[426px]:gap-2 mb-[9px] text-white">
+                                    <div className="flex gap-2 max-[426px]:gap-2 mb-[9px] text-white">
                                             {item.quality && (
-                                            <div className=" text-xs max-[426px]:text-[10px] py-1 mt-2 font-bold">
+                                            <div className=" text-[9px]  py-1 mt-2 font-bold text-amber-200 border-amber-200 border-1 rounded-md p-1">
                                                 {item.quality}
                                             </div>
                                             )}
                                             {item.tmdb.season && (
-                                                <div className=" py-1 text-xs mt-2 max-[426px]:text-[9px]">Phần {item.tmdb.season}</div>
+                                                <div className=" py-1 text-[9px] mt-2  border-white border-1 rounded-md p-1">Phần {item.tmdb.season}</div>
                                             )}
                                             {item.episode_current && (
-                                            <div className=" py-1 text-xs mt-2 max-[426px]:text-[9px]">
+                                            <div className=" py-1 text-[9px] mt-2  border-white border-1 rounded-md p-1">
                                                 {item.episode_current}
                                             </div>
                                              )}
