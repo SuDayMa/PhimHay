@@ -1,7 +1,7 @@
 export default function Favorite () {
     return(
         <div>
-            <div className="text-white">
+            <div className="text-[#ffff]">
                 <div className="flex flex-col mb-[32px] gap-5">
                     <div className="text-[20px] font-semibold">Yêu thích</div>
                     <div className="flex">

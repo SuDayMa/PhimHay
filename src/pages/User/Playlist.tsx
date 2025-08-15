@@ -2,7 +2,7 @@ import Icon from "../../Component/Icon"
 export default function Playlist () {
     return(
         <div>
-            <div className="text-white">
+            <div className="text-[#ffff]">
                 <div className="flex mb-[32px] gap-5">
                     <div className="text-[20px] font-semibold">Danh sách</div>
                     <div className="flex">

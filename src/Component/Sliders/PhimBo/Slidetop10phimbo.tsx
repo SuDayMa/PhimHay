@@ -56,7 +56,7 @@ export default function slidetop10phimbo (){
                                     <Link to={`/phim/${item.slug}`}>
                                     <img src={`${danhsach.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full h-50 object-cover mask-b-from-10%" />
                                     <div className="flex flex-col h-full px-[7px]">
-                                        <h3 className="text-white font-bold text-[14px] mb-1 mt-2 line-clamp-1">{item.name}</h3>
+                                        <h3 className="text-[#ffff] font-bold text-[14px] mb-1 mt-2 line-clamp-1">{item.name}</h3>
                                         <p className="text-gray-300 text-sm mb-2 line-clamp-1">{item.origin_name}</p>
                                         <div className="">
                                             <Link 
@@ -69,7 +69,7 @@ export default function slidetop10phimbo (){
                                         </div>
                                         <div className="flex gap-2 mb-[10px]">
                                             {item.episode_current && (
-                                            <div className=" text-white text-xs px-2 py-1 rounded-md bg-[#3B4052] mt-2">
+                                            <div className=" text-[#ffff] text-xs px-2 py-1 rounded-md bg-[#3B4052] mt-2">
                                                 {item.episode_current}
                                             </div>
                                         )}
@@ -102,23 +102,23 @@ export default function slidetop10phimbo (){
                         <div key={index} className="flex gap-1 mt-[10px]">
                             <div className=" text-[60px] font-bold bg-gradient-to-r from-[#FED876]  to-[#FFE7AA] bg-clip-text text-transparent rotate-3 pr-[12px]">{index + 1}</div>
                                 <div className="flex flex-col justify-center">
-                                    <div className="text-white text-[16px] line-clamp-1">
+                                    <div className="text-[#ffff] text-[16px] line-clamp-1">
                                         {item.name}
                                     </div>
                                     <div className="text-gray-500 line-clamp-1">
                                         {item.origin_name}
                                     </div>
-                                    <div className="flex gap-2 max-[426px]:gap-2 mb-[9px] text-white">
+                                    <div className="flex gap-2 max-[426px]:gap-2 mb-[9px] text-[#ffff]">
                                             {item.quality && (
                                             <div className=" text-[9px]  py-1 mt-2 font-bold text-amber-200 border-amber-200 border-1 rounded-md p-1">
                                                 {item.quality}
                                             </div>
                                             )}
                                             {item.tmdb.season && (
-                                                <div className=" py-1 text-[9px] mt-2  border-white border-1 rounded-md p-1">Phần {item.tmdb.season}</div>
+                                                <div className=" py-1 text-[9px] mt-2  border-[#ffff] border-1 rounded-md p-1">Phần {item.tmdb.season}</div>
                                             )}
                                             {item.episode_current && (
-                                            <div className=" py-1 text-[9px] mt-2  border-white border-1 rounded-md p-1">
+                                            <div className=" py-1 text-[9px] mt-2  border-[#ffff] border-1 rounded-md p-1">
                                                 {item.episode_current}
                                             </div>
                                              )}

@@ -152,7 +152,7 @@ function Header () {
                 </div>
             </div>
             {item.sub && item.sub.length > 0  && (
-               <div className={`absolute text-white left-0 top-[110%] z-10 w-[500px] max-[830px]:w-[140px] max-[830px]:h-[300px] max-[700px]:text-center bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-70 rounded-md shadow-lg ${openSubMenu === item.id ? 'block' : 'hidden'}`} >
+               <div className={`absolute text-[#ffff] left-0 top-[110%] z-10 w-[500px] max-[830px]:w-[140px] max-[830px]:h-[300px] max-[700px]:text-center bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-70 rounded-md shadow-lg ${openSubMenu === item.id ? 'block' : 'hidden'}`} >
                     {item.id === 2 && (
                         <ul className={'py-2 grid grid-cols-4 max-[830px]:grid-cols-1 max-[830px]:text-center'} onClick={() => setOpenSubMenu(null)}>
                         {item.sub.map((subitem) => (
@@ -204,7 +204,7 @@ const searchphim = (
         {keyword.trim() && (
             <div className="absolute max-[1360px]:w-[95%] top-[60px] bg-[#191b24cb] w-[20%] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto hide-scrollbar ">
                 {loading ? (
-                    <div className="text-white text-center">Đang tìm phim ...</div>
+                    <div className="text-[#ffff] text-center">Đang tìm phim ...</div>
                 ) : listdata?.data.items && listdata.data.items.length > 0 ? (
                     <div >
                         {listdata.data.items.map((item,index) => (
@@ -213,7 +213,7 @@ const searchphim = (
                                     <Link to={`/phim/${item.slug}`} className='flex hover:bg-[#2528337a] rounded-md'>
                                         <img src={`${listdata.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className='w-[20%] min-[550px]:w-[10%] min-[1100px]:w-[5%] min-[1360px]:w-[20%] p-[9px]'/>
                                         <div className='w-[90%] text-[14px] line-clamp-1 p-[10px]'>
-                                            <p className='line-clamp-1 text-white font-semibold'>{item.name}</p>
+                                            <p className='line-clamp-1 text-[#ffff] font-semibold'>{item.name}</p>
                                             <p className='text-[12px] text-gray-400 line-clamp-1'>{item.origin_name}</p>
                                         </div>
                                     </Link>
@@ -238,7 +238,7 @@ if(theloai)
             <div className={`sticky top-0 z-50 ${visible ? 'bg-black opacity-100 duration-500  ' : 'duration-300'}`}>
                 <div className=' px-[6px] min-[1360px]:px-[20px] min-[14450]:px-[32px] h-[80px] '>
                     <div className='flex items-center justify-between gap-5 text-[24px] max-[1360px]:pt-[10px]'>
-                        <button className='text-white absolute min-[1360px]:hidden' onClick={() => setIsNavOpen(!isNavOpen)}>
+                        <button className='text-[#ffff] absolute min-[1360px]:hidden' onClick={() => setIsNavOpen(!isNavOpen)}>
                             {isNavOpen ? <i className='text-red-400'><Icon name='x'/></i>:<Icon name='menu'/>}
                         </button>
                         <div className='flex w-[10%] max-[1360px]:ml-[50px]'>
@@ -246,10 +246,10 @@ if(theloai)
                             <img src={rophim} alt="" className='w-[90%] object-cover'/>
                             </Link>
                         </div>
-                        <button className='text-white min-[1360px]:hidden' onClick={() => setSearchOpen(!searchOpen)}>
+                        <button className='text-[#ffff] min-[1360px]:hidden' onClick={() => setSearchOpen(!searchOpen)}>
                             {searchOpen ? <i className='text-red-400'><Icon name='x'/></i>:<i><Icon name='tim kiem'/></i>}
                         </button>
-                        <div className='flex text-white items-center w-[20%] h-[80px] max-[1360px]:hidden'>
+                        <div className='flex text-[#ffff] items-center w-[20%] h-[80px] max-[1360px]:hidden'>
                             <div className=' absolute text-[18px] pl-[15px] flex items-center'><Icon name='tim kiem'/></div>
                                     
                                         <input 
@@ -259,7 +259,7 @@ if(theloai)
                                         onKeyDown={handleKeyDown} 
                                         value={keyword}
                                         placeholder='Tìm kiếm phim, diễn viên' 
-                                        className='px-[48px] w-full flex rounded-md text-white text-[16px] bg-[#2b314183] items-center py-[5px]' 
+                                        className='px-[48px] w-full flex rounded-md text-[#ffff] text-[16px] bg-[#2b314183] items-center py-[5px]' 
                                         defaultValue="Reset"
                                         />{searchphim}
                                 
@@ -267,13 +267,13 @@ if(theloai)
                         </div>
                         
                         <div className='flex gap-2 grow-1 max-[1360px]:hidden'>
-                            <div ref={submenuRef} className='text-white items-center flex ' >
+                            <div ref={submenuRef} className='text-[#ffff] items-center flex ' >
                                 <div className=' flex min-[1450px]:gap-3 gap-1 ' >
                                     {HeaderNabar}   
                                 </div>
                             </div>
                             <div className='grow-1 invisible'></div>
-                            <div className='text-white flex text-right pr-[20px] items-center border-r-1 border-white justify-end'>
+                            <div className='text-[#ffff] flex text-right pr-[20px] items-center border-r-1 border-[#ffff] justify-end'>
                                     <div ref={OpenMenuRef} onClick={() => setIsOpenMenu(!isOpenMenu)} className='flex text-[30px] px-[20px] cursor-pointer'>
                                         <Icon name='devices'/>
                                         <div className='flex flex-col '>
@@ -300,29 +300,29 @@ if(theloai)
                                 <div className='flex justify-center items-center text-3xl text-amber-200'>
                                     <Icon name='devices'/>
                                 </div>
-                                <div className='flex flex-col text-white'>
+                                <div className='flex flex-col text-[#ffff]'>
                                     <span className='text-[12px]'>Tải ứng dụng</span>
                                     <strong className='text-[14px]'>RoPhim</strong>
                                 </div>
                             </div>
-                            <div className='grid grid-cols-2 gap-2 text-white ' >
+                            <div className='grid grid-cols-2 gap-2 text-[#ffff] ' >
                                     {HeaderNabar}
                                 </div>
                         </div>
                         {/* searchOpen */}
                         <div className={`absolute p-[24px] w-full h-[70px] -top-4 flex flex-col z-100 rounded-lg duration-500 min-[1359px]:hidden ${searchOpen ? '-translate-x-5' : 'hidden '}`}>
-                            <div  className=' absolute text-[18px] pt-2 pl-[15px] text-white flex items-center justify-center'><Icon name='tim kiem'/></div>
+                            <div  className=' absolute text-[18px] pt-2 pl-[15px] text-[#ffff] flex items-center justify-center'><Icon name='tim kiem'/></div>
                             <input 
                             type="text"
                             onChange={(e) => setKeyWord(e.target.value)}
                             onKeyDown={handleKeyDown}
                             value={keyword}
                             placeholder='Tìm kiếm phim, diễn viên' 
-                            className='px-[48px] w-full flex rounded-md text-white text-[16px] bg-[#2b3141] border-1 border-white items-center py-[5px]' 
+                            className='px-[48px] w-full flex rounded-md text-[#ffff] text-[16px] bg-[#2b3141] border-1 border-[#ffff] items-center py-[5px]' 
                             />{searchphim}
                         </div>
                         {/* isOpenMenu */}
-                        <div className={`absolute p-[16px] h-[150px] right-0 flex flex-col max-[1441px]:w-[250px] w-[15%] max-[1440px]:top-18 z-100 bg-white gap-5 rounded-3xl duration-500 ${isOpenMenu ? '-translate-x-50' : 'hidden '}`}>
+                        <div className={`absolute p-[16px] h-[150px] right-0 flex flex-col max-[1441px]:w-[250px] w-[15%] max-[1440px]:top-18 z-100 bg-[#ffff] gap-5 rounded-3xl duration-500 ${isOpenMenu ? '-translate-x-50' : 'hidden '}`}>
                             <div className='flex justify-between'>
                                 <img src={aapicon} className='w-[50px] rounded-lg max-[1441px]:w-[40px] max-[1441px]:h-[40px] '/>
                                 <div className='text-[15px] max-[1441px]:text-[12px] w-[70%]'>Chọn thiết bị tương ứng để tải và cài đặt</div>

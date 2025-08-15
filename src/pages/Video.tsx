@@ -106,7 +106,7 @@ export default function Video(){
                                 {loadingPhimData ? (
                                     
                                     <>
-                                    <div className="h-[700px] bg-black text-white flex justify-center items-center text-6xl">Loading...</div>
+                                    <div className="h-[700px] bg-black text-[#ffff] flex justify-center items-center text-6xl">Loading...</div>
                                     </>
                                 
                                 ):(
@@ -129,7 +129,7 @@ export default function Video(){
                                     className=" outline-0"
                                     onEnded={handleVideoEnded}
                                 ></ReactPlayer>
-                                <MediaControlBar className="bg-[#1a1c2a41] text-white W-[100%]">
+                                <MediaControlBar className="bg-[#1a1c2a41] text-[#ffff] W-[100%]">
                                     <MediaPlayButton className="px-3 max-[400px]:px-1"/>
                                     <MediaSeekBackwardButton seekOffset={10} className="px-2 max-[400px]:px-1"/>
                                     <MediaSeekForwardButton seekOffset={10} className="px-2  max-[400px]:px-0"/>
@@ -145,7 +145,7 @@ export default function Video(){
                             </div>
 
 
-                            <div className='bg-black text-white -translate-y-2 rounded-b-2xl shadow-lg shadow-black'>
+                            <div className='bg-black text-[#ffff] -translate-y-2 rounded-b-2xl shadow-lg shadow-black'>
                                 <div className='px-[16px] flex gap-3 py-[16px] max-[400px]:text-[12px] max-[350px]:text-[10px] '>
                                     <div className='px-[9px] max-[350px]:px-0 py-[12px] flex gap-2 hover:bg-gray-800 rounded-md cursor-pointer'>
                                         <i><Icon name='heart'/></i>
@@ -172,7 +172,7 @@ export default function Video(){
                         </div>
                         <div className='mx-[330px] max-[2000px]:mx-[128px] max-[1100px]:mx-0 px-[50px] max-[500px]:px-[20px] '>
                             <div className='p-[40px] max-[587px]:p-0'>
-                                <div className='pb-[40px] flex gap-5 text-white max-[1100px]:hidden'>
+                                <div className='pb-[40px] flex gap-5 text-[#ffff] max-[1100px]:hidden'>
                                     <div>
                                         <img src={phim?.movie.poster_url} className='w-[100px] rounded-lg'/>
                                     </div>
@@ -231,7 +231,7 @@ export default function Video(){
                                                 <button 
                                                 key={item.server_name}
                                                 onClick={() => setSelectedServer(item.server_name)}
-                                                className={`px-[16px] py-[8px] rounded-md ${selectedServer === item.server_name? "bg-yellow-200 text-black": "bg-gray-700 text-white"}`}>
+                                                className={`px-[16px] py-[8px] rounded-md ${selectedServer === item.server_name? "bg-yellow-200 text-black": "bg-gray-700 text-[#ffff]"}`}>
                                                 {item.server_name}
                                                 </button>
                                                 </Link>
@@ -239,7 +239,7 @@ export default function Video(){
                                     </div>
                                     {phim?.episodes.filter((item) => item.server_name === selectedServer).map((item, id) => (
                                             <div key={id}>
-                                                <div className="grid grid-cols-8 max-[1100px]:grid-cols-6 max-[800px]:grid-cols-4 max-[500px]:grid-cols-3 text-white max-[350px]:text-[10px]">
+                                                <div className="grid grid-cols-8 max-[1100px]:grid-cols-6 max-[800px]:grid-cols-4 max-[500px]:grid-cols-3 text-[#ffff] max-[350px]:text-[10px]">
                                                     {item.server_data.map((server, index) => (
                                                         <Link to={`/Player/${slug}/${encodeURIComponent(item.server_name)}/${server.slug}`}>
                                                         <a

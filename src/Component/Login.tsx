@@ -189,39 +189,39 @@ return(
         {UserInfore && UserInfore.email ? (
             <>
             <div onClick={() => setIsOpenProfile(!isOpenprofile)} className='flex justify-center items-center w-[60px] max-[1360px]:hidden'>
-                <img  src={UserInfore.picture} alt="avatar" className=' rounded-full border-4 border-white' />
+                <img  src={UserInfore.picture} alt="avatar" className=' rounded-full border-4 border-[#ffff]' />
             </div>
-            <div className='text-white p-[10px] min-[1360px]:hidden'>
+            <div className='text-[#ffff] p-[10px] min-[1360px]:hidden'>
                 <div className='flex justify-between mb-[10px]'>
                     <div className='flex justify-center items-center'>{UserInfore.name}</div>
                     <div className='flex justify-center items-center w-[30px] '>
-                        <img src={UserInfore.picture} alt="avatar" className=' rounded-full border-4 border-white' />
+                        <img src={UserInfore.picture} alt="avatar" className=' rounded-full border-4 border-[#ffff]' />
                     </div>
                 </div>
                 <div className='flex flex-col ' onClick={() => setIsOpenProfile(!isOpenprofile)}>
                         <Link to={'/user/favorite'}>
-                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-white cursor-pointer rounded-md mb-[5px]'>
+                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-[#ffff] cursor-pointer rounded-md mb-[5px]'>
                             <i className='flex justify-center items-center'><Icon name='heart'/></i>
                             <span>Yêu thích</span>
                         </div>
                         </Link>
                         <Link to={'/user/playlist'}>
-                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-white cursor-pointer rounded-md mb-[5px]'>
+                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-[#ffff] cursor-pointer rounded-md mb-[5px]'>
                             <i className='flex justify-center items-center'><Icon name='+'/></i>
                             <span>Danh sách</span>
                         </div>
                         </Link>
-                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-white cursor-pointer rounded-md mb-[5px]'>
+                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-[#ffff] cursor-pointer rounded-md mb-[5px]'>
                             <i className='flex justify-center items-center'><Icon name='time'/></i>
                             <span>Xem tiếp</span>
                         </div>
                         <Link to={`/user/profile/${UserInfore.id}`}>
-                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-white cursor-pointer rounded-md mb-[5px]'>
+                        <div className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-[#ffff] cursor-pointer rounded-md mb-[5px]'>
                             <i className='flex justify-center items-center'><Icon name='user'/></i>
                             <span>Tài khoản</span>
                         </div>
                         </Link>
-                        <div onClick={handlelogout} className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-white rounded-md cursor-pointer'>
+                        <div onClick={handlelogout} className='py-[9px] px-[16px] flex gap-2 text-[15px] border-1 border-[#ffff] rounded-md cursor-pointer'>
                             <i className='flex justify-center items-center'><Icon name='out'/></i>
                             <span>Đăng xuất</span>
                         </div>
@@ -233,7 +233,7 @@ return(
             <div className='flex justify-center items-center'>
             <div ref={subuserRef}>
             <div onClick={() => setIsOpenLogin(!isOpenLogin)}>
-                <button className='px-[22px] py-[10px] bg-white rounded-4xl cursor-pointer max-[1360px]:hidden'>
+                <button className='px-[22px] py-[10px] bg-[#ffff] rounded-4xl cursor-pointer max-[1360px]:hidden'>
                     <div className='flex gap-2'>
                         <p className='text-[14px] max-[1441px]:flex max-[1441px]:items-center'><Icon name='user'/></p>
                         <span className='text-[14px] max-[1441px]:flex max-[1441px]:items-center font-semibold'>Thành Viên</span>
@@ -244,7 +244,7 @@ return(
         <div className='w-full min-[1360px]:hidden'>
             <a onClick={() => setIsOpenLoginMobile(!isOpenLoginMobile)}>
                 <div className='mb-[15px] '>
-                    <button className='px-[22px] py-[10px] w-full bg-white rounded-4xl'>
+                    <button className='px-[22px] py-[10px] w-full bg-[#ffff] rounded-4xl'>
                         <div className='flex gap-2 justify-center items-center '>
                             <p><Icon name='user'/></p>
                             <span className='text-[14px] font-semibold'>Thành Viên</span>
@@ -274,13 +274,13 @@ return(
                     <div className="w-full md:w-3/5 bg-[#1E2545] p-8 md:p-12 rounded-2xl md:rounded-l-none md:rounded-r-2xl relative">
                     {/* Nút đóng */}
                     <button
-                        className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors"
+                        className="absolute top-6 right-6 text-gray-400 hover:text-[#ffff] transition-colors"
                         onClick={() => setIsOpenLogin(false)}>
                         <i className="text-xl"><Icon name='x'/></i>
                     </button>
                     
                     <div className="mb-6">
-                        <h3 className="text-2xl font-bold text-white">Đăng nhập</h3>
+                        <h3 className="text-2xl font-bold text-[#ffff]">Đăng nhập</h3>
                         <p className="text-gray-400 mt-2 text-[14px]">
                         Nếu bạn chưa có tài khoản, 
                         <a onClick={() => { setIsOpenRegister(!Isopenregister); setIsOpenLogin(false); }} className="text-amber-200 hover:text-amber-300 ml-1 cursor-pointer transition-colors">
@@ -293,7 +293,7 @@ return(
                         <div>
                             <label className="block text-gray-300 text-[14px] font-medium mb-[4px]">Email</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-[18px] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[18px] text-[#ffff] rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="email" 
                             placeholder="Nhập email của bạn" 
                             name="email" 
@@ -305,7 +305,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Mật khẩu</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-[18px] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[18px] text-[#ffff] rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập mật khẩu" 
                             name="password" 
@@ -338,7 +338,7 @@ return(
                         
                         <button 
                         onClick={() => login()} 
-                        className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-4 rounded-lg "
+                        className="w-full flex items-center justify-center gap-3 bg-[#ffff] hover:bg-gray-100 text-gray-800 font-medium py-3 px-4 rounded-lg "
                         > 
                         <span className="text-lg"><Icon name='google'/></span>
                         <span>Google</span>
@@ -363,13 +363,13 @@ return(
                     <div className="w-full md:w-3/5 bg-[#1E2545] p-8 md:p-12 rounded-2xl md:rounded-l-none md:rounded-r-2xl relative">
                     {/* Nút đóng */}
                     <button
-                        className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors"
+                        className="absolute top-6 right-6 text-gray-400 hover:text-[#ffff] transition-colors"
                         onClick={() => setIsOpenRegister(false)}>
                         <i className="text-xl"><Icon name='x'/></i>
                     </button>
                     
                     <div className="mb-6">
-                        <h3 className="text-2xl font-bold text-white">Tạo tài khoản mới</h3>
+                        <h3 className="text-2xl font-bold text-[#ffff]">Tạo tài khoản mới</h3>
                         <p className="text-gray-400 mt-2 text-[14px]">
                         nếu bạn đã có tài khoản, 
                         <a onClick={() => { setIsOpenLogin(!isOpenLogin); setIsOpenRegister(false); }} className="text-amber-200 hover:text-amber-300 ml-1 cursor-pointer transition-colors">
@@ -382,7 +382,7 @@ return(
                         <div>
                             <label className="block text-gray-300 text-[14px] font-medium mb-[4px]">Tên</label>
                             <input 
-                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="name" 
                             placeholder="Tên hiển thị" 
                             name="name" 
@@ -394,7 +394,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Email</label>
                             <input 
-                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="email" 
                             placeholder="Email" 
                             name="email" 
@@ -406,7 +406,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Mật khẩu</label>
                             <input 
-                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập mật khẩu" 
                             name="password" 
@@ -418,7 +418,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Nhập lại Mật khẩu</label>
                             <input 
-                            className="w-full text-[18px] bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full text-[18px] bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập lại mật khẩu" 
                             name="password" 
@@ -446,7 +446,7 @@ return(
             
 
             {/* isopenprofile */}
-            <div onClick={() => setIsOpenProfile(!isOpenprofile)} className={`absolute py-[8px] h-[262px] right-0 flex flex-col max-[1441px]:w-[20%] w-[10%] max-[1440px]:top-18 bg-[#2B3141] text-white top-18 z-100  rounded-3xl duration-500 ${isOpenprofile ? '-translate-x-10' : 'hidden '}`} >
+            <div onClick={() => setIsOpenProfile(!isOpenprofile)} className={`absolute py-[8px] h-[262px] right-0 flex flex-col max-[1441px]:w-[20%] w-[10%] max-[1440px]:top-18 bg-[#2B3141] text-[#ffff] top-18 z-100  rounded-3xl duration-500 ${isOpenprofile ? '-translate-x-10' : 'hidden '}`} >
                 <div className='py-[6px] px-[16px] flex text-[15px] border-b-1 border-gray-600 '>
                     <span>{UserInfore.name}</span>
                 </div>
@@ -495,13 +495,13 @@ return(
                     <div className="w-full md:w-3/5 bg-[#1E2545] p-8 md:p-12 rounded-2xl md:rounded-l-none md:rounded-r-2xl relative">
                     {/* Nút đóng */}
                     <button
-                        className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors"
+                        className="absolute top-6 right-6 text-gray-400 hover:text-[#ffff] transition-colors"
                         onClick={() => setIsOpenLoginMobile(false)}>
                         <i className="text-xl"><Icon name='x'/></i>
                     </button>
                     
                     <div className="mb-6">
-                        <h3 className="text-2xl font-bold text-white">Đăng nhập</h3>
+                        <h3 className="text-2xl font-bold text-[#ffff]">Đăng nhập</h3>
                         <p className="text-gray-400 mt-2 text-[14px]">
                         Nếu bạn chưa có tài khoản, 
                         <a onClick={() => { setIsOpenRegisterMobile(!IsopenregisterMobile); setIsOpenLoginMobile(false); }} className="text-amber-200 hover:text-amber-300 ml-1 cursor-pointer transition-colors">
@@ -514,7 +514,7 @@ return(
                         <div>
                             <label className="block text-gray-300 text-[14px] font-medium mb-[4px]">Email</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[#ffff] rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="email" 
                             placeholder="Nhập email của bạn" 
                             name="email" 
@@ -526,7 +526,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Mật khẩu</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[#ffff] rounded-lg py-3 pl-4 pr-4 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập mật khẩu" 
                             name="password" 
@@ -559,7 +559,7 @@ return(
                         
                         <button 
                         onClick={() => login()} 
-                        className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-4 rounded-lg "
+                        className="w-full flex items-center justify-center gap-3 bg-[#ffff] hover:bg-gray-100 text-gray-800 font-medium py-3 px-4 rounded-lg "
                         > 
                         <span className="text-lg"><Icon name='google'/></span>
                         <span>Google</span>
@@ -584,13 +584,13 @@ return(
                     <div className="w-full md:w-3/5 bg-[#1E2545] p-8 md:p-12 rounded-2xl md:rounded-l-none md:rounded-r-2xl relative">
                     {/* Nút đóng */}
                     <button
-                        className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors"
+                        className="absolute top-6 right-6 text-gray-400 hover:text-[#ffff] transition-colors"
                         onClick={() => setIsOpenRegisterMobile(false)}>
                         <i className="text-xl"><Icon name='x'/></i>
                     </button>
                     
                     <div className="mb-6">
-                        <h3 className="text-2xl font-bold text-white">Tạo tài khoản mới</h3>
+                        <h3 className="text-2xl font-bold text-[#ffff]">Tạo tài khoản mới</h3>
                         <p className="text-gray-400 mt-2 text-[14px]">
                         nếu bạn đã có tài khoản, 
                         <a onClick={() => { setIsOpenLoginMobile(!isOpenLoginMobile); setIsOpenRegisterMobile(false); }} className="text-amber-200 hover:text-amber-300 ml-1 cursor-pointer transition-colors">
@@ -603,7 +603,7 @@ return(
                         <div>
                             <label className="block text-gray-300 text-[14px] font-medium mb-[4px]">Tên</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="name" 
                             placeholder="Tên hiển thị" 
                             name="name" 
@@ -615,7 +615,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Email</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="email" 
                             placeholder="Email" 
                             name="email" 
@@ -627,7 +627,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Mật khẩu</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập mật khẩu" 
                             name="password" 
@@ -639,7 +639,7 @@ return(
                         <div>
                         <label className="block text-gray-300 text-sm font-medium mb-1">Nhập lại Mật khẩu</label>
                             <input 
-                            className="w-full bg-[#2A3352] text-white rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
+                            className="w-full bg-[#2A3352] text-[#ffff] rounded-lg py-3 px-5 placeholder-gray-500 focus:ring-2 focus:ring-amber-200/50 focus:outline-none transition-all" 
                             type="password" 
                             placeholder="Nhập lại mật khẩu" 
                             name="password" 

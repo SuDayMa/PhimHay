@@ -95,12 +95,12 @@ export default function SearchMovie () {
   
     const filter = (
         <div>
-            <h2 className='text-2xl font-bold mb-4 text-white'>Tìm Kiếm: {keyword} </h2>
+            <h2 className='text-2xl font-bold mb-4 text-[#ffff]'>Tìm Kiếm: {keyword} </h2>
             <div className="mb-[32px]">
            <div className="">
       <div 
         onClick={() => toggleClick(1)} 
-        className="pl-[8px] pr-[12px] py-2 flex items-center gap-2 text-white cursor-pointer"
+        className="pl-[8px] pr-[12px] py-2 flex items-center gap-2 text-[#ffff] cursor-pointer"
       >
         <span className={`${openfilter === 1 ? 'text-amber-300' : ''}`}>
         <Icon name="filter" />
@@ -116,43 +116,43 @@ export default function SearchMovie () {
 
         {/* Time */}
         <div className='border-b border-dashed border-gray-700 pb-3 mb-3 flex gap-5'>
-          <h3 className="text-white font-medium mb-2 w-[10%] text-right">Thời gian:</h3>
+          <h3 className="text-[#ffff] font-medium mb-2 w-[10%] text-right">Thời gian:</h3>
           <div className="flex gap-2 ">
             <button
             onClick={() => updatedFilter('sort_field', 'modified.time')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('sort_field') === 'modified.time' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Thời gian cập nhật
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('sort_field') === 'modified.time' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Thời gian cập nhật
             </button>
             <button
             onClick={() => updatedFilter('sort_field', '_id')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('sort_field') === '_id' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>ID Phim
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('sort_field') === '_id' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>ID Phim
             </button>
             <button
             onClick={() => updatedFilter('sort_field', 'year')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('sort_field') === 'year' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Năm phát hành
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('sort_field') === 'year' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Năm phát hành
             </button>
           </div>
         </div>
 
         {/* Language */}
         <div className='border-b border-dashed border-gray-700 pb-3 mb-3 flex gap-5'>
-          <h3 className="text-white font-medium mb-2 w-[10%] text-right">Ngôn ngữ:</h3>
+          <h3 className="text-[#ffff] font-medium mb-2 w-[10%] text-right">Ngôn ngữ:</h3>
           <div className="flex gap-2">
               <button 
             onClick={() => updatedFilter('sort_lang', '')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === '' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Tất cả</button>
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === '' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Tất cả</button>
             <button
             onClick={() => updatedFilter('sort_lang', 'vietsub')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === 'vietsub' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === 'vietsub' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
               vietsub
             </button>
             <button
             onClick={() => updatedFilter('sort_lang', 'thuyet-minh')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === 'thuyet-minh' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === 'thuyet-minh' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
               Thuyết Minh
             </button>
             <button
             onClick={() => updatedFilter('sort_lang', 'long-tieng')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === 'long-tieng' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('sort_lang') === 'long-tieng' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
               Lồng Tiếng
             </button>
           </div>
@@ -160,15 +160,15 @@ export default function SearchMovie () {
         
         {/* Category */}
         <div className='border-b border-dashed border-gray-700 pb-3 mb-3 flex gap-5'>
-          <h3 className="text-white font-medium mb-2 w-[10%] text-right">Thể loại:</h3>
+          <h3 className="text-[#ffff] font-medium mb-2 w-[10%] text-right">Thể loại:</h3>
           <div className="grid grid-cols-14 max-[1441px]:grid-cols-12 max-[1300px]:grid-cols-8 max-[800px]:grid-cols-7 max-[500px]:grid-cols-4 gap-2">
             <button 
             onClick={() => updatedFilter('category', '')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('category') === '' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Tất cả</button>
+            className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('category') === '' ? ' text-amber-200 border-1 border-gray-600' : ''}`}>Tất cả</button>
             {theloai.map((item, index) => (
                <button 
                onClick={() => updatedFilter('category', item.slug)}
-               className={`px-3 py-1 text-center hover:text-amber-200 text- text-white rounded cursor-pointer text-sm ${filtersParam.get('category') === item.slug ? 'text-amber-200 border-1 border-gray-600' : ''}`}
+               className={`px-3 py-1 text-center hover:text-amber-200 text- text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('category') === item.slug ? 'text-amber-200 border-1 border-gray-600' : ''}`}
                key={index}>
                 <div>{item.name}</div>
               </button>
@@ -178,16 +178,16 @@ export default function SearchMovie () {
         
         {/* Country */}
         <div className='border-b border-dashed border-gray-700 pb-3 mb-3 flex gap-5'>
-          <h3 className="text-white font-medium mb-2 w-[10%] text-right">Quốc gia:</h3>
+          <h3 className="text-[#ffff] font-medium mb-2 w-[10%] text-right">Quốc gia:</h3>
           <div className="grid grid-cols-12 max-[1300px]:grid-cols-8 max-[800px]:grid-cols-7 max-[500px]:grid-cols-3 gap-2">
             <div 
             onClick={() => updatedFilter('country','')}
-            className={`px-3 py-1 text-center hover:text-amber-200 text-white rounded cursor-pointer text-sm ${filtersParam.get('country') === ''? ' text-amber-200 border-1 border-gray-600' : ''}`}>Tất cả</div>
+            className={`px-3 py-1 text-center hover:text-amber-200 text-[#ffff] rounded cursor-pointer text-sm ${filtersParam.get('country') === ''? ' text-amber-200 border-1 border-gray-600' : ''}`}>Tất cả</div>
             {quocgia.map((item, index) => (
               <button 
                onClick={() => updatedFilter('country',item.slug)}
                key={index}
-               className={`px-3 py-1 text-white hover:text-amber-200 rounded cursor-pointer text-sm ${filtersParam.get('country') === item.slug ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
+               className={`px-3 py-1 text-[#ffff] hover:text-amber-200 rounded cursor-pointer text-sm ${filtersParam.get('country') === item.slug ? ' text-amber-200 border-1 border-gray-600' : ''}`}>
                 <div>{item.name}</div>
               </button>
             ))}
@@ -196,16 +196,16 @@ export default function SearchMovie () {
 
         {/* Year */}
         <div className='flex gap-5 border-dashed border-b border-gray-700 pb-3 mb-3'>
-          <h3 className="text-white font-medium mb-2 w-[10%] text-right">Năm:</h3>
+          <h3 className="text-[#ffff] font-medium mb-2 w-[10%] text-right">Năm:</h3>
           <div className="grid grid-cols-21 max-[1441px]:grid-cols-18 max-[1300px]:grid-cols-12 max-[800px]:grid-cols-8 max-[500px]:grid-cols-4 gap-2">
             <button
             onClick={() => updatedFilter('year', '')}
-            className={`px-3 py-1 text-white hover:text-amber-200 rounded cursor-pointer text-sm ${filtersParam.get('year') === '' ? 'text-amber-200 border-1 border-gray-600':''}`}>Tất cả</button>
+            className={`px-3 py-1 text-[#ffff] hover:text-amber-200 rounded cursor-pointer text-sm ${filtersParam.get('year') === '' ? 'text-amber-200 border-1 border-gray-600':''}`}>Tất cả</button>
               {years.map((year) => (
                 <button
                   key={year}
                   onClick={() => updatedFilter('year',year.toString())}
-                  className={`px-3 py-1 text-white  rounded cursor-pointer text-sm ${filtersParam.get('year') === year.toString() ? ' text-amber-200 border-1 border-gray-600' : ''}`}
+                  className={`px-3 py-1 text-[#ffff]  rounded cursor-pointer text-sm ${filtersParam.get('year') === year.toString() ? ' text-amber-200 border-1 border-gray-600' : ''}`}
                 >
                   {year}
                 </button>
@@ -217,7 +217,7 @@ export default function SearchMovie () {
           <div className='w-[10%]'></div>
           <button 
           onClick={() => setOpenfilter(null)}
-          className="px-4 py-2 border-gray-500 text-white border-1 rounded-4xl hover:opacity-80 mr-2 flex duration-300">
+          className="px-4 py-2 border-gray-500 text-[#ffff] border-1 rounded-4xl hover:opacity-80 mr-2 flex duration-300">
             Đóng
             <span className='flex items-center text-[20px]'><Icon name="big right" /></span>
           </button>
@@ -247,7 +247,7 @@ export default function SearchMovie () {
                     alt={item.name}
                   />
                 </div>
-                <h3 className="text-white text-lg font-semibold line-clamp-1">{item.name}</h3>
+                <h3 className="text-[#ffff] text-lg font-semibold line-clamp-1">{item.name}</h3>
                 <div className="transition-all duration-300">
                   <p className="text-gray-400 text-sm">{item.time}</p>
                   <p className="text-gray-400 text-sm line-clamp-1">{item.episode_current}</p>
@@ -260,7 +260,7 @@ export default function SearchMovie () {
           
         </div>
         <div className='my-16 flex items-center justify-center'>
-                <div className='flex text-white gap-3'>
+                <div className='flex text-[#ffff] gap-3'>
                     <button className='bg-[#676b6d44] rounded-full p-[10px] w-[50px] cursor-pointer'
                     onClick={() => nextpages(parseInt(pages.get("page") || "1") - 1)}
                     >
@@ -286,7 +286,7 @@ export default function SearchMovie () {
         </div>
 
       ) : (
-        <div className="text-center text-white text-lg py-[300px]">
+        <div className="text-center text-[#ffff] text-lg py-[300px]">
           Không tìm thấy kết quả 
         </div>
       )}

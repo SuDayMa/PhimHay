@@ -4,7 +4,7 @@ import { DataChudes } from "../Data/datachude";
 
 export default function Chude() {
   return (
-    <div className="text-white bg-[#191B24] py-[150px]">
+    <div className="text-[#ffff] bg-[#191B24] py-[150px]">
       <div className="mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px]">
         <div className="flex text-[28px] font-medium mb-[19px]">
           <h1>Các chủ đề</h1>

@@ -83,7 +83,7 @@ function slide (){
                         
                     </div>
                         {currentMovie?.name && (
-                        <div className='mb-[8px] text-white '>
+                        <div className='mb-[8px] text-[#ffff] '>
                             <h2 className='font-medium text-[40px] max-[1360px]:text-[28px] max-[640px]:text-[20px]'>{currentMovie.name}</h2>
                         </div>
                     )}
@@ -94,34 +94,34 @@ function slide (){
                         {currentMovie?.tmdb && (
                        <div className=' border-yellow-500 border-1 rounded-md px-[6px]'>
                         <span className='text-yellow-500'>IMDb </span>
-                        <span className='text-white'>{currentMovie?.tmdb.vote_average}</span>
+                        <span className='text-[#ffff]'>{currentMovie?.tmdb.vote_average}</span>
                        </div>
                        )}
                        {currentMovie?.quality && (
                          <div className='rounded-md px-[6px] bg-blue-500'>
-                            <span className='text-white'>{currentMovie?.quality}</span>
+                            <span className='text-[#ffff]'>{currentMovie?.quality}</span>
                          </div>
                        )}
                        {currentMovie?.tmdb.season && (
-                       <div className='  rounded-md px-[6px] bg-white'>
+                       <div className='  rounded-md px-[6px] bg-[#ffff]'>
                         <span>Phần {currentMovie?.tmdb.season}</span>
                        </div>
                        )}
                        {currentMovie?.year && (
                         <Link to={`/year/${currentMovie.year}`}>
-                       <div className='  rounded-md px-[6px] border-white border-1'>
-                        <span className='text-white'>{currentMovie?.year}</span>
+                       <div className='  rounded-md px-[6px] border-[#ffff] border-1'>
+                        <span className='text-[#ffff]'>{currentMovie?.year}</span>
                        </div>
                        </Link>
                        )}
                        {currentMovie?.tmdb && (
-                        <div className='  rounded-md px-[6px] border-white border-1'>
-                        <span className='text-white'>{currentMovie?.time}</span>
+                        <div className='  rounded-md px-[6px] border-[#ffff] border-1'>
+                        <span className='text-[#ffff]'>{currentMovie?.time}</span>
                        </div>
                        )}
                        {currentMovie?.episode_current && (
-                         <div className='rounded-md px-[6px] border-white border-1'>
-                            <span className='text-white'>{currentMovie?.episode_current}</span>
+                         <div className='rounded-md px-[6px] border-[#ffff] border-1'>
+                            <span className='text-[#ffff]'>{currentMovie?.episode_current}</span>
                          </div>
                        )}
                           
@@ -132,7 +132,7 @@ function slide (){
                           <div>
                             {currentMovie.category.map((item, index) => (
                                 <Link to={`/the-loai/${item.slug}`}>
-                                <span key={index} className='bg-[#282B3A] px-[8px] rounded-md mr-[8px] text-white py-[4px]'>{item.name}</span>
+                                <span key={index} className='bg-[#282B3A] px-[8px] rounded-md mr-[8px] text-[#ffff] py-[4px]'>{item.name}</span>
                                 </Link>
                             ))}
                           </div>
@@ -146,7 +146,7 @@ function slide (){
                                 aria-label={`${index + 1}`}
                                 
                                 >
-                                <img src={`${item.thumb_url}`} alt="" className={`w-20 max-[1100px]:w-10 max-[1100px]:h-10 h-15 object-cover rounded-lg max-[1100px]:rounded-full cursor-pointer ${ currentImage === index ? 'border-2 border-white' : ''}`}/>
+                                <img src={`${item.thumb_url}`} alt="" className={`w-20 max-[1100px]:w-10 max-[1100px]:h-10 h-15 object-cover rounded-lg max-[1100px]:rounded-full cursor-pointer ${ currentImage === index ? 'border-2 border-[#ffff]' : ''}`}/>
 
                                 </div>
                             ))}
@@ -161,13 +161,13 @@ function slide (){
                                     </Link>
                                     
                                 </a>
-                                <div className='rounded-4xl flex border-gray-500 border-2 hover:border-white '>
-                                    <a className='flex flex-col justify-center items-center rounded-l-4xl hover:bg-[#69696950] hover:text-amber-200 text-white'>
+                                <div className='rounded-4xl flex border-gray-500 border-2 hover:border-[#ffff] '>
+                                    <a className='flex flex-col justify-center items-center rounded-l-4xl hover:bg-[#69696950] hover:text-amber-200 text-[#ffff]'>
                                         <Link to={`/phim/${currentMovie.slug}`} className='px-[20px]'>
                                             <i className='w-[80px] text-center text-[24px] '><Icon name='heart'/></i>
                                         </Link>
                                     </a>
-                                    <a className='flex flex-col border-l-2 border-gray-500 justify-center items-center rounded-r-4xl hover:bg-[#696969500] text-white hover:text-amber-200 '>
+                                    <a className='flex flex-col border-l-2 border-gray-500 justify-center items-center rounded-r-4xl hover:bg-[#696969500] text-[#ffff] hover:text-amber-200 '>
                                         <Link to={`/phim/${currentMovie.slug}`} className='px-[20px] '>
                                             <i className='w-[80px] text-center  text-[24px] '><Icon name='error'/></i>
                                         </Link>

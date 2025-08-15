@@ -69,7 +69,7 @@ export default function SlideImage() {
                                         </div>
                                         <div className="flex gap-2 mb-[10px] max-[500px]:hidden">
                                             {item.episode_current && (
-                                            <div className=" text-white text-xs  px-2 py-1 rounded-md bg-[#3B4052] mt-2 line-clamp-1">
+                                            <div className=" text-[#ffff] text-xs  px-2 py-1 rounded-md bg-[#3B4052] mt-2 line-clamp-1">
                                                 {item.episode_current}
                                             </div>
                                         )}
@@ -99,7 +99,7 @@ export default function SlideImage() {
                             
                         </div>
                         <div>
-                        <h3 className='text-white text-[14px] pt-[10px] line-clamp-1 w-[90%] pl-[10px] font-semibold'>{item.name}</h3>
+                        <h3 className='text-[#ffff] text-[14px] pt-[10px] line-clamp-1 w-[90%] pl-[10px] font-semibold'>{item.name}</h3>
                         <p className='text-gray-400 text-[12px] pl-[10px] line-clamp-1 w-[90%]'>{item.origin_name}</p>
                         </div>
                     </SwiperSlide>

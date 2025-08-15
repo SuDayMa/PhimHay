@@ -59,7 +59,7 @@ function SliderImage() {
                                     <Link to={`/phim/${item.slug}`}>
                                     <img src={`${Theloailichsu.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full h-35 object-cover mask-b-from-10%" />
                                     <div className="flex flex-col h-full px-[7px]">
-                                        <h3 className="text-white font-bold text-[14px] mb-1 mt-2 line-clamp-1">{item.name}</h3>
+                                        <h3 className="text-[#ffff] font-bold text-[14px] mb-1 mt-2 line-clamp-1">{item.name}</h3>
                                         <p className="text-gray-300 text-sm mb-2 line-clamp-1">{item.origin_name}</p>
                                         <div className="">
                                             <Link 
@@ -72,7 +72,7 @@ function SliderImage() {
                                         </div>
                                         <div className="flex gap-2 mb-[10px]">
                                             {item.episode_current && (
-                                            <div className=" text-white text-xs px-2 py-1 rounded-md bg-[#3B4052] mt-2 line-clamp-1">
+                                            <div className=" text-[#ffff] text-xs px-2 py-1 rounded-md bg-[#3B4052] mt-2 line-clamp-1">
                                                 {item.episode_current}
                                             </div>
                                         )}
@@ -93,7 +93,7 @@ function SliderImage() {
                             
                         </div>
                         <div className='text-center'>
-                        <h3 className='text-white text-[14px] pt-[10px] line-clamp-1 pr-[10px] font-semibold'>{item.name}</h3>
+                        <h3 className='text-[#ffff] text-[14px] pt-[10px] line-clamp-1 pr-[10px] font-semibold'>{item.name}</h3>
                         <p className='text-gray-400 text-[12px] line-clamp-1 pr-[10px] '>{item.origin_name}</p>
                     </div>
                     </SwiperSlide>

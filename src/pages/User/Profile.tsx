@@ -47,7 +47,7 @@ export default function Profile () {
 
     return(
         <div>
-            <div className="text-white max-[1121px]:mx-[20%] max-[738px]:mx-0">
+            <div className="text-[#ffff] max-[1121px]:mx-[20%] max-[738px]:mx-0">
                 <div className="flex flex-col mb-[32px] gap-5">
                     <div className="text-[20px] font-semibold">Tài khoản</div>
                     <p>Cập nhật thông tin tài khoản</p>
@@ -71,7 +71,7 @@ export default function Profile () {
                         </div>
                         <div className="w-[20%] max-[1121px]:w-[100px]">
                             <div>
-                                <img src={user.picture} alt="avatar" className=" rounded-full mb-[20px] border-4 border-white"/>
+                                <img src={user.picture} alt="avatar" className=" rounded-full mb-[20px] border-4 border-[#ffff]"/>
                                 <input type="file" accept="image/" onChange={handleimage} />
                             </div>
                         </div>

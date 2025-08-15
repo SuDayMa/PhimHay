@@ -30,7 +30,7 @@ export default function Theloai() {
     return (
     <div>
         {loading ? (
-            <div className='text-white bg-[#191B24] py-[90px] px-[50px]'>Loading...</div>
+            <div className='text-[#ffff] bg-[#191B24] py-[90px] px-[50px]'>Loading...</div>
         ) : (
             <div>
                     <div className="pb-[200px] ">
@@ -38,10 +38,10 @@ export default function Theloai() {
                             <div className="flex justify-center">
                                 <img src={loi404} alt="404 Not Found" className="h-[200px] sepia opacity-35" />
                             </div>
-                            <div className="text-[32px] font-bold text-white text-center mt-4 mb-[16px]">
+                            <div className="text-[32px] font-bold text-[#ffff] text-center mt-4 mb-[16px]">
                                 Lỗi 404 - Không tìm thấy trang
                             </div>
-                            <div className="pb-[48px] text-white text-center">
+                            <div className="pb-[48px] text-[#ffff] text-center">
                                 Trang bạn đang tìm kiếm không tồn tại. Vui lòng kiểm tra đường dẫn hoặc quay về trang chủ.
                             </div>
                             <div className="flex justify-center ">

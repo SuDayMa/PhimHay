@@ -28,7 +28,7 @@ export default function HeaderUser () {
         Navigate('/')
     }
     return(
-        <div className="p-[40px] bg-[#25272F] max-[1121px]:p-0 rounded-2xl text-white ">
+        <div className="p-[40px] bg-[#25272F] max-[1121px]:p-0 rounded-2xl text-[#ffff] ">
             <div className="flex flex-col gap-5 max-[1121px]:gap-0">
                 <div className="mb-[8px] font-semibold text-[20px] max-[1121px]:px-[16px] max-[1121px]:py-[16px]">
                     Quan ly tai khoan
@@ -37,7 +37,7 @@ export default function HeaderUser () {
                     <div className="grid-cols-5 grid max-[500px]:text-[11px]">
                     {nav.map((item: any) => (
                         <Link to={item?.path}>
-                        <div className={`py-[16px] flex gap-2 justify-center max-[801px]:flex-col ${location.pathname === item.path ? "text-amber-300":"text-white"}`}>
+                        <div className={`py-[16px] flex gap-2 justify-center max-[801px]:flex-col ${location.pathname === item.path ? "text-amber-300":"text-[#ffff]"}`}>
                         <i><Icon name={item.icon}/></i>
                         <span>{item.name}</span>
                         </div>
@@ -48,7 +48,7 @@ export default function HeaderUser () {
                 <div className="mb-[128px] max-[1121px]:mb-0 max-[1121px]:hidden"> 
                     {nav.map((item: any) => (
                         <Link to={item?.path}>
-                        <div className={`py-[16px] flex justify-between border-b-1 border-gray-600 ${location.pathname === item.path ? "text-amber-300":"text-white"}`}>
+                        <div className={`py-[16px] flex justify-between border-b-1 border-gray-600 ${location.pathname === item.path ? "text-amber-300":"text-[#ffff]"}`}>
                         <i><Icon name={item.icon}/></i>
                         <span className="w-[85%]">{item.name}</span>
                         </div>
@@ -57,7 +57,7 @@ export default function HeaderUser () {
                 </div>
                 <div className="flex flex-col gap-5 max-[1121px]:hidden">
                     <div>
-                    <img src={user.picture} alt="avatar" className=" rounded-full w-20 border-4 border-white"/>
+                    <img src={user.picture} alt="avatar" className=" rounded-full w-20 border-4 border-[#ffff]"/>
                     </div>
                     <div>
                     <div className="text-[14px] text-gray-400">

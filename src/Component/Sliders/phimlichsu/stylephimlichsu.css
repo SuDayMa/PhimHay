@@ -12,7 +12,7 @@
   transition: transform 1.5s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .flip-card2:hover .flip-card-inner2 {
@@ -26,7 +26,7 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   transition: 700;
 }
