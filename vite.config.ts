@@ -14,7 +14,7 @@ export default defineConfig({
   preview: {
     port: 4137,
     host: true,
-    allowedHosts: ['phimhay-un1p.onrender.com']
+    allowedHosts: ['phim-hay.quocsu.me']
   },
 
 })
