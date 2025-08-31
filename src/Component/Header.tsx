@@ -1,4 +1,4 @@
-import rophim from '../assets/img/logo.svg'
+import phimhay from '../assets/img/logophimhay.png'
 import Icon from './Icon'
 import { useEffect, useState, useRef } from 'react';
 import { QuocgiaAPI, ListSearchAPI} from '../Services/API';
@@ -242,8 +242,8 @@ if(theloai)
                             {isNavOpen ? <i className='text-red-400'><Icon name='x'/></i>:<Icon name='menu'/>}
                         </button>
                         <div className='flex w-[10%] max-[1360px]:ml-[50px]'>
-                            <Link to='/'>
-                            <img src={rophim} alt="" className='w-[90%] object-cover'/>
+                            <Link to='/'  className='w-[90%] object-cover'>
+                            <img src={phimhay} alt=""/>
                             </Link>
                         </div>
                         <button className='text-[#ffff] min-[1360px]:hidden' onClick={() => setSearchOpen(!searchOpen)}>
@@ -267,7 +267,7 @@ if(theloai)
                         </div>
                         
                         <div className='flex gap-2 grow-1 max-[1360px]:hidden'>
-                            <div ref={submenuRef} className='text-[#ffff] items-center flex ' >
+                            <div className='text-[#ffff] items-center flex ' >
                                 <div className=' flex min-[1450px]:gap-3 gap-1 ' >
                                     {HeaderNabar}   
                                 </div>
@@ -278,7 +278,7 @@ if(theloai)
                                         <Icon name='devices'/>
                                         <div className='flex flex-col '>
                                             <span className='text-[12px]'>Tải ứng dụng</span>
-                                            <strong className='text-[14px]'>RoPhim</strong>
+                                            <strong className='text-[14px]'>Phim-Hay</strong>
                                         </div>
                                     </div>
     
@@ -302,11 +302,11 @@ if(theloai)
                                 </div>
                                 <div className='flex flex-col text-[#ffff]'>
                                     <span className='text-[12px]'>Tải ứng dụng</span>
-                                    <strong className='text-[14px]'>RoPhim</strong>
+                                    <strong className='text-[14px]'>Phim-Hay</strong>
                                 </div>
                             </div>
-                            <div className='grid grid-cols-2 gap-2 text-[#ffff] ' >
-                                    {HeaderNabar}
+                            <div className='grid grid-cols-2 gap-2 text-[#ffff]'>
+                                        {HeaderNabar}
                                 </div>
                         </div>
                         {/* searchOpen */}

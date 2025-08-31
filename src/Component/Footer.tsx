@@ -1,5 +1,5 @@
 import vn from '../assets/img/vn_flag.svg'
-import rophim from '../assets/img/logo.svg'
+import phimhay from '../assets/img/logophimhay.png'
 import Icon from './Icon'
 
 function Footer () {
@@ -17,7 +17,7 @@ function Footer () {
                         </div>
                         <div className='flex text-[#ffff] mb-[32px] max-[1100px]:gap-8 max-[1100px]:flex-col max-[2000px]:w-[70%] max-[1441px]:w-[80%] max-[1100px]:w-[50%] max-[800px]:w-[70%] max-[500px]:w-[100%] max-[1100px]:items-center'>
                             <div className=' w-[200px] pr-5'>
-                                <img src={rophim} alt="#"/>
+                                <img src={phimhay} alt="#"/>
                             </div>
                             <div className='max-[1100px]:pl-0 pl-[48px] max-[1100px]:border-hidden border-l-1 border-gray-600 pr-[10px] gap-2 max-[424px]:gap-1 flex items-center justify-between max-[500px]:w-[90%] left-0 text-center'>
                                 <a className='bg-[#282B3A] rounded-[50%] px-3 max-[424px]:px-2'><p className='h-[35px] flex justify-center items-center'><Icon name='telegram'/></p></a>
