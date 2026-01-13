@@ -233,27 +233,62 @@ export default function QuocGiaDetail() {
            
               <div>
                 <div className='grid grid-cols-8 max-[1600px]:grid-cols-7 max-[1360px]:grid-cols-6 max-[1190px]:grid-cols-5 max-[950px]:grid-cols-4 max-[730px]:grid-cols-3 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto'>
-            {Movie && Movie?.data.items?.map((item, index) => {
-              return (
-                <div key={item.slug || index} className='bg-[#676b6d44] p-4 rounded-lg mb-4 group-hover:w-[100px] group-hover:h-[500px] transition-all duration-300 hover:bg-gray-600'>
-                  <Link to={`/phim/${item.slug}`}>
-                    <div className='flex'>
-                      <img src={`${Movie.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full h-[200px] mb-2 rounded-lg" />
-                      {item.tmdb && item.tmdb.vote_average > 0 && (
-                        <p className=" text-sm absolute text-[#ffff] px-[10px] font-mono py-[5px] bg-red-400 border-[#ffff] border-2 rounded-b-lg">{item.tmdb.vote_average}</p>
+            {Movie && Movie.data.items?.map((item, index) => (
+            <Link key={item.slug || index} to={`/phim/${item.slug}`} className="block group">
+              <div className="relative bg-[#1b1d20] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                {/* Poster */}
+                <div className="relative">
+                  <img
+                    src={`${Movie.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`}
+                    alt={item.name}
+                    loading="lazy"
+                    className="w-full aspect-[2/3] object-cover group-hover:brightness-110 transition duration-300"
+                  />
+
+                  {/* Overlay gradient để chữ nổi hơn */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-opacity duration-300" />
+
+                  {/* Badge điểm TMDB (nếu có) */}
+                  {item.tmdb && item.tmdb.vote_average > 0 && (
+                      <span className="absolute top-3 left-3 bg-gradient-to-r from-[#ff3d3d] to-[#ff9d00] text-white font-bold text-xs px-2.5 py-1.5 rounded-full shadow-md">
+                        ★ {Number(item.tmdb.vote_average).toFixed(1)}
+                      </span>
+                  )}
+                </div>
+
+                {/* Nội dung */}
+                <div className="p-3">
+                  <h3 className="text-white text-lg font-semibold line-clamp-1 group-hover:text-[#ffcc00] transition-colors duration-300">
+                    {item.name}
+                  </h3>
+
+                   <div className="mt-1 gap-x-3 gap-y-1 text-sm text-gray-300">
+                      {item.time && (
+                        <span className="flex items-center gap-1">
+                          ⏱️ <span className="truncate">{item.time}</span>
+                        </span>
+                      )}
+                      {item.episode_current && (
+                        <span className="flex items-center gap-1">
+                          🎬 <span className="truncate">{item.episode_current}</span>
+                        </span>
+                      )}
+                      {item.lang && (
+                        <span className="flex items-center gap-1">
+                          🌐 <span className="truncate">{item.lang}</span>
+                        </span>
                       )}
                     </div>
-                    <h3 className="text-[#ffff] text-lg font-semibold line-clamp-1">{item.name}</h3>
-                    <div className='transition-all duration-300'>
-                      <p className="text-gray-400 text-sm">{item.time}</p>
-                      <p className="text-gray-400 text-sm line-clamp-1">{item.episode_current}</p>
-                      <p className='text-gray-400 text-sm'>{item.quality}</p>
-                      <p className="text-gray-400 text-sm line-clamp-1">{item.lang}</p>
-                    </div>
-                  </Link>
                 </div>
-              )
-            })}
+
+                {/* Viền sáng nhẹ khi hover */}
+                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl" />
+                </div>
+              </div>
+            </Link>
+          ))}
+
 
             </div>
             <div className='my-16 flex items-center justify-center'>

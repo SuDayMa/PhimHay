@@ -233,26 +233,56 @@ export default function TheLoaiDetail() {
         ) : TheloaiMovie?.data.items && TheloaiMovie.data.items.length > 0 ?(
           <>
             <div className='grid grid-cols-8 max-[1600px]:grid-cols-7 max-[1360px]:grid-cols-6 max-[1190px]:grid-cols-5 max-[950px]:grid-cols-4 max-[730px]:grid-cols-3 max-[500px]:grid-cols-2 gap-4 mx-[330px] max-[2000px]:mx-[0px] px-[50px] max-[2000px]:px-[20px] h-auto'>
-            {TheloaiMovie && TheloaiMovie.data.items.map((item, index) => {
-              return(
-                <Link to={`/phim/${item.slug}`}>
-              <div key={index} className='bg-[#676b6d44] p-4 rounded-lg mb-4 group-hover:w-[100px] group-hover:h-[500px] transition-all duration-300 hover:bg-gray-600'>
-                <div className='flex'>
-                 <img src={`${TheloaiMovie.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className="w-full h-[200px] mb-2 rounded-lg" />
-                 {item.tmdb && item.tmdb.vote_average > 0 && (
-                   <p className=" text-sm absolute text-[#ffff] px-[10px] font-mono py-[5px] bg-red-400 border-[#ffff] border-2 rounded-b-lg">{item.tmdb.vote_average}</p>
-                  )}
+            {TheloaiMovie && TheloaiMovie.data.items.map((item, index) => (
+              <Link key={index} to={`/phim/${item.slug}`} className="block group">
+                <div className="relative bg-[#1b1d20] rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  {/* Ảnh phim */}
+                  <div className="relative">
+                    <img
+                      src={`${TheloaiMovie.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`}
+                      alt={item.name}
+                      className="w-full aspect-[2/3] object-cover group-hover:brightness-110 transition duration-300"
+                    />
+
+                    {/* Viền sáng khi hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-opacity duration-300"></div>
+
+                    {/* Badge điểm vote */}
+                    {item.tmdb && item.tmdb.vote_average > 0 && (
+                      <div className="absolute top-3 left-3 bg-gradient-to-r from-[#ff3d3d] to-[#ff9d00] text-white font-bold text-xs px-2.5 py-1.5 rounded-full shadow-md">
+                        ⭐ {Number(item.tmdb.vote_average).toFixed(1)}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Nội dung mô tả */}
+                  <div className="p-3">
+                    <h3 className="text-white text-lg font-semibold line-clamp-1 group-hover:text-[#ffcc00] transition-colors duration-300">
+                      {item.name}
+                    </h3>
+
+                    <div className="mt-1 gap-x-3 gap-y-1 text-sm text-gray-300">
+                      {item.time && (
+                        <span className="flex items-center gap-1">
+                          ⏱️ <span className="truncate">{item.time}</span>
+                        </span>
+                      )}
+                      {item.episode_current && (
+                        <span className="flex items-center gap-1">
+                          🎬 <span className="truncate">{item.episode_current}</span>
+                        </span>
+                      )}
+                      {item.lang && (
+                        <span className="flex items-center gap-1">
+                          🌐 <span className="truncate">{item.lang}</span>
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              <h3 className="text-[#ffff] text-lg font-semibold line-clamp-1">{item.name}</h3>
-              <div className='transition-all duration-300'>
-                <p className="text-gray-400 text-sm">{item.time}</p>
-                <p className="text-gray-400 text-sm line-clamp-1">{item.episode_current}</p>
-                <p className='text-gray-400 text-sm'>{item.quality}</p>
-                <p className="text-gray-400 text-sm line-clamp-1">{item.lang}</p>
-              </div>
-              </div>
               </Link>
-            )})}
+            ))}
+
 
             
             </div>
