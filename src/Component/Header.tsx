@@ -24,9 +24,9 @@ type NavbarItem = {
 function Header () {
     const [keyword, setKeyWord] = useState('');
 
-    const [quocgia, setQuocgia] = useState<QuocGia[]>([]);
+    const [, setQuocgia] = useState<QuocGia[]>([]);
     const [loading, setLoading] = useState(false);
-    const [theloai, setTheloai] = useState<Theloai[]>([]);
+    const [, setTheloai] = useState<Theloai[]>([]);
     const navigate = useNavigate();
     const [listdata, setListData] = useState<SearchMovie | null>(null)
     const submenuRef = useRef<HTMLDivElement>(null);
