@@ -3,7 +3,7 @@ import { baseURL } from "./BaseURL";
 
 export const QuocgiaAPI = async () => {
     try{
-        const response = await fetch('https://phimapi.com/quoc-gia/');
+        const response = await fetch('https://phimapi.com/v1/api/quoc-gia');
         return await response.json() 
     }
     catch (error) {
@@ -14,7 +14,7 @@ export const QuocgiaAPI = async () => {
 
 export const TheloaiAPI = async () => {
     try {
-        const response = await fetch('https://phimapi.com/the-loai');
+        const response = await fetch('https://phimapi.com/v1/api/the-loai');
         return await response.json()
     }
     catch (error) {

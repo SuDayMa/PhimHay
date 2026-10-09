@@ -16,7 +16,7 @@ export default function SlideImage() {
             try {
                 
                 
-                const phimUsUk = await slidePhimQuocGia('/au-my');
+                const phimUsUk = await slidePhimQuocGia('au-my');
                 if (phimUsUk) {
                     setPhimUsUk(phimUsUk);
                 }

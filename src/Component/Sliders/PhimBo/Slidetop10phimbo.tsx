@@ -15,7 +15,7 @@ export default function slidetop10phimbo (){
             const LoadingDanhsach = async () => {
                 try{
                     
-                    const phimboData = await SlidePhimboAPI('/phim-bo')
+                    const phimboData = await SlidePhimboAPI('phim-bo')
                     if(phimboData){
                         setDanhSach(phimboData);
                     }

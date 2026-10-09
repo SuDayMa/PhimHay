@@ -15,7 +15,7 @@ function SliderImage() {
             try{
                 
                 
-                const theloailichsuData = await slidePhimTheLoai('/lich-su')
+                const theloailichsuData = await slidePhimTheLoai('lich-su')
                 if(theloailichsuData){
                     setTheloailichsu(theloailichsuData);
                     

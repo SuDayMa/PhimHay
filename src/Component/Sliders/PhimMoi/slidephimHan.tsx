@@ -14,7 +14,7 @@ export default function SlideImage() {
     useEffect(() => {
         const fetchPhim = async () => {
             try {
-                const phimhan = await slidePhimQuocGia('/han-quoc');
+                const phimhan = await slidePhimQuocGia('han-quoc');
                 if (phimhan) {
                     setPhimHan(phimhan);
                 }

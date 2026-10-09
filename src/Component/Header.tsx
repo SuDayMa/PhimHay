@@ -43,44 +43,51 @@ function Header () {
         { title: 'Diễn viên', id: 7, link: '#'}
     ]);
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true)
-                const quocgiaData = await QuocgiaAPI();
-                const theloaiData = await TheloaiAPI();
-                setQuocgia(quocgiaData);
-                setTheloai(theloaiData);
-                const updatedNavbar = Navbar.map(item => {
-                    if (item.id === 2) {
-                        return {
-                            ...item,
-                            sub: theloaiData.map((theloai : Theloai) => ({
-                                title: theloai.name,
-                                link: `/the-loai/${theloai.slug}`
-                            }))
-                        };
-                    }
-                    if (item.id === 5) {
-                        return {
-                            ...item,
-                            sub: quocgiaData.map((qg : QuocGia) => ({
-                                title: qg.name,
-                                link: `/quoc-gia/${qg.slug}`
-                            }))
-                        };
-                    }
-                    
-                    return item;
-                });
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const quocgiaRes = await QuocgiaAPI();
+            const theloaiRes = await TheloaiAPI();
 
-                setNavbar(updatedNavbar);
-            } catch (error) {
-                console.error("Lỗi khi tải dữ liệu:", error);
-            }
-        };
+            // Lấy chính xác mảng items bên trong đối tượng trả về từ API
+            const quocgiaData = quocgiaRes?.data?.items || [];
+            const theloaiData = theloaiRes?.data?.items || [];
 
-        fetchData();
-    }, []);
+            setQuocgia(quocgiaData);
+            setTheloai(theloaiData);
+
+            const updatedNavbar = Navbar.map(item => {
+                if (item.id === 2) {
+                    return {
+                        ...item,
+                        sub: theloaiData.map((theloai: any) => ({
+                            title: theloai.name,
+                            link: `/the-loai/${theloai.slug}`
+                        }))
+                    };
+                }
+                if (item.id === 5) {
+                    return {
+                        ...item,
+                        sub: quocgiaData.map((qg: any) => ({
+                            title: qg.name,
+                            link: `/quoc-gia/${qg.slug}`
+                        }))
+                    };
+                }
+                return item;
+            });
+
+            setNavbar(updatedNavbar);
+        } catch (error) {
+            console.error("Lỗi khi tải dữ liệu:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    fetchData();
+}, []);
 
     useEffect(() => {
     const fetchSearchData = async () => {
@@ -94,7 +101,7 @@ function Header () {
       } catch (error) {
         console.log('Lỗi search', error);
         setListData(null);
-      } finally {   
+      } finally {  
         setLoading(false);
       }
     };
@@ -102,7 +109,7 @@ function Header () {
     
   }, [keyword]);
 
-  
+ 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
@@ -138,7 +145,7 @@ function Header () {
     const HeaderNabar = Navbar.map((item) => (
         <div key={item.id} className='px-[10px] flex items-center relative'>
             <div onClick={() => item.sub && toggleSubMenu(item.id)} className='flex gap-2 cursor-pointer'>
-                <div className='flex gap-2 cursor-pointer'>
+                <div className='flex gap-2 cursor-pointer items-center'>
                 {item.link ? (
                     <Link to={item.link} >
                         <p className='text-[14px] max-[1441px]:text-[13px] flex items-center '>{item.title}</p>
@@ -152,16 +159,14 @@ function Header () {
                 </div>
             </div>
             {item.sub && item.sub.length > 0  && (
-               <div className={`absolute text-[#ffff] left-0 top-[110%] z-10 w-[500px] max-[830px]:w-[140px] max-[830px]:h-[300px] max-[700px]:text-center bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-70 rounded-md shadow-lg ${openSubMenu === item.id ? 'block' : 'hidden'}`} >
+               <div className={`absolute text-[#ffff] left-0 top-[110%] z-10 w-[500px] max-[830px]:w-[140px] max-[830px]:h-[300px] max-[700px]:text-center bg-black max-[1100px]:max-h-[500px] max-[1100px]:overflow-auto opacity-90 rounded-md shadow-lg ${openSubMenu === item.id ? 'block' : 'hidden'}`} >
                     {item.id === 2 && (
                         <ul className={'py-2 grid grid-cols-4 max-[830px]:grid-cols-1 max-[830px]:text-center'} onClick={() => setOpenSubMenu(null)}>
-                        {item.sub.map((subitem) => (
-                            <li key={subitem.link} className="px-4 py-1 line-clamp-1  hover:text-amber-400 w-[120px]  ">
-                                <a className='text-[16px]' >
-                                    <Link to={subitem.link} >
+                        {item.sub.map((subitem, idx) => (
+                            <li key={subitem.link || idx} className="px-4 py-1 line-clamp-1 hover:text-amber-400 w-[120px]">
+                                <Link to={subitem.link} className='text-[16px]'>
                                     {subitem.title}
-                                    </Link>
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -169,13 +174,11 @@ function Header () {
                     
                     {item.id === 5 && (
                         <ul className={'py-2 grid grid-cols-4 max-[830px]:grid-cols-1 '} onClick={() => setOpenSubMenu(null)}>
-                        {item.sub.map((subitem) => (
-                            <li key={subitem.link} className="px-4 py-1 line-clamp-1  hover:text-amber-400 w-[150px]">
-                                <a className='text-[16px]'>
-                                    <Link to={subitem.link}>
+                        {item.sub.map((subitem, idx) => (
+                            <li key={subitem.link || idx} className="px-4 py-1 line-clamp-1 hover:text-amber-400 w-[150px]">
+                                <Link to={subitem.link} className='text-[16px]'>
                                     {subitem.title}
-                                    </Link>
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -187,30 +190,32 @@ function Header () {
     ))
         
     const [visible, setVisible] = useState(false);
-    const handroll = () => {
-    if (window.scrollY > 10){
-        setVisible(true);
-    }else{
-        setVisible(false);
-    }
-}
-
-window.addEventListener('scroll', handroll);
+    useEffect(() => {
+        const handroll = () => {
+            if (window.scrollY > 10){
+                setVisible(true);
+            }else{
+                setVisible(false);
+            }
+        };
+        window.addEventListener('scroll', handroll);
+        return () => window.removeEventListener('scroll', handroll);
+    }, []);
 
 
 // Ham loc tim kiem
 const searchphim = (
     <>
         {keyword.trim() && (
-            <div className="absolute max-[1360px]:w-[95%] top-[60px] bg-[#191b24cb] w-[20%] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto hide-scrollbar ">
+            <div className="absolute max-[1360px]:w-[95%] top-[65px] bg-[#191b24cb] w-[20%] p-[20px] py-2 rounded-md shadow-lg z-50 max-h-[500px] overflow-auto hide-scrollbar ">
                 {loading ? (
                     <div className="text-[#ffff] text-center">Đang tìm phim ...</div>
                 ) : listdata?.data.items && listdata.data.items.length > 0 ? (
                     <div >
                         {listdata.data.items.map((item,index) => (
                             <div key={index}>
-                                <div onClick={() => {setSearchOpen(!searchOpen); setKeyWord('')}}>
-                                    <Link to={`/phim/${item.slug}`} className='flex hover:bg-[#2528337a] rounded-md'>
+                                <div onClick={() => {setSearchOpen(false); setKeyWord('')}}>
+                                    <Link to={`/phim/${item.slug}`} className='flex hover:bg-[#2528337a] rounded-md items-center'>
                                         <img src={`${listdata.data.APP_DOMAIN_CDN_IMAGE}/${item.poster_url}`} className='w-[20%] min-[550px]:w-[10%] min-[1100px]:w-[5%] min-[1360px]:w-[20%] p-[9px]'/>
                                         <div className='w-[90%] text-[14px] line-clamp-1 p-[10px]'>
                                             <p className='line-clamp-1 text-[#ffff] font-semibold'>{item.name}</p>
@@ -221,22 +226,18 @@ const searchphim = (
                             </div>
                             ))}
                     </div>
-                ): (
-                    <div className='text-center'>Không có Phim này</div>
+                ) : (
+                    <div className='text-center text-white'>Không có Phim này</div>
                     )}
                     </div>
                 )}
-        </>
+    </>
 )
-
-if(quocgia) 
-if(theloai)
-    
 
     return(
         <>
             <div className={`sticky top-0 z-50 ${visible ? 'bg-black opacity-100 duration-500  ' : 'duration-300'}`}>
-                <div className=' px-[6px] min-[1360px]:px-[20px] min-[14450]:px-[32px] h-[80px] '>
+                <div className=' px-[6px] min-[1360px]:px-[20px] h-[80px] '>
                     <div className='flex items-center justify-between gap-5 text-[24px] max-[1360px]:pt-[10px]'>
                         <button className='text-[#ffff] absolute min-[1360px]:hidden' onClick={() => setIsNavOpen(!isNavOpen)}>
                             {isNavOpen ? <i className='text-red-400'><Icon name='x'/></i>:<Icon name='menu'/>}
@@ -249,40 +250,35 @@ if(theloai)
                         <button className='text-[#ffff] min-[1360px]:hidden' onClick={() => setSearchOpen(!searchOpen)}>
                             {searchOpen ? <i className='text-red-400'><Icon name='x'/></i>:<i><Icon name='tim kiem'/></i>}
                         </button>
-                        <div className='flex text-[#ffff] items-center w-[20%] h-[80px] max-[1360px]:hidden'>
+                        <div className='flex text-[#ffff] items-center w-[20%] h-[80px] max-[1360px]:hidden relative'>
                             <div className=' absolute text-[18px] pl-[15px] flex items-center'><Icon name='tim kiem'/></div>
                                     
-                                        <input 
-                                        autoComplete='on'
-                                        type="text"
-                                        onChange={(e) => setKeyWord(e.target.value)}
-                                        onKeyDown={handleKeyDown} 
-                                        value={keyword}
-                                        placeholder='Tìm kiếm phim, diễn viên' 
-                                        className='px-[48px] w-full flex rounded-md text-[#ffff] text-[16px] bg-[#2b314183] items-center py-[5px]' 
-                                        defaultValue="Reset"
-                                        />{searchphim}
-                                
-                                
+                                <input 
+                                autoComplete='off'
+                                type="text"
+                                onChange={(e) => setKeyWord(e.target.value)}
+                                onKeyDown={handleKeyDown} 
+                                value={keyword}
+                                placeholder='Tìm kiếm phim, diễn viên' 
+                                className='px-[48px] w-full flex rounded-md text-[#ffff] text-[16px] bg-[#2b314183] items-center py-[5px]' 
+                                />{searchphim}
                         </div>
                         
                         <div className='flex gap-2 grow-1 max-[1360px]:hidden'>
                             <div className='text-[#ffff] items-center flex ' >
-                                <div className=' flex min-[1450px]:gap-3 gap-1 ' >
+                                <div className=' flex min-[1450px]:gap-3 gap-1 ' ref={submenuRef}>
                                     {HeaderNabar}   
                                 </div>
                             </div>
                             <div className='grow-1 invisible'></div>
-                            <div className='text-[#ffff] flex text-right pr-[20px] items-center border-r-1 border-[#ffff] justify-end'>
-                                    <div ref={OpenMenuRef} onClick={() => setIsOpenMenu(!isOpenMenu)} className='flex text-[30px] px-[20px] cursor-pointer'>
+                            <div className='text-[#ffff] flex text-right pr-[20px] items-center border-r border-[#ffff] justify-end'>
+                                    <div ref={OpenMenuRef} onClick={() => setIsOpenMenu(!isOpenMenu)} className='flex text-[30px] px-[20px] cursor-pointer items-center'>
                                         <Icon name='devices'/>
-                                        <div className='flex flex-col '>
+                                        <div className='flex flex-col text-left ml-2'>
                                             <span className='text-[12px]'>Tải ứng dụng</span>
                                             <strong className='text-[14px]'>Phim-Hay</strong>
                                         </div>
                                     </div>
-    
-
                             </div>
                             <div>
                                 <Login/>
@@ -294,9 +290,9 @@ if(theloai)
                 <div>
                     <div>
                         {/* isnavopen */}
-                        <div className={`absolute p-[24px] h-auto flex flex-col max-[1440px]:w-[350px] max-[400px]:w-[280px] max-[1440px]:top-18 z-100 bg-[#3A4782] rounded-lg duration-500 min-[1360px]:hidden ${isNavOpen ? 'translate-x-2' : 'hidden '}`}>
+                        <div className={`absolute p-[24px] h-auto flex flex-col max-[1440px]:w-[350px] max-[400px]:w-[280px] top-18 z-100 bg-[#3A4782] rounded-lg duration-500 min-[1360px]:hidden ${isNavOpen ? 'translate-x-2' : 'hidden '}`}>
                             <div ><Login/></div>
-                            <div className='px-[9.5px] py-[8px] flex gap-3 bg-[#485386] rounded-lg mb-[15px]'>
+                            <div className='px-[9.5px] py-[8px] flex gap-3 bg-[#485386] rounded-lg mb-[15px] items-center'>
                                 <div className='flex justify-center items-center text-3xl text-amber-200'>
                                     <Icon name='devices'/>
                                 </div>
@@ -318,21 +314,21 @@ if(theloai)
                             onKeyDown={handleKeyDown}
                             value={keyword}
                             placeholder='Tìm kiếm phim, diễn viên' 
-                            className='px-[48px] w-full flex rounded-md text-[#ffff] text-[16px] bg-[#2b3141] border-1 border-[#ffff] items-center py-[5px]' 
+                            className='px-[48px] w-full flex rounded-md text-[#ffff] text-[16px] bg-[#2b3141] border border-[#ffff] items-center py-[5px]' 
                             />{searchphim}
                         </div>
                         {/* isOpenMenu */}
-                        <div className={`absolute p-[16px] h-[150px] right-0 flex flex-col max-[1441px]:w-[250px] w-[15%] max-[1440px]:top-18 z-100 bg-[#ffff] gap-5 rounded-3xl duration-500 ${isOpenMenu ? '-translate-x-50' : 'hidden '}`}>
-                            <div className='flex justify-between'>
+                        <div className={`absolute p-[16px] h-[150px] right-0 flex flex-col max-[1441px]:w-[250px] w-[15%] top-18 z-100 bg-[#ffff] gap-5 rounded-3xl duration-500 ${isOpenMenu ? '-translate-x-50' : 'hidden '}`}>
+                            <div className='flex justify-between items-center'>
                                 <img src={aapicon} className='w-[50px] rounded-lg max-[1441px]:w-[40px] max-[1441px]:h-[40px] '/>
-                                <div className='text-[15px] max-[1441px]:text-[12px] w-[70%]'>Chọn thiết bị tương ứng để tải và cài đặt</div>
+                                <div className='text-[15px] max-[1441px]:text-[12px] w-[70%] text-black'>Chọn thiết bị tương ứng để tải và cài đặt</div>
                             </div>
                             <div className='flex items-center justify-center gap-2'>
-                                <a href="#" className='flex gap-2 px-[8px] py-[6px] border-2 border-gray-400 hover:border-black rounded-lg'>
+                                <a href="#" className='flex gap-2 px-[8px] py-[6px] border-2 border-gray-400 hover:border-black rounded-lg text-black'>
                                     <i><Icon name='desktop'/></i>
                                     <span className='max-[1441px]:text-[10px]'>Android TV</span>
                                 </a>
-                                <a href="#" className='flex gap-2 px-[8px] py-[6px] border-2 border-gray-400 hover:border-black rounded-lg'>
+                                <a href="#" className='flex gap-2 px-[8px] py-[6px] border-2 border-gray-400 hover:border-black rounded-lg text-black'>
                                     <i><Icon name='mobile'/></i>
                                     <span className='max-[1441px]:text-[10px]'>Điện thoại</span>
                                 </a>

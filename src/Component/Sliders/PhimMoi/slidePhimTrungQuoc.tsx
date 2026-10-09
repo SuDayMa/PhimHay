@@ -16,7 +16,7 @@ export default function SlideImage() {
         const fetchPhim = async () => {
             try {
                 
-                const Phimtrung = await slidePhimQuocGia('/trung-quoc');
+                const Phimtrung = await slidePhimQuocGia('trung-quoc');
                 if (Phimtrung) {
                     setPhimTrung(Phimtrung);
                 }
